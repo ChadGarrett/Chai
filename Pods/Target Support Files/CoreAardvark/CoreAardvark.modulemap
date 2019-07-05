@@ -1,0 +1,6 @@
+framework module CoreAardvark {
+  umbrella header "CoreAardvark-umbrella.h"
+
+  export *
+  module * { export * }
+}

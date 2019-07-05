@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Chai
+
+  Created by Chad Garrett on 2019/07/04.
+  Copyright © 2019 Chad Garrett. All rights reserved.
+*/
+
+// Titles
+"title_confirm" = "Home";
+
+// Buttons
+"button_confirm" = "Confirm";
+"button_cancel" = "Cancel";
+"button_continue" = "Continue";
+"button_next" = "Next";

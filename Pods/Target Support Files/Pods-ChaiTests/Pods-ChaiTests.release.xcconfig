@@ -1,0 +1,8 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Aardvark" "${PODS_CONFIGURATION_BUILD_DIR}/CoreAardvark" "${PODS_CONFIGURATION_BUILD_DIR}/Eureka" "${PODS_CONFIGURATION_BUILD_DIR}/FontAwesome.swift" "${PODS_CONFIGURATION_BUILD_DIR}/PureLayout" "${PODS_CONFIGURATION_BUILD_DIR}/R.swift.Library" "${PODS_CONFIGURATION_BUILD_DIR}/Reusable" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyBeaver"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Aardvark/Aardvark.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/CoreAardvark/CoreAardvark.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Eureka/Eureka.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/FontAwesome.swift/FontAwesome_swift.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/PureLayout/PureLayout.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/R.swift.Library/Rswift.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Reusable/Reusable.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyBeaver/SwiftyBeaver.framework/Headers"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

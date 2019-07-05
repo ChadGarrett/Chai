@@ -1,0 +1,6 @@
+framework module Aardvark {
+  umbrella header "Aardvark-umbrella.h"
+
+  export *
+  module * { export * }
+}

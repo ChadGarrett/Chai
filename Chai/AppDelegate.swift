@@ -6,16 +6,28 @@
 //  Copyright © 2019 Chad Garrett. All rights reserved.
 //
 
+import Aardvark
 import UIKit
+import FontAwesome_swift
+import SwiftyBeaver
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let appLogger = SwiftyBeaver.self
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = TabNavigationController()
+        self.window?.makeKeyAndVisible()
+        
+        let _ = Aardvark.addDefaultBugReportingGestureWithEmailBugReporter(withRecipient: "thychad@gmail.com")
+        appLogger.addDestination(ConsoleDestination())
+        
         return true
     }
 
@@ -40,7 +52,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
