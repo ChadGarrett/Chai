@@ -7,10 +7,13 @@
 */
 
 // Titles
-"title_confirm" = "Home";
+"title_home" = "Home";
 
 // Buttons
 "button_confirm" = "Confirm";
 "button_cancel" = "Cancel";
 "button_continue" = "Continue";
 "button_next" = "Next";
+"button_remind" = "Remind";
+"button_attention" = "Attention";
+"button_mood" = "Mood";

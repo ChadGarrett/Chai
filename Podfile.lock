@@ -4,6 +4,10 @@ PODS:
   - CoreAardvark (2.2.1)
   - Eureka (4.3.1)
   - FontAwesome.swift (1.5.1)
+  - MarqueeLabel (4.0.0)
+  - NotificationBannerSwift (2.2.2):
+    - MarqueeLabel (~> 4.0.0)
+    - SnapKit (~> 5.0.0)
   - PureLayout (3.1.4)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
@@ -13,12 +17,14 @@ PODS:
     - Reusable/View (= 4.0.5)
   - Reusable/Storyboard (4.0.5)
   - Reusable/View (4.0.5)
+  - SnapKit (5.0.0)
   - SwiftyBeaver (1.7.0)
 
 DEPENDENCIES:
   - Aardvark
   - Eureka
   - FontAwesome.swift
+  - NotificationBannerSwift
   - PureLayout
   - R.swift
   - Reusable
@@ -30,10 +36,13 @@ SPEC REPOS:
     - CoreAardvark
     - Eureka
     - FontAwesome.swift
+    - MarqueeLabel
+    - NotificationBannerSwift
     - PureLayout
     - R.swift
     - R.swift.Library
     - Reusable
+    - SnapKit
     - SwiftyBeaver
 
 SPEC CHECKSUMS:
@@ -41,12 +50,15 @@ SPEC CHECKSUMS:
   CoreAardvark: c7d15935caf9285c4d48b3f5ddc3c1cb82c19718
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   FontAwesome.swift: 9b5a9b9adb6d48b2d37c1e789889ef377cfbc205
+  MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
+  NotificationBannerSwift: 2d46cc1b4a0ebf4372baef383f2a2ca82bf0c235
   PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
 
-PODFILE CHECKSUM: c0c4f0aa0a0e700bca4055282e45ee87641c7e91
+PODFILE CHECKSUM: d33c1478e3e21d5a597814181c6a177476755c7b
 
 COCOAPODS: 1.5.3

@@ -14,6 +14,11 @@ import UIKit
 /// Base class for all buttons
 class AppButton: UIButton {
     
+    convenience init(_ title: String) {
+        self.init(frame: .zero)
+        self.setTitle(title, for: .normal)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
@@ -31,6 +36,8 @@ class AppButton: UIButton {
         self.contentEdgeInsets = UIEdgeInsets(top: Style.padding.xs, left: Style.padding.s, bottom: Style.padding.xs, right: Style.padding.s)
     }
 }
+
+final class GenericButton: AppButton { }
 
 final class ConfirmButton: AppButton {
     override func setupView() {

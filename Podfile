@@ -12,6 +12,7 @@ target 'Chai' do
   pod 'Eureka'
   pod 'FontAwesome.swift'
   pod 'R.swift'
+  pod 'NotificationBannerSwift'
   
   # Debuging and Logging
   pod 'Aardvark'

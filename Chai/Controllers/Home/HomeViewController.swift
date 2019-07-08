@@ -10,7 +10,9 @@ import Foundation
 import SwiftyBeaver
 
 protocol HomeControllerDelegate: class {
-    func onTest()
+    func onRemind()
+    func onAttention()
+    func onMood()
 }
 
 final class HomeViewController: AppViewController {
@@ -23,7 +25,7 @@ final class HomeViewController: AppViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.title = R.string.localizable.title_confirm()
+        self.title = R.string.localizable.title_home()
         self.setupSubviews()
         self.setupLayout()
     }
@@ -46,7 +48,18 @@ final class HomeViewController: AppViewController {
 }
 
 extension HomeViewController: HomeControllerDelegate {
-    func onTest() {
-        self.navigationController?.pushViewController(ShoppingListController(), animated: true)
+    func onRemind() {
+        SwiftyBeaver.info("Tapped on remind.")
+        // TODO
+    }
+    
+    func onAttention() {
+        SwiftyBeaver.info("Tapped on attention")
+        // TODO
+    }
+    
+    func onMood() {
+        SwiftyBeaver.info("Tapped on mood")
+        // TODO
     }
 }
