@@ -7,18 +7,23 @@
 //
 
 import Foundation
+import SwiftyBeaver
 
 protocol ReminderControllerDelegate: class {
-    
+    func onAddReminder(reminder: Reminder)
 }
 
 final class ReminderViewController: AppViewController {
     
+    // View
+    
     private lazy var reminderView: ReminderView = {
         let view = ReminderView()
-        //view.delegate = self
+        view.delegate = self
         return view
     }()
+    
+    // Setup
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -33,8 +38,22 @@ final class ReminderViewController: AppViewController {
         self.view.addSubview(self.reminderView)
         self.reminderView.autoPinEdgesToSuperviewEdges()
     }
+    
+    // Data
+    
+    private var reminders: [Reminder] = [] {
+        didSet { self.remindersDidUpdate() }
+    }
+    
+    private func remindersDidUpdate() {
+        self.reminderView.reminders = self.reminders
+    }
 }
 
 extension ReminderViewController: ReminderControllerDelegate {
-    
+    func onAddReminder(reminder: Reminder) {
+        SwiftyBeaver.info("Adding new reminder to list.")
+        SwiftyBeaver.verbose("Adding reminder: \"\(reminder.text)\" due \"\(reminder.date)\"")
+        self.reminders.append(reminder)
+    }
 }

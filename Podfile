@@ -14,6 +14,9 @@ target 'Chai' do
   pod 'R.swift'
   pod 'NotificationBannerSwift'
   
+  # Data
+  pod 'RealmSwift'
+  
   # Debuging and Logging
   pod 'Aardvark'
   pod 'SwiftyBeaver'

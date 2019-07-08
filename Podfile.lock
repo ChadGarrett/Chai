@@ -12,6 +12,11 @@ PODS:
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
+  - Realm (3.16.2):
+    - Realm/Headers (= 3.16.2)
+  - Realm/Headers (3.16.2)
+  - RealmSwift (3.16.2):
+    - Realm (= 3.16.2)
   - Reusable (4.0.5):
     - Reusable/Storyboard (= 4.0.5)
     - Reusable/View (= 4.0.5)
@@ -27,6 +32,7 @@ DEPENDENCIES:
   - NotificationBannerSwift
   - PureLayout
   - R.swift
+  - RealmSwift
   - Reusable
   - SwiftyBeaver
 
@@ -41,6 +47,8 @@ SPEC REPOS:
     - PureLayout
     - R.swift
     - R.swift.Library
+    - Realm
+    - RealmSwift
     - Reusable
     - SnapKit
     - SwiftyBeaver
@@ -55,10 +63,12 @@ SPEC CHECKSUMS:
   PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
+  Realm: 0e73b4edeb5b6a90da3d83206883b2e34e00eb38
+  RealmSwift: a81e650171ef0a5f999df1ed8d39ba8d6fce88a4
   Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
 
-PODFILE CHECKSUM: d33c1478e3e21d5a597814181c6a177476755c7b
+PODFILE CHECKSUM: ec60bd2bd399ca2ac14a93e684cac55b57272bb9
 
 COCOAPODS: 1.5.3

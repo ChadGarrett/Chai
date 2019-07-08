@@ -6,6 +6,7 @@
 //  Copyright © 2019 Chad Garrett. All rights reserved.
 //
 
+import SwiftyBeaver
 import UIKit
 
 // Section at top to add new reminders
@@ -16,6 +17,20 @@ final class ReminderView: AppView {
     // Delegate
     
     internal weak var delegate: ReminderControllerDelegate?
+    
+    // Data
+    
+    internal var reminders: [Reminder] = [] {
+        didSet { self.remindersDidUpdate() }
+    }
+    
+    private func remindersDidUpdate() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tblReminders.reloadData()
+        }
+    }
+    
+    // Setup
     
     override func setupView() {
         super.setupView()
@@ -37,133 +52,116 @@ final class ReminderView: AppView {
     
     private lazy var vwAddReminder: ReminderAddView = {
         let view = ReminderAddView()
-        //view.delegate = self
+        view.delegate = self
         return view
     }()
     
     private lazy var tblReminders: UITableView = {
         let tableView = UITableView()
-        // TODO
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(cellType: ReminderCell.self)
+        tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
 }
 
 extension ReminderView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO
-        return 0
+        return self.reminders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO
-        return UITableViewCell()
+        guard let reminder = self.reminders.item(at: indexPath.row)
+            else { return self.getBlankTableCell(for: indexPath) }
+        
+        return self.getReminderCell(for: indexPath, with: reminder)
+    }
+    
+    private func getBlankTableCell(for indexPath: IndexPath) -> UITableViewCell {
+        return self.tblReminders.dequeueReusableCell(for: indexPath, cellType: BlankTableCell.self)
+    }
+    
+    private func getReminderCell(for indexPath: IndexPath, with reminder: Reminder) -> UITableViewCell {
+        let cell: ReminderCell = self.tblReminders.dequeueReusableCell(for: indexPath)
+        cell.prepareForDisplay(reminder: reminder)
+        return cell
     }
 }
 
 extension ReminderView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO
+        guard let reminder = self.reminders.item(at: indexPath.row)
+            else { return }
+        
+        self.toggleReminderStatus(for: reminder)
+    }
+    
+    /// Toggles the reminders state between complete and incomplete
+    private func toggleReminderStatus(for reminder: Reminder) {
+        SwiftyBeaver.info("Toggling reminder \"\(reminder.text)\" complete state to: \(reminder.isComplete)")
+        reminder.isComplete = !reminder.isComplete
     }
 }
 
-// TODO: Move everything under this to templates
-
-protocol ReminderAddViewDelegate: class {
-    func onAdd()
-}
-
-class ReminderAddView: AppView {
-    
-    // Delegate
-    
-    internal weak var delegate: ReminderAddViewDelegate?
-    
-    // Setup
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = Style.colors.clouds
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func setupView() {
-        super.setupView()
-        
-        self.addSubview(self.lblHeading)
-        self.addSubview(self.txtReminder)
-        self.addSubview(self.txtDateTimePicker)
-        self.addSubview(self.btnAdd)
-        
-        self.lblHeading.autoPinEdge(toSuperviewEdge: .top, withInset: Style.padding.s)
-        self.lblHeading.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
-        self.lblHeading.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
-        
-        self.txtReminder.autoPinEdge(.top, to: .bottom, of: self.lblHeading, withOffset: Style.padding.xxs)
-        self.txtReminder.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
-        self.txtReminder.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
-        
-        self.txtDateTimePicker.autoPinEdge(.top, to: .bottom, of: self.txtReminder, withOffset: Style.padding.xxs)
-        self.txtDateTimePicker.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
-        self.txtDateTimePicker.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
-        
-        self.btnAdd.autoPinEdge(.top, to: .bottom, of: self.txtDateTimePicker, withOffset: Style.padding.xs)
-        self.btnAdd.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
-        self.btnAdd.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
-        self.btnAdd.autoPinEdge(toSuperviewEdge: .bottom, withInset: Style.padding.s)
-    }
-    
-    // Subviews
-    
-    private lazy var lblHeading: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.attributedText = NSAttributedString(string: R.string.localizable.heading_add_reminder())
-        return label
-    }()
-    
-    private lazy var txtReminder: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = R.string.localizable.placeholder_add_reminder()
-        textField.clearButtonMode = UITextField.ViewMode.whileEditing
-        textField.delegate = self
-        return textField
-    }()
-    
-    private lazy var btnAdd: ConfirmButton = {
-        let button = ConfirmButton(R.string.localizable.button_add())
-        button.addTarget(self, action: #selector(onAdd), for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var txtDateTimePicker: UITextField = {
-        let textField = UITextField()
-        textField.inputView = self.dateTimePickerView
-        return textField
-    }()
-    
-    private lazy var dateTimePickerView: UIDatePicker = {
-        let datePicker = UIDatePicker()
-        datePicker.addTarget(self, action: #selector(onDateChanged), for: .valueChanged) // TODO: Necessary?
-        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
-        datePicker.setDate(Date().addingTimeInterval(TimeInterval(exactly: 60)!), animated: true) // One hour from now
-        return datePicker
-    }()
-    
-    // Actions
-    
-    @objc private func onAdd() {
-        self.delegate?.onAdd()
-    }
-    
-    @objc private func onDateChanged() {
-        self.txtDateTimePicker.text = dateTimePickerView.date.description
+extension ReminderView: ReminderAddViewDelegate {
+    func onAdd() {
+        let reminder = self.vwAddReminder.getReminder()
+        self.delegate?.onAddReminder(reminder: reminder)
     }
 }
 
-extension ReminderAddView: UITextFieldDelegate {
-    // TODO: Enable/disable add button if there is not content to be added
+// TODO: Move this cell to its own file
+
+import Reusable
+
+extension ReminderView {
+    final class ReminderCell: UITableViewCell, Reusable {
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+            self.setupView()
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        override func prepareForReuse() {
+            self.lblReminderText.attributedText = nil
+        }
+        
+        private func setupView() {
+            self.contentView.addSubview(self.lblReminderText)
+            
+            self.lblReminderText.autoPinEdgesToSuperviewEdges(
+                with: UIEdgeInsets(top: Style.padding.s, left: Style.padding.s, bottom: Style.padding.s, right: Style.padding.s))
+        }
+        
+        // Subviews
+        
+        private lazy var lblReminderText: UILabel = {
+            let label = UILabel()
+            label.numberOfLines = 0
+            label.lineBreakMode = .byWordWrapping
+            return label
+        }()
+        
+        // Setup
+        
+        internal func prepareForDisplay(reminder: Reminder) {
+            self.setReminderText(to: reminder.text)
+            self.setBackground(isComplete: reminder.isComplete)
+        }
+        
+        private func setReminderText(to text: String) {
+            self.lblReminderText.attributedText = NSAttributedString(string: text)
+        }
+        
+        private func setBackground(isComplete: Bool) {
+            self.contentView.backgroundColor = (isComplete)
+                ? Style.colors.emerald
+                : Style.colors.alizarin
+        }
+    }
 }
