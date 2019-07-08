@@ -6,7 +6,7 @@
 //  Copyright © 2019 Chad Garrett. All rights reserved.
 //
 
-import Foundation
+import NotificationBannerSwift
 import SwiftyBeaver
 
 protocol ReminderControllerDelegate: class {
@@ -54,6 +54,14 @@ extension ReminderViewController: ReminderControllerDelegate {
     func onAddReminder(reminder: Reminder) {
         SwiftyBeaver.info("Adding new reminder to list.")
         SwiftyBeaver.verbose("Adding reminder: \"\(reminder.text)\" due \"\(reminder.date)\"")
+        
         self.reminders.append(reminder)
+        self.showAddBanner(text: reminder.text)
+    }
+    
+    // TODO: Create a banner service
+    private func showAddBanner(text: String) {
+        let banner = NotificationBanner(title: "Reminder added!", subtitle: text, style: .success)
+        banner.show()
     }
 }

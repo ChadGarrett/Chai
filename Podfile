@@ -9,12 +9,12 @@ target 'Chai' do
   # UI
   pod 'PureLayout'
   pod 'Reusable'
-  pod 'Eureka'
-  pod 'R.swift'
+  #pod 'Eureka'
   pod 'NotificationBannerSwift'
   
   # Data
   pod 'RealmSwift'
+  pod 'R.swift'
   
   # Debuging and Logging
   pod 'Aardvark'

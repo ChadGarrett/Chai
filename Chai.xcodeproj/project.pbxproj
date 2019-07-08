@@ -36,6 +36,7 @@
 		E5B515A322D3752300B36BE3 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515A222D3752300B36BE3 /* Reminder.swift */; };
 		E5B515A622D37A6D00B36BE3 /* ReminderAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515A522D37A6D00B36BE3 /* ReminderAddView.swift */; };
 		E5B515A922D37E2000B36BE3 /* BlankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */; };
+		E5B515AB22D384F700B36BE3 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515AA22D384F700B36BE3 /* ReminderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		E5B515A222D3752300B36BE3 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		E5B515A522D37A6D00B36BE3 /* ReminderAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderAddView.swift; sourceTree = "<group>"; };
 		E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankTableCell.swift; sourceTree = "<group>"; };
+		E5B515AA22D384F700B36BE3 /* ReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 			children = (
 				E5B5159E22D367B000B36BE3 /* ReminderViewController.swift */,
 				E5B515A022D367B800B36BE3 /* ReminderView.swift */,
+				E5B515AA22D384F700B36BE3 /* ReminderCell.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -450,7 +453,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Chai/Pods-Chai-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Aardvark/Aardvark.framework",
 				"${BUILT_PRODUCTS_DIR}/CoreAardvark/CoreAardvark.framework",
-				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
@@ -465,7 +467,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aardvark.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreAardvark.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
@@ -524,6 +525,7 @@
 				E59C29CB223665E400F28A90 /* AppViewController.swift in Sources */,
 				E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */,
 				E5B515A622D37A6D00B36BE3 /* ReminderAddView.swift in Sources */,
+				E5B515AB22D384F700B36BE3 /* ReminderCell.swift in Sources */,
 				E59C29D122368B1000F28A90 /* StyleHelper.swift in Sources */,
 				E5B5157922CDC01F00B36BE3 /* HomeViewController.swift in Sources */,
 				E585F3D5223AF60B00AC012B /* HomeView.swift in Sources */,
