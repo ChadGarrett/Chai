@@ -1,6 +1,0 @@
-framework module Pods_Chai {
-  umbrella header "Pods-Chai-umbrella.h"
-
-  export *
-  module * { export * }
-}
