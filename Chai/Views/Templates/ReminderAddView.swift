@@ -32,16 +32,11 @@ class ReminderAddView: AppView {
     override func setupView() {
         super.setupView()
         
-        self.addSubview(self.lblHeading)
         self.addSubview(self.txtReminder)
         self.addSubview(self.txtDateTimePicker)
         self.addSubview(self.btnAdd)
         
-        self.lblHeading.autoPinEdge(toSuperviewEdge: .top, withInset: Style.padding.s)
-        self.lblHeading.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
-        self.lblHeading.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
-        
-        self.txtReminder.autoPinEdge(.top, to: .bottom, of: self.lblHeading, withOffset: Style.padding.xxs)
+        self.txtReminder.autoPinEdge(toSuperviewEdge: .top, withInset: Style.padding.s)
         self.txtReminder.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
         self.txtReminder.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
         
@@ -57,18 +52,11 @@ class ReminderAddView: AppView {
     
     // Subviews
     
-    private lazy var lblHeading: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.attributedText = NSAttributedString(string: R.string.localizable.heading_add_reminder())
-        return label
-    }()
-    
     private lazy var txtReminder: UITextField = {
         let textField = UITextField()
         textField.placeholder = R.string.localizable.placeholder_add_reminder()
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.addTarget(self, action: #selector(textFieldDidEdit(_:)), for: .editingChanged)
         textField.delegate = self
         return textField
     }()
@@ -76,6 +64,7 @@ class ReminderAddView: AppView {
     private lazy var btnAdd: ConfirmButton = {
         let button = ConfirmButton(R.string.localizable.button_add())
         button.addTarget(self, action: #selector(onAdd), for: .touchUpInside)
+        button.isEnabled = false // Until updated
         return button
     }()
     
@@ -87,8 +76,9 @@ class ReminderAddView: AppView {
     
     private lazy var dateTimePickerView: UIDatePicker = {
         let datePicker = UIDatePicker()
-        datePicker.addTarget(self, action: #selector(onDateChanged), for: .valueChanged) // TODO: Necessary?
+        datePicker.addTarget(self, action: #selector(onDateChanged), for: .valueChanged)
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        datePicker.minimumDate = Date() // Cannot set reminders in the past
         datePicker.setDate(Date().addingTimeInterval(TimeInterval(exactly: 60)!), animated: true) // One hour from now
         return datePicker
     }()
@@ -127,5 +117,11 @@ class ReminderAddView: AppView {
 }
 
 extension ReminderAddView: UITextFieldDelegate {
-    // TODO: Enable/disable add button if there is not content to be added
+    // Toggle add button enabledness
+    @objc private func textFieldDidEdit(_ textField: UITextField) {
+        guard let text = textField.text
+            else { return }
+        
+        self.btnAdd.isEnabled = !(text.isEmpty)
+    }
 }

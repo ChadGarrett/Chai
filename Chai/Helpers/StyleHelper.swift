@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 
 struct Style {
+    struct fontSize {
+        static let s: CGFloat = 13
+        static let m: CGFloat = 15
+        static let l: CGFloat = 17
+        static let xl: CGFloat = 19
+    }
+    
     struct padding {
         static let xxs: CGFloat = 4
         static let xs: CGFloat = 8
@@ -62,4 +69,10 @@ struct Style {
         public static let lynch: UIColor = UIColor(red:0.42, green: 0.48, blue: 0.54, alpha:1.0)
         public static let lynchColor: UIColor = UIColor(red: 0.42, green: 0.48, blue: 0.54, alpha: 1.0)
     }
+    
+    static let heading_1: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Style.fontSize.l)]
+    static let heading_2: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Style.fontSize.m)]
+    static let heading_3: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Style.fontSize.s)]
+    
+    static let body: [NSAttributedString.Key: Any] = [:]
 }

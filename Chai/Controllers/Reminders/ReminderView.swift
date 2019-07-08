@@ -42,7 +42,7 @@ final class ReminderView: AppView {
         self.vwAddReminder.autoPinEdge(toSuperviewMargin: .left)
         self.vwAddReminder.autoPinEdge(toSuperviewMargin: .right)
         
-        self.tblReminders.autoPinEdge(.top, to: .bottom, of: self.vwAddReminder)
+        self.tblReminders.autoPinEdge(.top, to: .bottom, of: self.vwAddReminder, withOffset: Style.padding.s)
         self.tblReminders.autoPinEdge(toSuperviewMargin: .left)
         self.tblReminders.autoPinEdge(toSuperviewMargin: .right)
         self.tblReminders.autoPinEdge(toSuperviewMargin: .bottom)
