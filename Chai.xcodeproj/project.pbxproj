@@ -37,6 +37,7 @@
 		E5B515A622D37A6D00B36BE3 /* ReminderAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515A522D37A6D00B36BE3 /* ReminderAddView.swift */; };
 		E5B515A922D37E2000B36BE3 /* BlankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */; };
 		E5B515AB22D384F700B36BE3 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515AA22D384F700B36BE3 /* ReminderCell.swift */; };
+		E5B515AE22D386F800B36BE3 /* BannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515AD22D386F800B36BE3 /* BannerService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		E5B515A522D37A6D00B36BE3 /* ReminderAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderAddView.swift; sourceTree = "<group>"; };
 		E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankTableCell.swift; sourceTree = "<group>"; };
 		E5B515AA22D384F700B36BE3 /* ReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
+		E5B515AD22D386F800B36BE3 /* BannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerService.swift; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +174,7 @@
 		E59C299F22365D3B00F28A90 /* Chai */ = {
 			isa = PBXGroup;
 			children = (
+				E5B515AC22D386E600B36BE3 /* Services */,
 				E5B5158322CE707900B36BE3 /* Resources */,
 				E5B5157A22CDC05D00B36BE3 /* Views */,
 				E59C29D222368B9B00F28A90 /* Models */,
@@ -320,6 +323,14 @@
 				E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */,
 			);
 			path = TableCells;
+			sourceTree = "<group>";
+		};
+		E5B515AC22D386E600B36BE3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E5B515AD22D386F800B36BE3 /* BannerService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,7 +520,7 @@
 				"$TEMP_DIR/rswift-lastrun",
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -543,6 +554,7 @@
 				E59C29D622368D9B00F28A90 /* App+Array.swift in Sources */,
 				E59C29D422368BA800F28A90 /* ShoppingItem.swift in Sources */,
 				E5B515A322D3752300B36BE3 /* Reminder.swift in Sources */,
+				E5B515AE22D386F800B36BE3 /* BannerService.swift in Sources */,
 				E59C29C822365FEA00F28A90 /* ShoppingListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -709,7 +721,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = Chai/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.Chai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -725,7 +740,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = Chai/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.Chai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -742,7 +760,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = ChaiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.ChaiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -760,7 +782,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = ChaiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.ChaiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

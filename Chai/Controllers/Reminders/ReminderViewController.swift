@@ -59,9 +59,7 @@ extension ReminderViewController: ReminderControllerDelegate {
         self.showAddBanner(text: reminder.text)
     }
     
-    // TODO: Create a banner service
     private func showAddBanner(text: String) {
-        let banner = NotificationBanner(title: "Reminder added!", subtitle: text, style: .success)
-        banner.show()
+        BannerService.shared.showBanner(title: "Reminder added!", subtitle: text, style: .success)
     }
 }
