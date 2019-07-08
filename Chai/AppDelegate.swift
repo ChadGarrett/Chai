@@ -8,7 +8,6 @@
 
 import Aardvark
 import UIKit
-import FontAwesome_swift
 import SwiftyBeaver
 
 @UIApplicationMain

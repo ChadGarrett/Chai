@@ -10,7 +10,6 @@ target 'Chai' do
   pod 'PureLayout'
   pod 'Reusable'
   pod 'Eureka'
-  pod 'FontAwesome.swift'
   pod 'R.swift'
   pod 'NotificationBannerSwift'
   
