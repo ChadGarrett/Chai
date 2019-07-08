@@ -10,6 +10,10 @@ import Aardvark
 import UIKit
 import SwiftyBeaver
 
+enum Developers: String {
+    case chadGarrett = "thychad@gmail.com"
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,10 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = TabNavigationController()
+        let nav = UINavigationController()
+        nav.viewControllers = [HomeViewController()]
+        
+        self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
         
-        let _ = Aardvark.addDefaultBugReportingGestureWithEmailBugReporter(withRecipient: "thychad@gmail.com")
+        let _ = Aardvark.addDefaultBugReportingGestureWithEmailBugReporter(withRecipient: Developers.chadGarrett.rawValue)
         appLogger.addDestination(ConsoleDestination())
         
         return true

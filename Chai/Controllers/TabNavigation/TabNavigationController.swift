@@ -22,9 +22,8 @@ final class TabNavigationController: UITabBarController {
     /// Creates the tabs that are available and adds them as tab controllers
     private func configureTabs() {
         let home = self.configureHomeNavigationController()
-        let shopping = self.configureShoppingNavigationController()
         
-        self.viewControllers = [home, shopping]
+        self.viewControllers = [home]
     }
     
     @discardableResult
@@ -33,17 +32,7 @@ final class TabNavigationController: UITabBarController {
         let controller = HomeViewController()
         
         navigationController.viewControllers = [controller]
-        navigationController.tabBarItem = UITabBarItem(title: "Home Controller", image: nil, selectedImage: nil)
-        
-        return navigationController
-    }
-    
-    @discardableResult
-    private func configureShoppingNavigationController() -> UIViewController {
-        let navigationController = UINavigationController()
-        let controller = ShoppingListController()
-        navigationController.viewControllers = [controller]
-        navigationController.tabBarItem = UITabBarItem(title: "Shopping", image: nil, selectedImage: nil)
+//        navigationController.tabBarItem = UITabBarItem(title: "Home Controller", image: nil, selectedImage: nil)
         
         return navigationController
     }

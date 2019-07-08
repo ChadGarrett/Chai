@@ -64,7 +64,7 @@ final class HomeView: AppView {
     private lazy var btnRemind: GenericButton = {
         let button = GenericButton(R.string.localizable.button_remind())
         button.addTarget(self, action: #selector(onRemind), for: .touchUpInside)
-        button.backgroundColor = Style.colors.capeHoney
+        button.backgroundColor = Style.colors.jaffa
         return button
     }()
     
@@ -78,7 +78,7 @@ final class HomeView: AppView {
     private lazy var btnMood: GenericButton = {
         let button = GenericButton(R.string.localizable.button_mood())
         button.addTarget(self, action: #selector(onMood), for: .touchUpInside)
-        button.backgroundColor = Style.colors.clouds
+        button.backgroundColor = Style.colors.plum
         return button
     }()
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Chad Garrett. All rights reserved.
 //
 
-import Foundation
+import PureLayout
 import UIKit
 
 class AppViewController: UIViewController {
