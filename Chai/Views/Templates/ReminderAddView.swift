@@ -95,9 +95,12 @@ class ReminderAddView: AppView {
     
     // Interface
     
-    internal func getReminder() -> Reminder {
+    internal func getReminder() -> Reminder? {
+        guard let text = self.txtReminder.text
+            else { return nil }
+        
         let reminder = Reminder()
-        reminder.text = self.txtReminder.text ?? ""
+        reminder.text = text
         reminder.date = self.dateTimePickerView.date
         reminder.isComplete = false
         return reminder
@@ -107,10 +110,19 @@ class ReminderAddView: AppView {
     
     @objc private func onAdd() {
         self.delegate?.onAdd()
+        self.resetView()
     }
     
     @objc private func onDateChanged() {
         self.txtDateTimePicker.text = dateTimePickerView.date.description
+    }
+    
+    /// Once a reminder has been added, close any persisting keyboards and clear input fields
+    private func resetView() {
+        self.txtReminder.attributedText = nil
+        self.txtDateTimePicker.text = nil
+        self.dateTimePickerView.date = Date()
+        self.txtDateTimePicker.resignFirstResponder()
     }
 }
 

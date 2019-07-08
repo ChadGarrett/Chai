@@ -107,7 +107,11 @@ extension ReminderView: UITableViewDelegate {
 
 extension ReminderView: ReminderAddViewDelegate {
     func onAdd() {
-        let reminder = self.vwAddReminder.getReminder()
+        guard let reminder = self.vwAddReminder.getReminder() else {
+            SwiftyBeaver.warning("Unable to fetch reminder from view when adding.")
+            return
+        }
+        
         self.delegate?.onAddReminder(reminder: reminder)
     }
 }
