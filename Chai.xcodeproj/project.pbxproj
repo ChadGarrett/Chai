@@ -10,7 +10,6 @@
 		C14364320B82766E8C00609B /* Pods_ChaiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942ECA67895B00322F6590D /* Pods_ChaiTests.framework */; };
 		C1B4CFB274BCF1B159884353 /* Pods_Chai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */; };
 		E585F3D5223AF60B00AC012B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3D4223AF60B00AC012B /* HomeView.swift */; };
-		E585F3DC223AFFAA00AC012B /* ReminderEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3DB223AFFAA00AC012B /* ReminderEditController.swift */; };
 		E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C29A022365D3B00F28A90 /* AppDelegate.swift */; };
 		E59C29A822365D3C00F28A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A622365D3C00F28A90 /* Main.storyboard */; };
 		E59C29AA22365D3D00F28A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A922365D3D00F28A90 /* Assets.xcassets */; };
@@ -32,6 +31,8 @@
 		E5B5158922CE70D200B36BE3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5B5158822CE70D200B36BE3 /* Localizable.strings */; };
 		E5B5158D22CE712900B36BE3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B5158C22CE712900B36BE3 /* R.generated.swift */; };
 		E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B5158F22CF22A000B36BE3 /* AcceptCancelButtonView.swift */; };
+		E5B5159F22D367B000B36BE3 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B5159E22D367B000B36BE3 /* ReminderViewController.swift */; };
+		E5B515A122D367B800B36BE3 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515A022D367B800B36BE3 /* ReminderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +52,6 @@
 		56050B1AFB5429D90ED038A5 /* Pods-Chai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chai/Pods-Chai.release.xcconfig"; sourceTree = "<group>"; };
 		E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E585F3D4223AF60B00AC012B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		E585F3DB223AFFAA00AC012B /* ReminderEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEditController.swift; sourceTree = "<group>"; };
 		E59C299D22365D3B00F28A90 /* Chai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59C29A022365D3B00F28A90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E59C29A722365D3C00F28A90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +77,8 @@
 		E5B5158822CE70D200B36BE3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E5B5158C22CE712900B36BE3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E5B5158F22CF22A000B36BE3 /* AcceptCancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptCancelButtonView.swift; sourceTree = "<group>"; };
+		E5B5159E22D367B000B36BE3 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		E5B515A022D367B800B36BE3 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,7 +134,8 @@
 		E585F3D6223AFF5F00AC012B /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
-				E585F3DB223AFFAA00AC012B /* ReminderEditController.swift */,
+				E5B5159E22D367B000B36BE3 /* ReminderViewController.swift */,
+				E5B515A022D367B800B36BE3 /* ReminderView.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -186,7 +189,7 @@
 		E59C29C322365F3900F28A90 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E5B5157522CD205500B36BE3 /* Base */,
+				E5B5157522CD205500B36BE3 /* TabNavigation */,
 				E585F3D6223AFF5F00AC012B /* Reminders */,
 				E585F3D1223AF5EF00AC012B /* Home */,
 				E59C29C422365F7600F28A90 /* ShoppingList */,
@@ -223,12 +226,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E5B5157522CD205500B36BE3 /* Base */ = {
+		E5B5157522CD205500B36BE3 /* TabNavigation */ = {
 			isa = PBXGroup;
 			children = (
 				E5B5157622CD206B00B36BE3 /* TabNavigationController.swift */,
 			);
-			path = Base;
+			path = TabNavigation;
 			sourceTree = "<group>";
 		};
 		E5B5157A22CDC05D00B36BE3 /* Views */ = {
@@ -478,7 +481,7 @@
 				"$TEMP_DIR/rswift-lastrun",
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -500,11 +503,12 @@
 				E5B5157D22CDC07600B36BE3 /* AppButton.swift in Sources */,
 				E59C29CD2236667F00F28A90 /* AppView.swift in Sources */,
 				E59C29C622365F8C00F28A90 /* ShoppingListController.swift in Sources */,
-				E585F3DC223AFFAA00AC012B /* ReminderEditController.swift in Sources */,
 				E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */,
 				E5B5158122CDC1FD00B36BE3 /* UIView+App.swift in Sources */,
+				E5B5159F22D367B000B36BE3 /* ReminderViewController.swift in Sources */,
 				E5B5158D22CE712900B36BE3 /* R.generated.swift in Sources */,
 				E59C29CF22366E3E00F28A90 /* ShoppingListCell.swift in Sources */,
+				E5B515A122D367B800B36BE3 /* ReminderView.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* App+Array.swift in Sources */,
 				E59C29D422368BA800F28A90 /* ShoppingItem.swift in Sources */,
 				E59C29C822365FEA00F28A90 /* ShoppingListView.swift in Sources */,
@@ -673,7 +677,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = Chai/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.Chai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -689,7 +696,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = Chai/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.Chai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -706,7 +716,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = ChaiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.ChaiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -724,7 +738,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = ChaiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.ChaiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

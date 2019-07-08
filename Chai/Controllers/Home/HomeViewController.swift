@@ -50,7 +50,8 @@ final class HomeViewController: AppViewController {
 extension HomeViewController: HomeControllerDelegate {
     func onRemind() {
         SwiftyBeaver.info("Tapped on remind.")
-        // TODO
+        let controller = ReminderViewController()
+        self.route(to: controller)
     }
     
     func onAttention() {

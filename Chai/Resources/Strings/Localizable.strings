@@ -10,10 +10,17 @@
 "title_home" = "Home";
 
 // Buttons
+"button_add" = "Add";
 "button_confirm" = "Confirm";
 "button_cancel" = "Cancel";
 "button_continue" = "Continue";
 "button_next" = "Next";
-"button_remind" = "Remind";
+"button_remind" = "Send reminder";
 "button_attention" = "Attention";
 "button_mood" = "Mood";
+
+// Headings
+"heading_add_reminder" = "Add a Reminder";
+
+// Text field placeholders
+"placeholder_add_reminder" = "Reminder";

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AppViewController: UIViewController {    
+class AppViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -20,5 +20,11 @@ class AppViewController: UIViewController {
     
     convenience init() {
         self.init(nibName: nil, bundle: nil)
+    }
+    
+    internal func route(to controller: UIViewController, animated: Bool = true) {
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.pushViewController(controller, animated: animated)
+        }
     }
 }
