@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+protocol MoodControllerDelegate: class {
+    func onMoodChange(to value: Float)
+}
 
 final class MoodViewController: AppViewController {
     
     private lazy var moodView: MoodView = {
         let view = MoodView()
-        //view.delegate = self
+        view.delegate = self
         return view
     }()
     
@@ -29,5 +34,27 @@ final class MoodViewController: AppViewController {
     private func setupView() {
         self.view.addSubview(self.moodView)
         self.moodView.autoPinEdgesToSuperviewEdges()
+    }
+    
+    // Helpers
+    
+    private func determineMood() -> MoodCategory {
+        let moodValue = self.moodView.getMoodValue()
+        
+        switch moodValue {
+        case 0..<20: return .bad
+        case 20..<40: return .rocky
+        case 40..<60: return .needsAttention
+        case 60...80: return .good
+        case 80..<100: return .excellent
+        default: return .unknown
+        }
+    }
+}
+
+extension MoodViewController: MoodControllerDelegate {
+    func onMoodChange(to value: Float) {
+        let currentMood = self.determineMood()
+        self.moodView.setCurrentMood(to: currentMood)
     }
 }

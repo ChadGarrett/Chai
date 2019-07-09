@@ -34,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let _ = Aardvark.addDefaultBugReportingGestureWithEmailBugReporter(withRecipient: Developers.chadGarrett.rawValue)
         appLogger.addDestination(ConsoleDestination())
         
+        // Setup realm
+        Migration.shared.migrate()
+        
         return true
     }
 

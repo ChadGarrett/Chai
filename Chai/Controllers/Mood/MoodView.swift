@@ -10,12 +10,19 @@ import UIKit
 
 final class MoodView: AppView {
     
+    // Delegate
+    
+    internal weak var delegate: MoodControllerDelegate?
+    
+    // Setup
+    
     override func setupView() {
         super.setupView()
         
         self.addSubview(self.lblHeading)
         self.addSubview(self.lblBody)
-        self.addSubview(self.pbMoodStatus)
+        self.addSubview(self.slider)
+        self.addSubview(self.lblMood)
         
         self.lblHeading.autoPinEdge(toSuperviewMargin: .top)
         self.lblHeading.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
@@ -25,10 +32,13 @@ final class MoodView: AppView {
         self.lblBody.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
         self.lblBody.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
         
-        self.pbMoodStatus.autoPinEdge(.top, to: .bottom, of: self.lblBody)
-        self.pbMoodStatus.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
-        self.pbMoodStatus.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
-        self.pbMoodStatus.autoSetDimension(.height, toSize: 100)
+        self.slider.autoPinEdge(.top, to: .bottom, of: self.lblBody, withOffset: Style.padding.l)
+        self.slider.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
+        self.slider.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
+        
+        self.lblMood.autoPinEdge(.top, to: .bottom, of: self.slider, withOffset: Style.padding.l)
+        self.lblMood.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
+        self.lblMood.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
     }
     
     // Subviews
@@ -49,9 +59,41 @@ final class MoodView: AppView {
         return label
     }()
     
-    private lazy var pbMoodStatus: UIProgressView = {
-        let view = UIProgressView()
-        view.progress = 50.0
-        return view
+    private lazy var slider: UISlider = {
+        let slider = UISlider()
+        slider.minimumValue = 0
+        slider.maximumValue = 100
+        slider.value = 50
+        slider.addTarget(self, action: #selector(onMoodChange), for: .valueChanged)
+        return slider
     }()
+    
+    private lazy var lblMood: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
+    // Helpers
+    
+    internal func getMoodValue() -> Float {
+        let moodValue = self.slider.value
+        // TODO: Normalise if mood is out of bounds? Shouldn't be possible, buuuut....
+        return moodValue
+    }
+    
+    internal func setCurrentMood(to mood: MoodCategory) {
+        UIView.animate(withDuration: 0.3) {
+            self.backgroundColor = mood.color
+            self.lblMood.attributedText = NSAttributedString(string: mood.mood, attributes: Style.heading_1)
+        }
+    }
+    
+    // Actions
+    
+    @objc private func onMoodChange() {
+        let moodValue = self.slider.value
+        self.delegate?.onMoodChange(to: moodValue)
+    }
 }

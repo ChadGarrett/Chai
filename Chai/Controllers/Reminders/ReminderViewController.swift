@@ -39,6 +39,16 @@ final class ReminderViewController: AppViewController {
         self.view.addSubview(self.reminderView)
         self.reminderView.autoPinEdgesToSuperviewEdges()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.reminderView.startData()
+    }
+    
+    deinit {
+        self.reminderView.stopData()
+    }
 }
 
 extension ReminderViewController: ReminderControllerDelegate {

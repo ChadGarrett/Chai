@@ -8,6 +8,7 @@
 
 import SwiftyBeaver
 import UIKit
+import RealmSwift
 
 // Section at top to add new reminders
 // Table view of reminders previously sent
@@ -34,6 +35,41 @@ final class ReminderView: AppView {
         self.tblReminders.autoPinEdge(toSuperviewMargin: .left)
         self.tblReminders.autoPinEdge(toSuperviewMargin: .right)
         self.tblReminders.autoPinEdge(toSuperviewMargin: .bottom)
+    }
+    
+    private var token: NotificationToken?
+    
+    /// Starts listening for updates in realm
+    internal func startData() {
+        DispatchQueue.main.async { [weak self] in
+            self?.token?.invalidate()
+            self?.token = DBManager.shared.getReminders().observe { (changes: RealmCollectionChange) in
+                DispatchQueue.main.async {
+                    switch changes {
+                    case .initial:
+                        self?.tblReminders.reloadData()
+                        
+                    case .update(_, let deletions, let insertions, let modifications):
+                        self?.tblReminders.beginUpdates()
+                        self?.tblReminders.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                             with: .automatic)
+                        self?.tblReminders.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                             with: .automatic)
+                        self?.tblReminders.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                             with: .automatic)
+                        self?.tblReminders.endUpdates()
+                        
+                    case .error(let error):
+                        SwiftyBeaver.error("Unable to update table", error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
+    /// Stops listening for updates in realm
+    internal func stopData() {
+        self.token?.invalidate()
     }
     
     // Subviews
