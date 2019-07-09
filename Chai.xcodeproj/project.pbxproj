@@ -35,6 +35,8 @@
 		E5B515A922D37E2000B36BE3 /* BlankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */; };
 		E5B515AB22D384F700B36BE3 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515AA22D384F700B36BE3 /* ReminderCell.swift */; };
 		E5B515AE22D386F800B36BE3 /* BannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515AD22D386F800B36BE3 /* BannerService.swift */; };
+		E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B022D392DA00B36BE3 /* MoodViewController.swift */; };
+		E5B515B322D392EA00B36BE3 /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B222D392EA00B36BE3 /* MoodView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankTableCell.swift; sourceTree = "<group>"; };
 		E5B515AA22D384F700B36BE3 /* ReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		E5B515AD22D386F800B36BE3 /* BannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerService.swift; sourceTree = "<group>"; };
+		E5B515B022D392DA00B36BE3 /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
+		E5B515B222D392EA00B36BE3 /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,6 +199,7 @@
 		E59C29C322365F3900F28A90 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5B515AF22D392C800B36BE3 /* Mood */,
 				E5B5157522CD205500B36BE3 /* TabNavigation */,
 				E585F3D6223AFF5F00AC012B /* Reminders */,
 				E585F3D1223AF5EF00AC012B /* Home */,
@@ -314,6 +319,15 @@
 				E5B515AD22D386F800B36BE3 /* BannerService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E5B515AF22D392C800B36BE3 /* Mood */ = {
+			isa = PBXGroup;
+			children = (
+				E5B515B022D392DA00B36BE3 /* MoodViewController.swift */,
+				E5B515B222D392EA00B36BE3 /* MoodView.swift */,
+			);
+			path = Mood;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,6 +533,7 @@
 				E59C29CB223665E400F28A90 /* AppViewController.swift in Sources */,
 				E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */,
 				E5B515A622D37A6D00B36BE3 /* ReminderAddView.swift in Sources */,
+				E5B515B322D392EA00B36BE3 /* MoodView.swift in Sources */,
 				E5B515AB22D384F700B36BE3 /* ReminderCell.swift in Sources */,
 				E59C29D122368B1000F28A90 /* StyleHelper.swift in Sources */,
 				E5B5157922CDC01F00B36BE3 /* HomeViewController.swift in Sources */,
@@ -533,6 +548,7 @@
 				E5B5158D22CE712900B36BE3 /* R.generated.swift in Sources */,
 				E5B515A122D367B800B36BE3 /* ReminderView.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* App+Array.swift in Sources */,
+				E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */,
 				E59C29D422368BA800F28A90 /* ShoppingItem.swift in Sources */,
 				E5B515A322D3752300B36BE3 /* Reminder.swift in Sources */,
 				E5B515AE22D386F800B36BE3 /* BannerService.swift in Sources */,
