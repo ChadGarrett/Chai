@@ -27,6 +27,7 @@ final class ReminderViewController: AppViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.title = R.string.localizable.title_reminders()
         self.setupView()
     }
     
@@ -38,16 +39,6 @@ final class ReminderViewController: AppViewController {
         self.view.addSubview(self.reminderView)
         self.reminderView.autoPinEdgesToSuperviewEdges()
     }
-    
-    // Data
-    
-    private var reminders: [Reminder] = [] {
-        didSet { self.remindersDidUpdate() }
-    }
-    
-    private func remindersDidUpdate() {
-        self.reminderView.reminders = self.reminders
-    }
 }
 
 extension ReminderViewController: ReminderControllerDelegate {
@@ -55,7 +46,8 @@ extension ReminderViewController: ReminderControllerDelegate {
         SwiftyBeaver.info("Adding new reminder to list.")
         SwiftyBeaver.verbose("Adding reminder: \"\(reminder.text)\" due \"\(reminder.date)\"")
         
-        self.reminders.append(reminder)
+        DBManager.shared.addReminder(reminder: reminder)
+        
         self.showAddBanner(text: reminder.text)
     }
     

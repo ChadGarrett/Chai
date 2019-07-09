@@ -18,18 +18,6 @@ final class ReminderView: AppView {
     
     internal weak var delegate: ReminderControllerDelegate?
     
-    // Data
-    
-    internal var reminders: [Reminder] = [] {
-        didSet { self.remindersDidUpdate() }
-    }
-    
-    private func remindersDidUpdate() {
-        DispatchQueue.main.async { [weak self] in
-            self?.tblReminders.reloadData()
-        }
-    }
-    
     // Setup
     
     override func setupView() {
@@ -39,8 +27,8 @@ final class ReminderView: AppView {
         self.addSubview(self.tblReminders)
         
         self.vwAddReminder.autoPinEdge(toSuperviewMargin: .top)
-        self.vwAddReminder.autoPinEdge(toSuperviewMargin: .left)
-        self.vwAddReminder.autoPinEdge(toSuperviewMargin: .right)
+        self.vwAddReminder.autoPinEdge(toSuperviewEdge: .left)
+        self.vwAddReminder.autoPinEdge(toSuperviewEdge: .right)
         
         self.tblReminders.autoPinEdge(.top, to: .bottom, of: self.vwAddReminder, withOffset: Style.padding.s)
         self.tblReminders.autoPinEdge(toSuperviewMargin: .left)
@@ -50,17 +38,19 @@ final class ReminderView: AppView {
     
     // Subviews
     
-    private lazy var vwAddReminder: ReminderAddView = {
-        let view = ReminderAddView()
+    private lazy var vwAddReminder: AddReminderView = {
+        let view = AddReminderView()
         view.delegate = self
         return view
     }()
     
     private lazy var tblReminders: UITableView = {
         let tableView = UITableView()
+        tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 40
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(cellType: ReminderCell.self)
+        tableView.register(cellType: BlankTableCell.self)
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -69,11 +59,11 @@ final class ReminderView: AppView {
 
 extension ReminderView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.reminders.count
+        return DBManager.shared.getReminders().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let reminder = self.reminders.item(at: indexPath.row)
+        guard let reminder = DBManager.shared.getReminder(at: indexPath.row)
             else { return self.getBlankTableCell(for: indexPath) }
         
         return self.getReminderCell(for: indexPath, with: reminder)
@@ -92,23 +82,18 @@ extension ReminderView: UITableViewDataSource {
 
 extension ReminderView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let reminder = self.reminders.item(at: indexPath.row)
+        guard let reminder = DBManager.shared.getReminder(at: indexPath.row)
             else { return }
-        
-        self.toggleReminderStatus(for: reminder)
-    }
-    
-    /// Toggles the reminders state between complete and incomplete
-    private func toggleReminderStatus(for reminder: Reminder) {
+
         SwiftyBeaver.info("Toggling reminder \"\(reminder.text)\" complete state to: \(reminder.isComplete)")
-        reminder.isComplete = !reminder.isComplete
+        DBManager.shared.toggleReminderStatus(for: reminder)
     }
 }
 
-extension ReminderView: ReminderAddViewDelegate {
+extension ReminderView: AddReminderDelegate {
     func onAdd() {
         guard let reminder = self.vwAddReminder.getReminder() else {
-            SwiftyBeaver.warning("Unable to fetch reminder from view when adding.")
+            SwiftyBeaver.error("Unable to fetch reminder from view when adding.")
             return
         }
         

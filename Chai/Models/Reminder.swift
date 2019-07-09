@@ -8,8 +8,9 @@
 
 import RealmSwift
 
-final class Reminder: Object {
+final class Reminder: BaseObject {
     @objc dynamic var text: String = ""
     @objc dynamic var date: Date = Date()
     @objc dynamic var isComplete: Bool = false
 }
+

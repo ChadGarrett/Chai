@@ -8,11 +8,13 @@
 
 import Foundation
 import SwiftyBeaver
+import Rswift
 
 protocol HomeControllerDelegate: class {
     func onRemind()
     func onAttention()
     func onMood()
+    func onMemories()
 }
 
 final class HomeViewController: AppViewController {
@@ -50,17 +52,27 @@ final class HomeViewController: AppViewController {
 extension HomeViewController: HomeControllerDelegate {
     func onRemind() {
         SwiftyBeaver.info("Tapped on remind.")
+        
         let controller = ReminderViewController()
         self.route(to: controller)
     }
     
     func onAttention() {
-        SwiftyBeaver.info("Tapped on attention")
-        // TODO
+        SwiftyBeaver.info("Tapped on attention.")
+        
+        BannerService.shared.showNotImplementedBanner()
     }
     
     func onMood() {
-        SwiftyBeaver.info("Tapped on mood")
-        // TODO
+        SwiftyBeaver.info("Tapped on mood.")
+        
+        let controller = MoodViewController()
+        self.route(to: controller)
+    }
+    
+    func onMemories() {
+        SwiftyBeaver.info("Tapped on memories")
+        
+        BannerService.shared.showNotImplementedBanner()
     }
 }

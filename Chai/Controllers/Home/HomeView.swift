@@ -34,6 +34,7 @@ final class HomeView: AppView {
         self.addSubview(self.btnRemind)
         self.addSubview(self.btnAttention)
         self.addSubview(self.btnMood)
+        self.addSubview(self.btnMemories)
     }
     
     private func setupLayout() {
@@ -53,12 +54,18 @@ final class HomeView: AppView {
         
         self.btnMood.autoPinEdge(.top, to: .bottom, of: self.vwCenter, withOffset: Style.padding.xs)
         self.btnMood.autoPinEdge(toSuperviewMargin: .left, withInset: Style.padding.s)
-        self.btnMood.autoPinEdge(toSuperviewMargin: .right, withInset: Style.padding.s)
+        self.btnMood.autoPinEdge(.right, to: .left, of: self.vwCenter, withOffset: -Style.padding.xs)
         self.btnMood.autoPinEdge(toSuperviewMargin: .bottom, withInset: Style.padding.m)
+        
+        self.btnMemories.autoPinEdge(.top, to: .bottom, of: self.vwCenter, withOffset: Style.padding.xs)
+        self.btnMemories.autoPinEdge(.left, to: .right, of: self.vwCenter, withOffset: Style.padding.xs)
+        self.btnMemories.autoPinEdge(toSuperviewMargin: .right, withInset: Style.padding.s)
+        self.btnMemories.autoPinEdge(toSuperviewMargin: .bottom, withInset: Style.padding.m)
     }
     
     // Subviews
     
+    /// Placed in the center of the screen and used to align the button grid
     private lazy var vwCenter = UIView()
     
     private lazy var btnRemind: GenericButton = {
@@ -81,6 +88,13 @@ final class HomeView: AppView {
         button.backgroundColor = Style.colors.plum
         return button
     }()
+    
+    private lazy var btnMemories: GenericButton = {
+        let button = GenericButton(R.string.localizable.button_memories())
+        button.addTarget(self, action: #selector(onMemories), for: .touchUpInside)
+        button.backgroundColor = Style.colors.dodgerBlue
+        return button
+    }()
 }
 
 // Actions
@@ -95,5 +109,9 @@ extension HomeView {
     
     @objc private func onMood() {
         self.delegate?.onMood()
+    }
+    
+    @objc private func onMemories() {
+        self.delegate?.onMemories()
     }
 }

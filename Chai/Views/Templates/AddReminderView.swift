@@ -1,5 +1,5 @@
 //
-//  ReminderAddView.swift
+//  AddReminderView.swift
 //  Chai
 //
 //  Created by Chad Garrett on 2019/07/08.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol ReminderAddViewDelegate: class {
+protocol AddReminderDelegate: class {
     func onAdd()
 }
 
-class ReminderAddView: AppView {
+class AddReminderView: AppView {
     
     // Delegate
     
-    internal weak var delegate: ReminderAddViewDelegate?
+    internal weak var delegate: AddReminderDelegate?
     
     // Setup
     
@@ -71,6 +71,8 @@ class ReminderAddView: AppView {
     private lazy var txtDateTimePicker: UITextField = {
         let textField = UITextField()
         textField.inputView = self.dateTimePickerView
+        textField.inputAccessoryView = self.tbBtnDone
+        textField.placeholder = "Set a date and time"
         return textField
     }()
     
@@ -80,7 +82,17 @@ class ReminderAddView: AppView {
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
         datePicker.minimumDate = Date() // Cannot set reminders in the past
         datePicker.setDate(Date().addingTimeInterval(TimeInterval(exactly: 60)!), animated: true) // One hour from now
+        datePicker.minuteInterval = 15
         return datePicker
+    }()
+    
+    private lazy var tbBtnDone: UIToolbar = {
+        let toolbar = UIToolbar()
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let btnDone = UIBarButtonItem(title: R.string.localizable.button_done(), style: .done, target: self, action: #selector(onCloseKeyboard))
+        toolbar.items = [flexibleSpace, btnDone]
+        toolbar.sizeToFit()
+        return toolbar
     }()
     
     // Interface
@@ -104,7 +116,11 @@ class ReminderAddView: AppView {
     }
     
     @objc private func onDateChanged() {
-        self.txtDateTimePicker.text = dateTimePickerView.date.description
+        self.txtDateTimePicker.text = dateTimePickerView.date.weekdayMonthDayHourMinute
+    }
+    
+    @objc private func onCloseKeyboard() {
+        self.txtDateTimePicker.endEditing(true)
     }
     
     /// Once a reminder has been added, close any persisting keyboards and clear input fields
@@ -113,10 +129,11 @@ class ReminderAddView: AppView {
         self.txtDateTimePicker.text = nil
         self.dateTimePickerView.date = Date()
         self.txtDateTimePicker.resignFirstResponder()
+        self.btnAdd.isEnabled = false
     }
 }
 
-extension ReminderAddView: UITextFieldDelegate {
+extension AddReminderView: UITextFieldDelegate {
     // Toggle add button enabledness
     @objc private func textFieldDidEdit(_ textField: UITextField) {
         guard let text = textField.text

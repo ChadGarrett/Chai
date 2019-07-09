@@ -25,18 +25,10 @@ final class MoodView: AppView {
         self.lblBody.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
         self.lblBody.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
         
+        self.pbMoodStatus.autoPinEdge(.top, to: .bottom, of: self.lblBody)
         self.pbMoodStatus.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
         self.pbMoodStatus.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
-        self.pbMoodStatus.autoPinEdge(toSuperviewMargin: .bottom)
-        
-    }
-    
-    private var progress = Progress(totalUnitCount: 100) {
-        didSet { self.progressDidUpdate() }
-    }
-    
-    private func progressDidUpdate() {
-        // TODO ?
+        self.pbMoodStatus.autoSetDimension(.height, toSize: 100)
     }
     
     // Subviews
@@ -60,7 +52,6 @@ final class MoodView: AppView {
     private lazy var pbMoodStatus: UIProgressView = {
         let view = UIProgressView()
         view.progress = 50.0
-        view.observedProgress = self.progress
         return view
     }()
 }

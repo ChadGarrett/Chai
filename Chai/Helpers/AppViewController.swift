@@ -7,6 +7,7 @@
 //
 
 import PureLayout
+import Rswift
 import UIKit
 
 class AppViewController: UIViewController {
@@ -22,6 +23,7 @@ class AppViewController: UIViewController {
         self.init(nibName: nil, bundle: nil)
     }
     
+    /// Adds the passed view controller to the stack
     internal func route(to controller: UIViewController, animated: Bool = true) {
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.pushViewController(controller, animated: animated)

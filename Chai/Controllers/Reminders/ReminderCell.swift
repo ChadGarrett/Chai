@@ -12,6 +12,7 @@ extension ReminderView {
     final class ReminderCell: UITableViewCell, Reusable {
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
+            self.contentView.layer.cornerRadius = 10
             self.setupView()
         }
         
@@ -21,13 +22,21 @@ extension ReminderView {
         
         override func prepareForReuse() {
             self.lblReminderText.attributedText = nil
+            self.lblDate.attributedText = nil
         }
         
         private func setupView() {
             self.contentView.addSubview(self.lblReminderText)
+            self.contentView.addSubview(self.lblDate)
             
-            self.lblReminderText.autoPinEdgesToSuperviewEdges(
-                with: UIEdgeInsets(top: Style.padding.s, left: Style.padding.s, bottom: Style.padding.s, right: Style.padding.s))
+            self.lblReminderText.autoPinEdge(toSuperviewEdge: .top, withInset: Style.padding.s)
+            self.lblReminderText.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
+            self.lblReminderText.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
+            
+            self.lblDate.autoPinEdge(.top, to: .bottom, of: self.lblReminderText)
+            self.lblDate.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
+            self.lblDate.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
+            self.lblDate.autoPinEdge(toSuperviewEdge: .bottom, withInset: Style.padding.s)
         }
         
         // Subviews
@@ -39,15 +48,27 @@ extension ReminderView {
             return label
         }()
         
+        private lazy var lblDate: UILabel = {
+            let label = UILabel()
+            label.numberOfLines = 0
+            label.lineBreakMode = .byWordWrapping
+            return label
+        }()
+        
         // Setup
         
         internal func prepareForDisplay(reminder: Reminder) {
             self.setReminderText(to: reminder.text)
+            self.setReminderDate(to: reminder.date)
             self.setBackground(isComplete: reminder.isComplete)
         }
         
         private func setReminderText(to text: String) {
             self.lblReminderText.attributedText = NSAttributedString(string: text)
+        }
+        
+        private func setReminderDate(to date: Date) {
+            self.lblDate.attributedText = NSAttributedString(string: date.weekdayMonthDayHourMinute)
         }
         
         private func setBackground(isComplete: Bool) {
