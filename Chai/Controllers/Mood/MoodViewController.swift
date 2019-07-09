@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyBeaver
 
 protocol MoodControllerDelegate: class {
     func onMoodChange(to value: Float)
@@ -30,6 +31,15 @@ final class MoodViewController: AppViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let savedMood = DBManager.shared.getCurrentMood() {
+            self.moodView.setCurrentMood(to: self.getCurrentMood(value: savedMood.value))
+            self.moodView.setMoodValue(to: savedMood.value)
+        }
+    }
 
     private func setupView() {
         self.view.addSubview(self.moodView)
@@ -38,10 +48,8 @@ final class MoodViewController: AppViewController {
     
     // Helpers
     
-    private func determineMood() -> MoodCategory {
-        let moodValue = self.moodView.getMoodValue()
-        
-        switch moodValue {
+    func getCurrentMood(value: Float) -> MoodCategory {
+        switch value {
         case 0..<20: return .bad
         case 20..<40: return .rocky
         case 40..<60: return .needsAttention
@@ -54,7 +62,10 @@ final class MoodViewController: AppViewController {
 
 extension MoodViewController: MoodControllerDelegate {
     func onMoodChange(to value: Float) {
-        let currentMood = self.determineMood()
+        let currentMood = self.getCurrentMood(value: value)
+        SwiftyBeaver.info("Mood changed to: \(currentMood.title)")
         self.moodView.setCurrentMood(to: currentMood)
+        
+        DBManager.shared.setCurrentMood(to: value)
     }
 }

@@ -16,7 +16,7 @@ enum MoodCategory {
     case excellent //80-100
     case unknown
     
-    var mood: String {
+    var title: String {
         switch self {
         case .bad: return "Bad"
         case .rocky: return "Rocky"

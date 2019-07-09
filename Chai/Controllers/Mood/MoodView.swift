@@ -77,16 +77,20 @@ final class MoodView: AppView {
     
     // Helpers
     
+    internal func setMoodValue(to value: Float) {
+        self.slider.setValue(value, animated: true)
+    }
+    
     internal func getMoodValue() -> Float {
         let moodValue = self.slider.value
-        // TODO: Normalise if mood is out of bounds? Shouldn't be possible, buuuut....
         return moodValue
     }
     
     internal func setCurrentMood(to mood: MoodCategory) {
         UIView.animate(withDuration: 0.3) {
+            
             self.backgroundColor = mood.color
-            self.lblMood.attributedText = NSAttributedString(string: mood.mood, attributes: Style.heading_1)
+            self.lblMood.attributedText = NSAttributedString(string: mood.title, attributes: Style.heading_1)
         }
     }
     
