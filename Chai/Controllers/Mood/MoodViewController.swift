@@ -35,7 +35,7 @@ final class MoodViewController: AppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedMood = DBManager.shared.getCurrentMood() {
+        if let savedMood = MoodContext.shared.getCurrentMood() {
             self.moodView.setCurrentMood(to: self.getCurrentMood(value: savedMood.value))
             self.moodView.setMoodValue(to: savedMood.value)
         }
@@ -66,6 +66,6 @@ extension MoodViewController: MoodControllerDelegate {
         SwiftyBeaver.info("Mood changed to: \(currentMood.title)")
         self.moodView.setCurrentMood(to: currentMood)
         
-        DBManager.shared.setCurrentMood(to: value)
+        MoodContext.shared.setCurrentMood(to: value)
     }
 }

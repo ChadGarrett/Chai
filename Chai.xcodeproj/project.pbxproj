@@ -44,6 +44,8 @@
 		E5B515C022D4DA0300B36BE3 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BF22D4DA0300B36BE3 /* Mood.swift */; };
 		E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545722D6229600206F82 /* AttentionViewController.swift */; };
 		E5BB545A22D622A100206F82 /* AttentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545922D622A100206F82 /* AttentionView.swift */; };
+		E5BB545C22D6327100206F82 /* ReminderContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545B22D6327100206F82 /* ReminderContext.swift */; };
+		E5BB545E22D6328800206F82 /* MoodContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545D22D6328800206F82 /* MoodContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		E5B515BF22D4DA0300B36BE3 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		E5BB545722D6229600206F82 /* AttentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionViewController.swift; sourceTree = "<group>"; };
 		E5BB545922D622A100206F82 /* AttentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionView.swift; sourceTree = "<group>"; };
+		E5BB545B22D6327100206F82 /* ReminderContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderContext.swift; sourceTree = "<group>"; };
+		E5BB545D22D6328800206F82 /* MoodContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodContext.swift; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -354,6 +358,8 @@
 			children = (
 				E5B515B722D4AE0000B36BE3 /* DBManager.swift */,
 				E5B515BB22D4C99000B36BE3 /* Migration.swift */,
+				E5BB545B22D6327100206F82 /* ReminderContext.swift */,
+				E5BB545D22D6328800206F82 /* MoodContext.swift */,
 			);
 			name = Data;
 			path = "New Group";
@@ -589,6 +595,7 @@
 				E5B5158122CDC1FD00B36BE3 /* UIView+App.swift in Sources */,
 				E5B5159F22D367B000B36BE3 /* ReminderViewController.swift in Sources */,
 				E5B5158D22CE712900B36BE3 /* R.generated.swift in Sources */,
+				E5BB545C22D6327100206F82 /* ReminderContext.swift in Sources */,
 				E5B515A122D367B800B36BE3 /* ReminderView.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* App+Array.swift in Sources */,
 				E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */,
@@ -596,6 +603,7 @@
 				E5B515B822D4AE0000B36BE3 /* DBManager.swift in Sources */,
 				E5B515A322D3752300B36BE3 /* Reminder.swift in Sources */,
 				E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */,
+				E5BB545E22D6328800206F82 /* MoodContext.swift in Sources */,
 				E5B515B522D49DD100B36BE3 /* Date+App.swift in Sources */,
 				E5B515AE22D386F800B36BE3 /* BannerService.swift in Sources */,
 				E5BB545A22D622A100206F82 /* AttentionView.swift in Sources */,

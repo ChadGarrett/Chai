@@ -43,7 +43,7 @@ final class ReminderView: AppView {
     internal func startData() {
         DispatchQueue.main.async { [weak self] in
             self?.token?.invalidate()
-            self?.token = DBManager.shared.getReminders().observe { (changes: RealmCollectionChange) in
+            self?.token = ReminderContext.shared.getReminders().observe { (changes: RealmCollectionChange) in
                 DispatchQueue.main.async {
                     switch changes {
                     case .initial:
@@ -95,11 +95,11 @@ final class ReminderView: AppView {
 
 extension ReminderView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DBManager.shared.getReminders().count
+        return ReminderContext.shared.getReminders().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let reminder = DBManager.shared.getReminder(at: indexPath.row)
+        guard let reminder = ReminderContext.shared.getReminder(at: indexPath.row)
             else { return self.getBlankTableCell(for: indexPath) }
         
         return self.getReminderCell(for: indexPath, with: reminder)
@@ -118,11 +118,11 @@ extension ReminderView: UITableViewDataSource {
 
 extension ReminderView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let reminder = DBManager.shared.getReminder(at: indexPath.row)
+        guard let reminder = ReminderContext.shared.getReminder(at: indexPath.row)
             else { return }
 
         SwiftyBeaver.info("Toggling reminder \"\(reminder.text)\" complete state to: \(reminder.isComplete)")
-        DBManager.shared.toggleReminderStatus(for: reminder)
+        ReminderContext.shared.toggleReminderStatus(for: reminder)
     }
 }
 

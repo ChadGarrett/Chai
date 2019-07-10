@@ -56,7 +56,7 @@ extension ReminderViewController: ReminderControllerDelegate {
         SwiftyBeaver.info("Adding new reminder to list.")
         SwiftyBeaver.verbose("Adding reminder: \"\(reminder.text)\" due \"\(reminder.date)\"")
         
-        DBManager.shared.addReminder(reminder: reminder)
+        ReminderContext.shared.addReminder(reminder: reminder)
         
         self.showAddBanner(text: reminder.text)
     }
