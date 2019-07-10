@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FontAwesome_swift
 
 final class HomeView: AppView {
     
@@ -86,11 +87,14 @@ final class HomeView: AppView {
         let button = GenericButton(R.string.localizable.button_mood())
         button.addTarget(self, action: #selector(onMood), for: .touchUpInside)
         button.backgroundColor = Style.colors.plum
+        button.titleLabel?.font = UIFont.fontAwesome(ofSize: 45, style: .regular)
+        button.setTitle(String.fontAwesomeIcon(name: .smile), for: .normal)
         return button
     }()
     
     private lazy var btnMemories: GenericButton = {
         let button = GenericButton(R.string.localizable.button_memories())
+        
         button.addTarget(self, action: #selector(onMemories), for: .touchUpInside)
         button.backgroundColor = Style.colors.dodgerBlue
         return button

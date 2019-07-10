@@ -11,6 +11,7 @@ target 'Chai' do
   pod 'Reusable'
   #pod 'Eureka'
   pod 'NotificationBannerSwift'
+  pod 'FontAwesome.swift'
   
   # Data
   pod 'RealmSwift'

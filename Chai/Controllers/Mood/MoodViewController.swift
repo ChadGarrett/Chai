@@ -54,7 +54,7 @@ final class MoodViewController: AppViewController {
         case 20..<40: return .rocky
         case 40..<60: return .needsAttention
         case 60...80: return .good
-        case 80..<100: return .excellent
+        case 80...100: return .excellent
         default: return .unknown
         }
     }
