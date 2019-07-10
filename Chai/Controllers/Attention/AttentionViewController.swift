@@ -9,14 +9,6 @@
 import Foundation
 import SwiftyBeaver
 
-// TODO: Move to models
-enum AttentionType {
-    case snacks
-    case cuddles
-    case massage
-    case dinner
-}
-
 protocol AttentionViewDelegate: class {
     func onAskForAttention(of type: AttentionType)
 }
@@ -43,10 +35,18 @@ final class AttentionViewController: AppViewController {
         self.view.addSubview(self.attentionView)
         self.attentionView.autoPinEdgesToSuperviewEdges()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let actions: [AttentionType] = AttentionType.allCases
+        self.attentionView.setActions(to: actions)
+    }
 }
 
 extension AttentionViewController: AttentionViewDelegate {
     func onAskForAttention(of type: AttentionType) {
+        SwiftyBeaver.info("Tapped on attention item: \(type.title)")
         BannerService.shared.showNotImplementedBanner()
         
         // TODO: Record attention to history

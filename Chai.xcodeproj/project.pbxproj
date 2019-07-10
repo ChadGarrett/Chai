@@ -46,6 +46,9 @@
 		E5BB545A22D622A100206F82 /* AttentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545922D622A100206F82 /* AttentionView.swift */; };
 		E5BB545C22D6327100206F82 /* ReminderContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545B22D6327100206F82 /* ReminderContext.swift */; };
 		E5BB545E22D6328800206F82 /* MoodContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545D22D6328800206F82 /* MoodContext.swift */; };
+		E5BB546022D637D900206F82 /* BlankCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545F22D637D900206F82 /* BlankCollectionCell.swift */; };
+		E5BB546422D6543300206F82 /* AttentionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546322D6543300206F82 /* AttentionType.swift */; };
+		E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,9 @@
 		E5BB545922D622A100206F82 /* AttentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionView.swift; sourceTree = "<group>"; };
 		E5BB545B22D6327100206F82 /* ReminderContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderContext.swift; sourceTree = "<group>"; };
 		E5BB545D22D6328800206F82 /* MoodContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodContext.swift; sourceTree = "<group>"; };
+		E5BB545F22D637D900206F82 /* BlankCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankCollectionCell.swift; sourceTree = "<group>"; };
+		E5BB546322D6543300206F82 /* AttentionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionType.swift; sourceTree = "<group>"; };
+		E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+App.swift"; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,10 +246,11 @@
 		E59C29D222368B9B00F28A90 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E5B515A222D3752300B36BE3 /* Reminder.swift */,
 				E5B515B922D4BBEE00B36BE3 /* BaseObject.swift */,
 				E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */,
 				E5B515BF22D4DA0300B36BE3 /* Mood.swift */,
+				E5B515A222D3752300B36BE3 /* Reminder.swift */,
+				E5BB546322D6543300206F82 /* AttentionType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,7 +266,7 @@
 		E5B5157A22CDC05D00B36BE3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E5B515A722D37E0E00B36BE3 /* TableCells */,
+				E5B515A722D37E0E00B36BE3 /* EmptyCells */,
 				E5B5158E22CF228700B36BE3 /* Templates */,
 				E5B5157B22CDC06800B36BE3 /* Buttons */,
 			);
@@ -280,6 +287,7 @@
 				E5B5158022CDC1FD00B36BE3 /* UIView+App.swift */,
 				E59C29D522368D9B00F28A90 /* App+Array.swift */,
 				E5B515B422D49DD100B36BE3 /* Date+App.swift */,
+				E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,12 +335,13 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		E5B515A722D37E0E00B36BE3 /* TableCells */ = {
+		E5B515A722D37E0E00B36BE3 /* EmptyCells */ = {
 			isa = PBXGroup;
 			children = (
+				E5BB545F22D637D900206F82 /* BlankCollectionCell.swift */,
 				E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */,
 			);
-			path = TableCells;
+			path = EmptyCells;
 			sourceTree = "<group>";
 		};
 		E5B515AC22D386E600B36BE3 /* Services */ = {
@@ -576,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BB546422D6543300206F82 /* AttentionType.swift in Sources */,
 				E59C29CB223665E400F28A90 /* AppViewController.swift in Sources */,
 				E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */,
 				E5B515A622D37A6D00B36BE3 /* AddReminderView.swift in Sources */,
@@ -584,6 +594,7 @@
 				E5B515BA22D4BBEE00B36BE3 /* BaseObject.swift in Sources */,
 				E59C29D122368B1000F28A90 /* StyleHelper.swift in Sources */,
 				E5B5157922CDC01F00B36BE3 /* HomeViewController.swift in Sources */,
+				E5BB546022D637D900206F82 /* BlankCollectionCell.swift in Sources */,
 				E585F3D5223AF60B00AC012B /* HomeView.swift in Sources */,
 				E5B5157722CD206B00B36BE3 /* TabNavigationController.swift in Sources */,
 				E5B515C022D4DA0300B36BE3 /* Mood.swift in Sources */,
@@ -595,6 +606,7 @@
 				E5B5158122CDC1FD00B36BE3 /* UIView+App.swift in Sources */,
 				E5B5159F22D367B000B36BE3 /* ReminderViewController.swift in Sources */,
 				E5B5158D22CE712900B36BE3 /* R.generated.swift in Sources */,
+				E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */,
 				E5BB545C22D6327100206F82 /* ReminderContext.swift in Sources */,
 				E5B515A122D367B800B36BE3 /* ReminderView.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* App+Array.swift in Sources */,

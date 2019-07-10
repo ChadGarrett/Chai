@@ -19,37 +19,38 @@ final class AttentionView: AppView {
     override func setupView() {
         super.setupView()
         
-        self.addSubview(self.colActions)
-        self.addSubview(self.tblHistory)
-        
-        self.colActions.autoPinEdge(toSuperviewEdge: .top)
-        self.colActions.autoPinEdge(toSuperviewEdge: .left)
-        self.colActions.autoPinEdge(toSuperviewEdge: .right)
-        
-        self.tblHistory.autoPinEdge(.top, to: .bottom, of: self.colActions)
-        self.tblHistory.autoPinEdge(toSuperviewEdge: .left)
-        self.tblHistory.autoPinEdge(toSuperviewEdge: .right)
-        self.tblHistory.autoPinEdge(toSuperviewEdge: .bottom)
+        self.addSubview(self.stackActions)
+        self.stackActions.autoPinEdgesToSuperviewMargins(with: UIEdgeInsets(top: Style.padding.m, left: Style.padding.s, bottom: Style.padding.m, right: Style.padding.s))
     }
     
     // Subviews
     
-    private lazy var colActions: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+    private lazy var stackActions: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = Style.padding.m
+        stackView.distribution = UIStackView.Distribution.fillEqually
+        return stackView
+    }()
+    
+    // Interface
+    
+    internal func setActions(to actions: [AttentionType]) {
+        actions.forEach { (type) in
+            let button = GenericButton(type.title)
+            button.backgroundColor = type.color
+            button.addTarget(self, action: #selector(onAction), for: .touchUpInside)
+            button.tag = type.rawValue
+            self.stackActions.addArrangedSubview(button)
+        }
+    }
+    
+    // Actions
+    
+    @objc private func onAction(sender: GenericButton) {
+        guard let type = AttentionType(rawValue: sender.tag)
+            else { return }
         
-        let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
-        // TODO: Datasource
-        // TODO: Delegate
-        return collectionView
-    }()
-    
-    private lazy var tblHistory: UITableView = {
-        let tableView = UITableView()
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 40
-        // TODO: Datasource
-        // TODO: Delegate
-        return tableView
-    }()
-    
+        self.delegate?.onAskForAttention(of: type)
+    }
 }
