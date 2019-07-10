@@ -42,6 +42,8 @@
 		E5B515BC22D4C99000B36BE3 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BB22D4C99000B36BE3 /* Migration.swift */; };
 		E5B515BE22D4D49C00B36BE3 /* MoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */; };
 		E5B515C022D4DA0300B36BE3 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BF22D4DA0300B36BE3 /* Mood.swift */; };
+		E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545722D6229600206F82 /* AttentionViewController.swift */; };
+		E5BB545A22D622A100206F82 /* AttentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545922D622A100206F82 /* AttentionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		E5B515BB22D4C99000B36BE3 /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCategory.swift; sourceTree = "<group>"; };
 		E5B515BF22D4DA0300B36BE3 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		E5BB545722D6229600206F82 /* AttentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionViewController.swift; sourceTree = "<group>"; };
+		E5BB545922D622A100206F82 /* AttentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionView.swift; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +213,7 @@
 		E59C29C322365F3900F28A90 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5BB545622D6228600206F82 /* Attention */,
 				E5B5157522CD205500B36BE3 /* TabNavigation */,
 				E585F3D1223AF5EF00AC012B /* Home */,
 				E5B515AF22D392C800B36BE3 /* Mood */,
@@ -352,6 +357,15 @@
 			);
 			name = Data;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		E5BB545622D6228600206F82 /* Attention */ = {
+			isa = PBXGroup;
+			children = (
+				E5BB545722D6229600206F82 /* AttentionViewController.swift */,
+				E5BB545922D622A100206F82 /* AttentionView.swift */,
+			);
+			path = Attention;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -581,8 +595,10 @@
 				E5B515BC22D4C99000B36BE3 /* Migration.swift in Sources */,
 				E5B515B822D4AE0000B36BE3 /* DBManager.swift in Sources */,
 				E5B515A322D3752300B36BE3 /* Reminder.swift in Sources */,
+				E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */,
 				E5B515B522D49DD100B36BE3 /* Date+App.swift in Sources */,
 				E5B515AE22D386F800B36BE3 /* BannerService.swift in Sources */,
+				E5BB545A22D622A100206F82 /* AttentionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

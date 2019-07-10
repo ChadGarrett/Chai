@@ -60,7 +60,8 @@ extension HomeViewController: HomeControllerDelegate {
     func onAttention() {
         SwiftyBeaver.info("Tapped on attention.")
         
-        BannerService.shared.showNotImplementedBanner()
+        let controller = AttentionViewController()
+        self.route(to: controller)
     }
     
     func onMood() {
