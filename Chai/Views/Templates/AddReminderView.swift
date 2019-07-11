@@ -35,6 +35,7 @@ class AddReminderView: AppView {
         super.setupView()
         
         self.addSubview(self.txtReminder)
+        self.addSubview(self.txtPersonResponisble)
         self.addSubview(self.txtDateTimePicker)
         self.addSubview(self.btnAdd)
         
@@ -42,11 +43,15 @@ class AddReminderView: AppView {
         self.txtReminder.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
         self.txtReminder.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
         
-        self.txtDateTimePicker.autoPinEdge(.top, to: .bottom, of: self.txtReminder, withOffset: Style.padding.xxs)
+        self.txtPersonResponisble.autoPinEdge(.top, to: .bottom, of: self.txtReminder, withOffset: Style.padding.s)
+        self.txtPersonResponisble.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
+        self.txtPersonResponisble.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
+        
+        self.txtDateTimePicker.autoPinEdge(.top, to: .bottom, of: self.txtPersonResponisble, withOffset: Style.padding.s)
         self.txtDateTimePicker.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
         self.txtDateTimePicker.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
         
-        self.btnAdd.autoPinEdge(.top, to: .bottom, of: self.txtDateTimePicker, withOffset: Style.padding.xs)
+        self.btnAdd.autoPinEdge(.top, to: .bottom, of: self.txtDateTimePicker, withOffset: Style.padding.s)
         self.btnAdd.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
         self.btnAdd.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
         self.btnAdd.autoPinEdge(toSuperviewEdge: .bottom, withInset: Style.padding.s)
@@ -63,18 +68,41 @@ class AddReminderView: AppView {
         return textField
     }()
     
-    private lazy var btnAdd: ConfirmButton = {
-        let button = ConfirmButton(R.string.localizable.button_add())
-        button.addTarget(self, action: #selector(onAdd), for: .touchUpInside)
-        button.isEnabled = false // Until updated
-        return button
+    private lazy var txtPersonResponisble: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = R.string.localizable.placeholder_reminder_person_responsible()
+        textField.clearButtonMode = .whileEditing
+        textField.inputAccessoryView = self.tbResponsibleSuggestions
+        textField.addTarget(self, action: #selector(textFieldDidEdit(_:)), for: .editingChanged)
+        textField.delegate = self
+        textField.autocorrectionType = UITextAutocorrectionType.no
+        return textField
     }()
+    
+    private lazy var tbResponsibleSuggestions: UIToolbar = {
+        let toolbar = UIToolbar()
+        toolbar.items = self.getResponsiblePersonSuggestions()
+        toolbar.sizeToFit()
+        return toolbar
+    }()
+    
+    private func getResponsiblePersonSuggestions() -> [UIBarButtonItem] {
+        var items: [UIBarButtonItem] = []
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        User.allCases.forEach { user in
+            let item = UIBarButtonItem(title: user.firstName, style: .done, target: self, action: #selector(onResponsibleSuggestion(_:)))
+            item.tag = user.rawValue
+            items.append(item)
+        }
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        return items
+    }
     
     private lazy var txtDateTimePicker: UITextField = {
         let textField = UITextField()
         textField.inputView = self.dateTimePickerView
         textField.inputAccessoryView = self.tbBtnDone
-        textField.placeholder = "Set a date and time"
+        textField.placeholder = R.string.localizable.placeholder_reminder_date()
         return textField
     }()
     
@@ -97,6 +125,13 @@ class AddReminderView: AppView {
         return toolbar
     }()
     
+    private lazy var btnAdd: ConfirmButton = {
+        let button = ConfirmButton(R.string.localizable.button_add())
+        button.addTarget(self, action: #selector(onAdd), for: .touchUpInside)
+        button.isEnabled = false // Until updated
+        return button
+    }()
+    
     // Interface
     
     internal func getReminder() -> Reminder? {
@@ -107,6 +142,7 @@ class AddReminderView: AppView {
         reminder.text = text
         reminder.date = self.dateTimePickerView.date
         reminder.isComplete = false
+        reminder.personResponsible = self.txtPersonResponisble.text ?? ""
         return reminder
     }
     
@@ -138,9 +174,22 @@ class AddReminderView: AppView {
 extension AddReminderView: UITextFieldDelegate {
     // Toggle add button enabledness
     @objc private func textFieldDidEdit(_ textField: UITextField) {
-        guard let text = textField.text
-            else { return }
+        if textField === self.txtReminder {
+            guard let text = textField.text
+                else { return }
+            
+            self.btnAdd.isEnabled = !(text.isEmpty)
+            
+        }
         
-        self.btnAdd.isEnabled = !(text.isEmpty)
+        if textField === self.txtPersonResponisble {
+            // N/A
+        }
+    }
+    
+    @objc private func onResponsibleSuggestion(_ item: UIBarButtonItem) {
+        if let person = User(rawValue: item.tag) {
+            self.txtPersonResponisble.text = person.firstName
+        }
     }
 }

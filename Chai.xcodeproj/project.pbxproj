@@ -48,6 +48,7 @@
 		E5BB546022D637D900206F82 /* BlankCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545F22D637D900206F82 /* BlankCollectionCell.swift */; };
 		E5BB546422D6543300206F82 /* AttentionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546322D6543300206F82 /* AttentionType.swift */; };
 		E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */; };
+		E5BB546822D764D600206F82 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546722D764D600206F82 /* Users.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		E5BB545F22D637D900206F82 /* BlankCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankCollectionCell.swift; sourceTree = "<group>"; };
 		E5BB546322D6543300206F82 /* AttentionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionType.swift; sourceTree = "<group>"; };
 		E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+App.swift"; sourceTree = "<group>"; };
+		E5BB546722D764D600206F82 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +250,7 @@
 				E5B515BF22D4DA0300B36BE3 /* Mood.swift */,
 				E5B515A222D3752300B36BE3 /* Reminder.swift */,
 				E5BB546322D6543300206F82 /* AttentionType.swift */,
+				E5BB546722D764D600206F82 /* Users.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				E59C29D622368D9B00F28A90 /* Array+App.swift in Sources */,
 				E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */,
 				E5B515BC22D4C99000B36BE3 /* Migration.swift in Sources */,
+				E5BB546822D764D600206F82 /* Users.swift in Sources */,
 				E5B515B822D4AE0000B36BE3 /* DBManager.swift in Sources */,
 				E5B515A322D3752300B36BE3 /* Reminder.swift in Sources */,
 				E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */,
