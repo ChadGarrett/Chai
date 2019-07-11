@@ -6,6 +6,7 @@
 //  Copyright © 2019 Chad Garrett. All rights reserved.
 //
 
+import AttributedStringBuilder
 import Reusable
 
 extension ReminderView {
@@ -58,13 +59,24 @@ extension ReminderView {
         // Setup
         
         internal func prepareForDisplay(reminder: Reminder) {
-            self.setReminderText(to: reminder.text)
+            self.setReminderText(personResponsible: reminder.personResponsible, task: reminder.text)
             self.setReminderDate(to: reminder.date)
             self.setBackground(isComplete: reminder.isComplete)
         }
         
-        private func setReminderText(to text: String) {
-            self.lblReminderText.attributedText = NSAttributedString(string: text)
+        private func setReminderText(personResponsible: String, task: String) {
+            let builder = AttributedStringBuilder()
+            
+            if let person = personResponsible.nonEmpty {
+                builder
+                    .text(person, attributes: [.font(UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))])
+                    .space()
+                    .text("-")
+                    .space()
+            }
+            builder.text(task)
+            
+            self.lblReminderText.attributedText = builder.attributedString
         }
         
         private func setReminderDate(to date: Date) {

@@ -49,6 +49,7 @@
 		E5BB546422D6543300206F82 /* AttentionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546322D6543300206F82 /* AttentionType.swift */; };
 		E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */; };
 		E5BB546822D764D600206F82 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546722D764D600206F82 /* Users.swift */; };
+		E5BB546A22D76A0300206F82 /* String+Kalido.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546922D76A0300206F82 /* String+Kalido.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		E5BB546322D6543300206F82 /* AttentionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionType.swift; sourceTree = "<group>"; };
 		E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+App.swift"; sourceTree = "<group>"; };
 		E5BB546722D764D600206F82 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		E5BB546922D76A0300206F82 /* String+Kalido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Kalido.swift"; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,6 +282,7 @@
 				E59C29D522368D9B00F28A90 /* Array+App.swift */,
 				E5B515B422D49DD100B36BE3 /* Date+App.swift */,
 				E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */,
+				E5BB546922D76A0300206F82 /* String+Kalido.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Chai/Pods-Chai-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Aardvark/Aardvark.framework",
+				"${BUILT_PRODUCTS_DIR}/AttributedStringBuilder/AttributedStringBuilder.framework",
 				"${BUILT_PRODUCTS_DIR}/CoreAardvark/CoreAardvark.framework",
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
@@ -520,6 +524,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aardvark.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AttributedStringBuilder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreAardvark.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
@@ -564,7 +569,7 @@
 				"$TEMP_DIR/rswift-lastrun",
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -600,6 +605,7 @@
 				E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */,
 				E5BB545C22D6327100206F82 /* ReminderContext.swift in Sources */,
 				E5B515A122D367B800B36BE3 /* ReminderView.swift in Sources */,
+				E5BB546A22D76A0300206F82 /* String+Kalido.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* Array+App.swift in Sources */,
 				E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */,
 				E5B515BC22D4C99000B36BE3 /* Migration.swift in Sources */,
@@ -776,10 +782,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = Chai/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.Chai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -795,10 +798,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = Chai/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.Chai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -815,11 +815,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = ChaiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.ChaiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -837,11 +833,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YH4Q7928BQ;
 				INFOPLIST_FILE = ChaiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.ChaiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

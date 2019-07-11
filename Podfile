@@ -12,6 +12,7 @@ target 'Chai' do
   #pod 'Eureka'
   pod 'NotificationBannerSwift'
   pod 'FontAwesome.swift'
+  pod 'AttributedStringBuilder'
   
   # Data
   pod 'RealmSwift'

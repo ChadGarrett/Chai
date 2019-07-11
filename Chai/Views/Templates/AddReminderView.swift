@@ -86,6 +86,7 @@ class AddReminderView: AppView {
         return toolbar
     }()
     
+    /// Returns quick actions for selecting a person responsible
     private func getResponsiblePersonSuggestions() -> [UIBarButtonItem] {
         var items: [UIBarButtonItem] = []
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))

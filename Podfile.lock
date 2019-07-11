@@ -1,6 +1,7 @@
 PODS:
   - Aardvark (3.4.1):
     - CoreAardvark (~> 2.0)
+  - AttributedStringBuilder (1.1)
   - CoreAardvark (2.2.1)
   - FontAwesome.swift (1.7.1)
   - MarqueeLabel (4.0.0)
@@ -26,6 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - Aardvark
+  - AttributedStringBuilder
   - FontAwesome.swift
   - NotificationBannerSwift
   - PureLayout
@@ -37,6 +39,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Aardvark
+    - AttributedStringBuilder
     - CoreAardvark
     - FontAwesome.swift
     - MarqueeLabel
@@ -52,6 +55,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Aardvark: 5f21b5bdacbcd70507fc8855d18db0464440ca93
+  AttributedStringBuilder: 974bb0a88ec8fa5f33fc9861ad13815451ebf651
   CoreAardvark: c7d15935caf9285c4d48b3f5ddc3c1cb82c19718
   FontAwesome.swift: 8d9792fa2d2347055da35bd97752b3960bd75952
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
@@ -65,6 +69,6 @@ SPEC CHECKSUMS:
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
 
-PODFILE CHECKSUM: b688711dc91e46d9f5b39871a713ea3347079055
+PODFILE CHECKSUM: 605f81acb6790a8fff45fad2c465d4bac31e8a1c
 
 COCOAPODS: 1.5.3
