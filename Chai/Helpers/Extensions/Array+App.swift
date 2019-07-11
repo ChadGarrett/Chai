@@ -1,5 +1,5 @@
 //
-//  App+Array.swift
+//  Array+App.swift
 //  Chai
 //
 //  Created by Chad Garrett on 2019/03/11.

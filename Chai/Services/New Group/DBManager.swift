@@ -9,6 +9,10 @@
 import Foundation
 import RealmSwift
 
+// TODO
+// - Encrypt realm file
+// - Make write transactions safer by wrapping in try catch
+
 /// Base class for interacting with realm
 /// To add different objects, inherit from this with custom CRUD implementations
 class DBManager {

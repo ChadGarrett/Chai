@@ -12,6 +12,8 @@ protocol AddReminderDelegate: class {
     func onAdd()
 }
 
+/// View used to add a reminder
+/// Displays a textfield, datepicker and button
 class AddReminderView: AppView {
     
     // Delegate

@@ -8,6 +8,7 @@
 
 import NotificationBannerSwift
 
+/// Displays a banner at the top of the screen informing the user of an action or error
 final class BannerService {
     static let shared = BannerService()
     

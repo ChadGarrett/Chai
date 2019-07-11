@@ -13,6 +13,7 @@ import RealmSwift
 final class MoodContext: DBManager {
     static let shared = MoodContext()
     
+    /// Returns the current mood object stored in realm (If any)
     internal func getCurrentMood() -> Mood? {
         guard let mood = self.database.objects(Mood.self).first
             else { return nil }
@@ -20,6 +21,8 @@ final class MoodContext: DBManager {
         return mood
     }
     
+    /// Returns the current mood value
+    /// Note: If no mood currently exists, one will be created
     internal func setCurrentMood(to value: Float) {
         let mood: Mood
         

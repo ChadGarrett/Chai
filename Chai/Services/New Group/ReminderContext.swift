@@ -14,6 +14,7 @@ final class ReminderContext: DBManager {
     static let shared = ReminderContext()
     
     /// Adds a Reminder to the database
+    /// - Parameter reminder: The reminder to be added to the database
     internal func addReminder(reminder: Reminder) {
         try! database.write { [weak self] in
             reminder.id = UUID().uuidString
@@ -22,11 +23,15 @@ final class ReminderContext: DBManager {
         }
     }
     
+    /// Returns all reminders currently saved
+    /// TODO: Implement filtering and sorting
     internal func getReminders() -> Results<Reminder> {
         let results: Results<Reminder> = self.database.objects(Reminder.self)
         return results
     }
     
+    /// Returns an individual reminder based on it's index
+    /// - Parameter index: The index of the reminder to be returned
     internal func getReminder(at index: Int) -> Reminder? {
         let results = self.database.objects(Reminder.self)
         guard index < results.count
@@ -36,6 +41,7 @@ final class ReminderContext: DBManager {
         return item
     }
     
+    /// Toggles the status of a reminder from complete <-> incomplete
     internal func toggleReminderStatus(for reminder: Reminder) {
         try! database.write {
             reminder.isComplete = !reminder.isComplete

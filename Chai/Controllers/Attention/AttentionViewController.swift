@@ -36,9 +36,8 @@ final class AttentionViewController: AppViewController {
         self.attentionView.autoPinEdgesToSuperviewEdges()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
         let actions: [AttentionType] = AttentionType.allCases
         self.attentionView.setActions(to: actions)
     }

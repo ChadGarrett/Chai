@@ -17,10 +17,10 @@ enum AttentionType: Int, CaseIterable {
     
     var title: String {
         switch self {
-        case .snacks: return "Snacks"
-        case .cuddles: return "Cuddles"
-        case .massage: return "Massage"
-        case .dinner: return "Dinner"
+        case .snacks: return R.string.localizable.button_attention_snacks()
+        case .cuddles: return R.string.localizable.button_attention_cuddles()
+        case .massage: return R.string.localizable.button_attention_massage()
+        case .dinner: return R.string.localizable.button_attention_dinner()
         }
     }
     

@@ -88,7 +88,6 @@ final class MoodView: AppView {
     
     internal func setCurrentMood(to mood: MoodCategory) {
         UIView.animate(withDuration: 0.3) {
-            
             self.backgroundColor = mood.color
             self.lblMood.attributedText = NSAttributedString(string: mood.title, attributes: Style.heading_1)
         }

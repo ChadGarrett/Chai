@@ -23,6 +23,10 @@
 "button_attention" = "Attention";
 "button_mood" = "Mood";
 "button_memories" = "Memories";
+"button_attention_cuddles" = "Cuddles";
+"button_attention_snacks" = "Snacks";
+"button_attention_massage" = "Massage";
+"button_attention_dinner" = "Dinner";
 
 // Headings
 "heading_add_reminder" = "Add a Reminder";

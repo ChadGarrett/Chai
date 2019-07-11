@@ -41,7 +41,10 @@ final class AttentionView: AppView {
             button.backgroundColor = type.color
             button.addTarget(self, action: #selector(onAction), for: .touchUpInside)
             button.tag = type.rawValue
-            self.stackActions.addArrangedSubview(button)
+            
+            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                self?.stackActions.addArrangedSubview(button)
+            })
         }
     }
     
