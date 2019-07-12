@@ -14,6 +14,7 @@ extension ReminderView {
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             self.contentView.layer.cornerRadius = 10
+            self.selectionStyle = .none
             self.setupView()
         }
         
@@ -85,8 +86,8 @@ extension ReminderView {
         
         private func setBackground(isComplete: Bool) {
             self.contentView.backgroundColor = (isComplete)
-                ? Style.colors.emerald
-                : Style.colors.alizarin
+                ? Style.colors.nephritis
+                : Style.colors.jaffa
         }
     }
 }

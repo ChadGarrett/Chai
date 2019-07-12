@@ -27,7 +27,7 @@ final class ReminderView: AppView {
         self.addSubview(self.vwAddReminder)
         self.addSubview(self.tblReminders)
         
-        self.vwAddReminder.autoPinEdge(toSuperviewMargin: .top)
+        self.vwAddReminder.autoPinEdge(toSuperviewSafeArea: .top)
         self.vwAddReminder.autoPinEdge(toSuperviewEdge: .left)
         self.vwAddReminder.autoPinEdge(toSuperviewEdge: .right)
         
@@ -89,6 +89,7 @@ final class ReminderView: AppView {
         tableView.register(cellType: BlankTableCell.self)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorInset = UIEdgeInsets(inset: Style.padding.xs)
         return tableView
     }()
 }
@@ -113,6 +114,26 @@ extension ReminderView: UITableViewDataSource {
         let cell: ReminderCell = self.tblReminders.dequeueReusableCell(for: indexPath)
         cell.prepareForDisplay(reminder: reminder)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return self.getTrailingSwipeActions(for: indexPath)
+    }
+    
+    private func getTrailingSwipeActions(for indexPath: IndexPath) -> UISwipeActionsConfiguration {
+        guard let reminder = ReminderContext.shared.getReminder(at: indexPath.row)
+            else { return UISwipeActionsConfiguration() }
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: R.string.localizable.button_delete()) { [weak self] (action, view, handler) in
+            self?.onDelete(reminder: reminder)
+        }
+        
+        let config = UISwipeActionsConfiguration(actions: [deleteAction])
+        return config
+    }
+    
+    private func onDelete(reminder: Reminder) {
+        self.delegate?.onDeleteReminder(reminder: reminder)
     }
 }
 

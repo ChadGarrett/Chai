@@ -41,6 +41,14 @@ final class ReminderContext: DBManager {
         return item
     }
     
+    internal func deleteReminder(reminder: Reminder) {
+        try! self.database.write { [weak self] in
+            self?.database.delete(reminder)
+        }
+    }
+    
+    // Aux functions
+    
     /// Toggles the status of a reminder from complete <-> incomplete
     internal func toggleReminderStatus(for reminder: Reminder) {
         try! database.write {

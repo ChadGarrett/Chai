@@ -25,6 +25,7 @@
 "button_continue" = "Continue";
 "button_next" = "Next";
 "button_done" = "Done";
+"button_delete" = "Delete";
 "button_remind" = "Chores";
 "button_attention" = "Attention";
 "button_mood" = "Mood";
