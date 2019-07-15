@@ -38,6 +38,8 @@ final class MoodViewController: AppViewController {
         if let savedMood = MoodContext.shared.getCurrentMood() {
             self.moodView.setCurrentMood(to: self.getCurrentMood(value: savedMood.value))
             self.moodView.setMoodValue(to: savedMood.value)
+        } else {
+            SwiftyBeaver.warning("No saved mood was found. Possibly setting the mood for the first time.")
         }
     }
 

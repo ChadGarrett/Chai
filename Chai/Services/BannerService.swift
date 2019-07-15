@@ -13,7 +13,7 @@ final class BannerService {
     static let shared = BannerService()
     
     /// Displays a success banner
-    internal func showBanner(title: String, subtitle: String, style: BannerStyle) {
+    internal func showBanner(title: String, subtitle: String? = nil, style: BannerStyle) {
         let banner = NotificationBanner(title: title, subtitle: subtitle, style: style)
         banner.dismissOnSwipeUp = true
         banner.show()

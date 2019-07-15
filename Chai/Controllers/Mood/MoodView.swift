@@ -63,7 +63,7 @@ final class MoodView: AppView {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 100
-        slider.value = 50
+        slider.value = 50 // Default - changed once date is loaded
         slider.addTarget(self, action: #selector(onMoodChange), for: .valueChanged)
         return slider
     }()
@@ -87,9 +87,9 @@ final class MoodView: AppView {
     }
     
     internal func setCurrentMood(to mood: MoodCategory) {
-        UIView.animate(withDuration: 0.3) {
-            self.backgroundColor = mood.color
-            self.lblMood.attributedText = NSAttributedString(string: mood.title, attributes: Style.heading_1)
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.backgroundColor = mood.color
+            self?.lblMood.attributedText = NSAttributedString(string: mood.title, attributes: Style.heading_1)
         }
     }
     

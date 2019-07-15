@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
         
+        // Setup error reporting
         let _ = Aardvark.addDefaultBugReportingGestureWithEmailBugReporter(withRecipient: Developers.chadGarrett.rawValue)
         appLogger.addDestination(ConsoleDestination())
         

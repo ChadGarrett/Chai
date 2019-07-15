@@ -72,4 +72,8 @@ extension ReminderViewController: ReminderControllerDelegate {
     private func showAddBanner(text: String) {
         BannerService.shared.showBanner(title: "Reminder added!", subtitle: text, style: .success)
     }
+    
+    private func showDeleteBanner() {
+        BannerService.shared.showBanner(title: "Reminder deleted", style: .info)
+    }
 }
