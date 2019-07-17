@@ -18,14 +18,11 @@ class ReminderContextTests: XCTestCase {
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        
+
+        // Reset the DB for each test
         ReminderContext.shared.deleteAllFromDatabase()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
@@ -33,17 +30,27 @@ class ReminderContextTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    // Helpers
+    
+    private func createRandomReminder() -> Reminder {
+        let reminder: Reminder = Reminder()
+        reminder.text = "ExampleReminder"
+        reminder.isComplete = false
+        reminder.personResponsible = "Troy"
+        reminder.date = Date()
+        return reminder
+    }
+    
+    // Tests
 
     /// Tests adding a reminder to Realm
     func testAddingAReminder() {
         var isDatabaseEmpty = (ReminderContext.shared.getReminders().count == 0)
         XCTAssertTrue(isDatabaseEmpty, "Database is not empty.")
         
-        let reminderOne = Reminder()
-        reminderOne.text = "Reminder One"
-        reminderOne.isComplete = false
-        
-        ReminderContext.shared.addReminder(reminder: reminderOne)
+        let reminder = self.createRandomReminder()
+        ReminderContext.shared.addReminder(reminder: reminder)
         
         isDatabaseEmpty = (ReminderContext.shared.getReminders().count == 0)
         XCTAssertFalse(isDatabaseEmpty, "Reminder was not added to Realm.")
@@ -51,17 +58,15 @@ class ReminderContextTests: XCTestCase {
     
     /// Tests deleting a reminder from Realm
     func testDeletingReminder() {
-        let reminderOne = Reminder()
-        reminderOne.text = "Reminder One"
-        reminderOne.isComplete = false
-        ReminderContext.shared.addReminder(reminder: reminderOne)
+        let reminder = self.createRandomReminder()
+        ReminderContext.shared.addReminder(reminder: reminder)
         
         // Test the reminder is in the database
         let numberOfRemindersBeforeDelete = ReminderContext.shared.getReminders().count
         XCTAssertEqual(numberOfRemindersBeforeDelete, 1, "Expected one Reminder to be in the database.")
         
         // Delete the reminder
-        ReminderContext.shared.deleteReminder(reminder: reminderOne)
+        ReminderContext.shared.deleteReminder(reminder: reminder)
         
         let numberOfRemindersAfterDelete = ReminderContext.shared.getReminders().count
         XCTAssertEqual(numberOfRemindersAfterDelete, 0, "Expected the database to be empty after deleting a reminder.")
@@ -70,17 +75,11 @@ class ReminderContextTests: XCTestCase {
     /// Test that fetching all the reminders returns the correct amount
     func testFetchingAllReminders() {
         /// Add three test reminders
-        let reminderOne = Reminder()
-        reminderOne.text = "Reminder One"
-        reminderOne.isComplete = false
+        let reminderOne = self.createRandomReminder()
         
-        let reminderTwo = Reminder()
-        reminderTwo.text = "Reminder Two"
-        reminderTwo.isComplete = false
+        let reminderTwo = self.createRandomReminder()
         
-        let reminderThree = Reminder()
-        reminderThree.text = "Reminder Three"
-        reminderThree.isComplete = false
+        let reminderThree = self.createRandomReminder()
         
         ReminderContext.shared.addReminder(reminder: reminderOne)
         ReminderContext.shared.addReminder(reminder: reminderTwo)
@@ -104,17 +103,15 @@ class ReminderContextTests: XCTestCase {
     /// Test fetching a specific reminder
     func testFetchingSpecificReminder() {
         /// Add a test reminder
-        let reminderOne = Reminder()
-        reminderOne.text = "Reminder One"
-        reminderOne.isComplete = false
-        ReminderContext.shared.addReminder(reminder: reminderOne)
+        let reminder = self.createRandomReminder()
+        ReminderContext.shared.addReminder(reminder: reminder)
         
         // Check that the reminder could be fetched
         let reminderExists = ReminderContext.shared.getReminder(at: 0)
         XCTAssertNotNil(reminderExists, "Failed to retrieve a specific reminder from Realm.")
         
         // Check that it was the right reminder returned
-        XCTAssertEqual(reminderOne.id, reminderExists?.id ?? "", "Reminder fetched does not match the one we were looking for.")
+        XCTAssertEqual(reminder.id, reminderExists?.id ?? "", "Reminder fetched does not match the one we were looking for.")
         
         // Check that fetching a reminder out of bounds does not return one
         let reminderDoesNotExist = ReminderContext.shared.getReminder(at: 9999)
@@ -123,9 +120,7 @@ class ReminderContextTests: XCTestCase {
     
     /// Test updating a reminders status (from complete, to incomplete and back)
     func testUpdatingReminderStatus() {
-        let initialReminder = Reminder()
-        initialReminder.text = "Reminder One"
-        initialReminder.isComplete = false
+        let initialReminder = self.createRandomReminder()
         ReminderContext.shared.addReminder(reminder: initialReminder)
         
         // Fetch the reminder from the database and check its initial completness
