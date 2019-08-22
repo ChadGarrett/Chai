@@ -18,12 +18,12 @@ enum MoodCategory {
     
     var title: String {
         switch self {
-        case .bad: return "Bad"
-        case .rocky: return "Rocky"
-        case .needsAttention: return "Needs attention"
-        case .good: return "Good"
-        case .excellent: return "Excellent"
-        case .unknown: return "Unknown"
+        case .bad: return R.string.localizable.mood_category_bad()
+        case .rocky: return R.string.localizable.mood_category_rocky()
+        case .needsAttention: return R.string.localizable.mood_category_needs_attention()
+        case .good: return R.string.localizable.mood_category_good()
+        case .excellent: return R.string.localizable.mood_category_excellent()
+        case .unknown: return R.string.localizable.mood_category_unknown()
         }
     }
     

@@ -35,6 +35,14 @@
 "button_attention_massage" = "Massage";
 "button_attention_dinner" = "Dinner";
 
+// Mood categories
+"mood_category_bad" = "Bad";
+"mood_category_rocky" = "Rocky";
+"mood_category_needs_attention" = "Needs attention";
+"mood_category_good" = "Good";
+"mood_category_excellent" = "Excellent";
+"mood_category_unknown" = "Unknown";
+
 // Headings
 "heading_add_reminder" = "Add a Reminder";
 "heading_mood" = "Current mood";
