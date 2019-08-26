@@ -16,10 +16,14 @@ final class ReminderContext: DBManager {
     /// Adds a Reminder to the database
     /// - Parameter reminder: The reminder to be added to the database
     internal func addReminder(reminder: Reminder) {
-        try! database.write { [weak self] in
-            reminder.id = UUID().uuidString
-            self?.database.add(reminder, update: .all)
-            SwiftyBeaver.verbose("Added reminder to database: \(reminder)")
+        do {
+            try database.write { [weak self] in
+                reminder.id = UUID().uuidString
+                self?.database.add(reminder, update: .all)
+                SwiftyBeaver.verbose("Added reminder to database: \(reminder)")
+            }
+        } catch let error {
+            SwiftyBeaver.error("Unable to add new reminder.", error.localizedDescription)
         }
     }
     
@@ -42,8 +46,12 @@ final class ReminderContext: DBManager {
     }
     
     internal func deleteReminder(reminder: Reminder) {
-        try! self.database.write { [weak self] in
-            self?.database.delete(reminder)
+        do {
+            try self.database.write { [weak self] in
+                self?.database.delete(reminder)
+            }
+        } catch let error {
+            SwiftyBeaver.error("Unable to delete reminder.", error.localizedDescription)
         }
     }
     
@@ -51,8 +59,12 @@ final class ReminderContext: DBManager {
     
     /// Toggles the status of a reminder from complete <-> incomplete
     internal func toggleReminderStatus(for reminder: Reminder) {
-        try! database.write {
-            reminder.isComplete = !reminder.isComplete
+        do {
+            try database.write {
+                reminder.isComplete = !reminder.isComplete
+            }
+        } catch let error {
+            SwiftyBeaver.error("Unable to toggle a reminders status", error.localizedDescription)
         }
     }
 }

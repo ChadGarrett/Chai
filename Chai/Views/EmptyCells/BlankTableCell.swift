@@ -20,4 +20,3 @@ class BlankTableCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

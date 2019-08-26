@@ -33,10 +33,14 @@ final class MoodContext: DBManager {
             mood = Mood()
         }
         
-        try! self.database.write { [weak self] in
-            mood.value = value
-            self?.database.add(mood, update: .all)
-            SwiftyBeaver.verbose("Set current mood to: \(value)")
+        do {
+            try self.database.write { [weak self] in
+                mood.value = value
+                self?.database.add(mood, update: .all)
+                SwiftyBeaver.verbose("Set current mood to: \(value)")
+            }
+        } catch let error {
+            SwiftyBeaver.error("Unable to set current mood.", error.localizedDescription)
         }
     }
 }

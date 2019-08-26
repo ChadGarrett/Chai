@@ -15,7 +15,7 @@ enum MoodCategory {
     case good //60-80
     case excellent //80-100
     case unknown
-    
+
     var title: String {
         switch self {
         case .bad: return R.string.localizable.mood_category_bad()
@@ -26,7 +26,7 @@ enum MoodCategory {
         case .unknown: return R.string.localizable.mood_category_unknown()
         }
     }
-    
+
     var color: UIColor {
         switch self {
         case .bad: return Style.colors.monza

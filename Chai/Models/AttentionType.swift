@@ -14,7 +14,7 @@ enum AttentionType: Int, CaseIterable {
     case cuddles
     case massage
     case dinner
-    
+
     var title: String {
         switch self {
         case .snacks: return R.string.localizable.button_attention_snacks()

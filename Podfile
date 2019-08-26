@@ -21,7 +21,7 @@ target 'Chai' do
   # Debuging and Logging
   pod 'Aardvark'
   pod 'SwiftyBeaver'
-
+  
   target 'ChaiTests' do
     inherit! :search_paths
     # Pods for testing

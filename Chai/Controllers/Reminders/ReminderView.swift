@@ -124,9 +124,10 @@ extension ReminderView: UITableViewDataSource {
         guard let reminder = ReminderContext.shared.getReminder(at: indexPath.row)
             else { return UISwipeActionsConfiguration() }
         
-        let deleteAction = UIContextualAction(style: .destructive, title: R.string.localizable.button_delete()) { [weak self] (action, view, handler) in
-            self?.onDelete(reminder: reminder)
-        }
+        let deleteAction = UIContextualAction(
+            style: .destructive,
+            title: R.string.localizable.button_delete(),
+            handler: { [weak self] (_, _, _) in self?.onDelete(reminder: reminder) })
         
         let config = UISwipeActionsConfiguration(actions: [deleteAction])
         return config

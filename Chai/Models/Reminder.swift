@@ -14,4 +14,3 @@ final class Reminder: BaseObject {
     @objc dynamic var isComplete: Bool = false
     @objc dynamic var personResponsible: String = ""
 }
-
