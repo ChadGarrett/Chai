@@ -38,7 +38,7 @@
 		E5B515B522D49DD100B36BE3 /* Date+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B422D49DD100B36BE3 /* Date+App.swift */; };
 		E5B515B822D4AE0000B36BE3 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B722D4AE0000B36BE3 /* DBManager.swift */; };
 		E5B515BA22D4BBEE00B36BE3 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B922D4BBEE00B36BE3 /* BaseObject.swift */; };
-		E5B515BC22D4C99000B36BE3 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BB22D4C99000B36BE3 /* Migration.swift */; };
+		E5B515BC22D4C99000B36BE3 /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BB22D4C99000B36BE3 /* MigrationService.swift */; };
 		E5B515BE22D4D49C00B36BE3 /* MoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */; };
 		E5B515C022D4DA0300B36BE3 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BF22D4DA0300B36BE3 /* Mood.swift */; };
 		E5B866F922DE5483008427B6 /* ReminderContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866F822DE5483008427B6 /* ReminderContextTests.swift */; };
@@ -51,6 +51,9 @@
 		E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */; };
 		E5BB546822D764D600206F82 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546722D764D600206F82 /* Users.swift */; };
 		E5BB546A22D76A0300206F82 /* String+Kalido.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546922D76A0300206F82 /* String+Kalido.swift */; };
+		E5C760CD232F64010001886C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C760CC232F64010001886C /* BaseService.swift */; };
+		E5C760CF232F645C0001886C /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C760CE232F645C0001886C /* LoggingService.swift */; };
+		E5C760D1232F64910001886C /* CrashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C760D0232F64910001886C /* CrashService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +105,7 @@
 		E5B515B422D49DD100B36BE3 /* Date+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+App.swift"; sourceTree = "<group>"; };
 		E5B515B722D4AE0000B36BE3 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		E5B515B922D4BBEE00B36BE3 /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
-		E5B515BB22D4C99000B36BE3 /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
+		E5B515BB22D4C99000B36BE3 /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
 		E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCategory.swift; sourceTree = "<group>"; };
 		E5B515BF22D4DA0300B36BE3 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		E5B866F822DE5483008427B6 /* ReminderContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderContextTests.swift; sourceTree = "<group>"; };
@@ -115,6 +118,9 @@
 		E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+App.swift"; sourceTree = "<group>"; };
 		E5BB546722D764D600206F82 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		E5BB546922D76A0300206F82 /* String+Kalido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Kalido.swift"; sourceTree = "<group>"; };
+		E5C760CC232F64010001886C /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		E5C760CE232F645C0001886C /* LoggingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingService.swift; sourceTree = "<group>"; };
+		E5C760D0232F64910001886C /* CrashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashService.swift; sourceTree = "<group>"; };
 		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -347,6 +353,9 @@
 			children = (
 				E5B515B622D4ADF100B36BE3 /* Data */,
 				E5B515AD22D386F800B36BE3 /* BannerService.swift */,
+				E5C760CC232F64010001886C /* BaseService.swift */,
+				E5C760CE232F645C0001886C /* LoggingService.swift */,
+				E5C760D0232F64910001886C /* CrashService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -364,7 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				E5B515B722D4AE0000B36BE3 /* DBManager.swift */,
-				E5B515BB22D4C99000B36BE3 /* Migration.swift */,
+				E5B515BB22D4C99000B36BE3 /* MigrationService.swift */,
 				E5BB545B22D6327100206F82 /* ReminderContext.swift */,
 				E5BB545D22D6328800206F82 /* MoodContext.swift */,
 			);
@@ -568,6 +577,7 @@
 				E5B515AB22D384F700B36BE3 /* ReminderCell.swift in Sources */,
 				E5B515BA22D4BBEE00B36BE3 /* BaseObject.swift in Sources */,
 				E59C29D122368B1000F28A90 /* StyleHelper.swift in Sources */,
+				E5C760CD232F64010001886C /* BaseService.swift in Sources */,
 				E5B5157922CDC01F00B36BE3 /* HomeViewController.swift in Sources */,
 				E5BB546022D637D900206F82 /* BlankCollectionCell.swift in Sources */,
 				E585F3D5223AF60B00AC012B /* HomeView.swift in Sources */,
@@ -583,12 +593,14 @@
 				E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */,
 				E5BB545C22D6327100206F82 /* ReminderContext.swift in Sources */,
 				E5B515A122D367B800B36BE3 /* ReminderView.swift in Sources */,
+				E5C760CF232F645C0001886C /* LoggingService.swift in Sources */,
 				E5BB546A22D76A0300206F82 /* String+Kalido.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* Array+App.swift in Sources */,
 				E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */,
-				E5B515BC22D4C99000B36BE3 /* Migration.swift in Sources */,
+				E5B515BC22D4C99000B36BE3 /* MigrationService.swift in Sources */,
 				E5BB546822D764D600206F82 /* Users.swift in Sources */,
 				E5B515B822D4AE0000B36BE3 /* DBManager.swift in Sources */,
+				E5C760D1232F64910001886C /* CrashService.swift in Sources */,
 				E5B515A322D3752300B36BE3 /* Reminder.swift in Sources */,
 				E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */,
 				E5BB545E22D6328800206F82 /* MoodContext.swift in Sources */,

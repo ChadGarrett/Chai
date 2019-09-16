@@ -6,38 +6,30 @@
 //  Copyright © 2019 Chad Garrett. All rights reserved.
 //
 
-import Aardvark
 import UIKit
-import SwiftyBeaver
-
-enum Developers: String {
-    case chadGarrett = "thychad@gmail.com"
-}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    let appLogger = SwiftyBeaver.self
+    
+    let services: [BaseService] = [
+        MigrationService(),
+        LoggingService(),
+        CrashService(),
+    ]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let nav = UINavigationController()
-        nav.viewControllers = [HomeViewController()]
-
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [HomeViewController()]
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
 
-        // Setup error reporting
-        let _ = Aardvark.addDefaultBugReportingGestureWithEmailBugReporter(withRecipient: Developers.chadGarrett.rawValue)
-        appLogger.addDestination(ConsoleDestination())
-
-        // Setup realm
-        Migration.shared.migrate()
-
+        self.services.forEach { $0.setup() }
+        
         return true
     }
 

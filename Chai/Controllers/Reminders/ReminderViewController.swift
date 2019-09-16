@@ -55,8 +55,6 @@ final class ReminderViewController: AppViewController {
 extension ReminderViewController: ReminderControllerDelegate {
     func onAddReminder(reminder: Reminder) {
         SwiftyBeaver.info("Adding new reminder to list.")
-        SwiftyBeaver.verbose("Adding reminder: \"\(reminder.text)\" due \"\(reminder.date)\"")
-        
         ReminderContext.shared.addReminder(reminder: reminder)
         
         self.showAddBanner(text: reminder.text)
@@ -64,8 +62,6 @@ extension ReminderViewController: ReminderControllerDelegate {
     
     func onDeleteReminder(reminder: Reminder) {
         SwiftyBeaver.info("Deleting reminder.")
-        SwiftyBeaver.verbose("Deleting reminder: \(reminder.text)")
-        
         ReminderContext.shared.deleteReminder(reminder: reminder)
     }
     
