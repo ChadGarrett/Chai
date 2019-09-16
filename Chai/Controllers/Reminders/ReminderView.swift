@@ -143,7 +143,6 @@ extension ReminderView: UITableViewDelegate {
         guard let reminder = ReminderContext.shared.getReminder(at: indexPath.row)
             else { return }
 
-        SwiftyBeaver.info("Toggling reminder \"\(reminder.text)\" complete state to: \(reminder.isComplete)")
         ReminderContext.shared.toggleReminderStatus(for: reminder)
     }
 }

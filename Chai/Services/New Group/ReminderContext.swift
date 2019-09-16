@@ -47,6 +47,7 @@ final class ReminderContext: DBManager {
     
     internal func deleteReminder(reminder: Reminder) {
         do {
+            SwiftyBeaver.verbose("Deleting reminder: \(reminder)")
             try self.database.write { [weak self] in
                 self?.database.delete(reminder)
             }
@@ -60,6 +61,7 @@ final class ReminderContext: DBManager {
     /// Toggles the status of a reminder from complete <-> incomplete
     internal func toggleReminderStatus(for reminder: Reminder) {
         do {
+            SwiftyBeaver.info("Toggling reminder \"\(reminder.text)\" status to: \(reminder.isComplete)")
             try database.write {
                 reminder.isComplete = !reminder.isComplete
             }
