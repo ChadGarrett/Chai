@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SwiftyBeaver.error("Unable to validate static resources.", error.localizedDescription)
             fatalError()
         }
-        
+
         return true
     }
 
