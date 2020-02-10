@@ -34,7 +34,7 @@ final class MigrationService: BaseService {
         
         // Now that we've told Realm how to handle the schema change, opening the file
         // will automatically perform the migration
-        SwiftyBeaver.info("Running any Realm migrations if necessary")
+        SwiftyBeaver.info("Running any Realm migrations if necessary.")
         let _ = try! Realm()
     }
 }

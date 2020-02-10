@@ -37,7 +37,7 @@ DEPENDENCIES:
   - SwiftyBeaver
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Aardvark
     - AttributedStringBuilder
     - CoreAardvark
@@ -71,4 +71,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 51716534ea6aeefafde77b4951890203fa3430a9
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

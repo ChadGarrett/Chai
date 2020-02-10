@@ -30,44 +30,29 @@ final class HomeView: AppView {
     }
     
     private func setupSubviews() {
-        self.addSubview(self.vwCenter)
+        self.addSubview(self.stkButtons)
         
-        self.addSubview(self.btnRemind)
-        self.addSubview(self.btnAttention)
-        self.addSubview(self.btnMood)
-        self.addSubview(self.btnMemories)
+        self.stkButtons.addArrangedSubview(self.btnRemind)
+        self.stkButtons.addArrangedSubview(self.btnAttention)
+        self.stkButtons.addArrangedSubview(self.btnMood)
+        self.stkButtons.addArrangedSubview(self.btnMemories)
     }
     
     private func setupLayout() {
-        self.vwCenter.autoAlignAxis(toSuperviewMarginAxis: .horizontal)
-        self.vwCenter.autoAlignAxis(toSuperviewMarginAxis: .vertical)
-        self.vwCenter.autoSetDimensions(to: CGSize(width: 0.1, height: 0.1))
-        
-        self.btnRemind.autoPinEdge(toSuperviewMargin: .top, withInset: Style.padding.m)
-        self.btnRemind.autoPinEdge(toSuperviewMargin: .left, withInset: Style.padding.s)
-        self.btnRemind.autoPinEdge(.right, to: .left, of: self.vwCenter, withOffset: -Style.padding.xs)
-        self.btnRemind.autoPinEdge(.bottom, to: .top, of: self.vwCenter, withOffset: -Style.padding.xs)
-        
-        self.btnAttention.autoPinEdge(toSuperviewMargin: .top, withInset: Style.padding.m)
-        self.btnAttention.autoPinEdge(.left, to: .right, of: self.vwCenter, withOffset: Style.padding.xs)
-        self.btnAttention.autoPinEdge(toSuperviewMargin: .right, withInset: Style.padding.s)
-        self.btnAttention.autoPinEdge(.bottom, to: .top, of: self.vwCenter, withOffset: -Style.padding.xs)
-        
-        self.btnMood.autoPinEdge(.top, to: .bottom, of: self.vwCenter, withOffset: Style.padding.xs)
-        self.btnMood.autoPinEdge(toSuperviewMargin: .left, withInset: Style.padding.s)
-        self.btnMood.autoPinEdge(.right, to: .left, of: self.vwCenter, withOffset: -Style.padding.xs)
-        self.btnMood.autoPinEdge(toSuperviewMargin: .bottom, withInset: Style.padding.m)
-        
-        self.btnMemories.autoPinEdge(.top, to: .bottom, of: self.vwCenter, withOffset: Style.padding.xs)
-        self.btnMemories.autoPinEdge(.left, to: .right, of: self.vwCenter, withOffset: Style.padding.xs)
-        self.btnMemories.autoPinEdge(toSuperviewMargin: .right, withInset: Style.padding.s)
-        self.btnMemories.autoPinEdge(toSuperviewMargin: .bottom, withInset: Style.padding.m)
+        self.stkButtons.autoPinEdgesToSuperviewSafeArea(with:
+            UIEdgeInsets(top: Style.padding.xs, left: Style.padding.xs, bottom: Style.padding.xs, right: Style.padding.xs))
     }
     
     // Subviews
     
-    /// Placed in the center of the screen and used to align the button grid
-    private lazy var vwCenter = UIView()
+    private lazy var stkButtons: UIStackView = {
+        let stackView: UIStackView = UIStackView()
+        stackView.alignment = .fill
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = Style.padding.s
+        return stackView
+    }()
     
     private lazy var btnRemind: GenericButton = {
         let button = GenericButton(R.string.localizable.button_remind())
@@ -96,6 +81,13 @@ final class HomeView: AppView {
         button.backgroundColor = Style.colors.dodgerBlue
         return button
     }()
+    
+    private lazy var btnMovies: GenericButton = {
+        let button = GenericButton(R.string.localizable.button_movies())
+        button.addTarget(self, action: #selector(onMovies), for: .touchUpInside)
+        button.backgroundColor = Style.colors.wetAsphalt
+        return button
+    }()
 }
 
 // Actions
@@ -114,5 +106,9 @@ extension HomeView {
     
     @objc private func onMemories() {
         self.delegate?.onMemories()
+    }
+    
+    @objc private func onMovies() {
+        self.delegate?.onMovies()
     }
 }

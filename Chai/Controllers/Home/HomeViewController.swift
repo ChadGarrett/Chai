@@ -15,6 +15,7 @@ protocol HomeControllerDelegate: class {
     func onAttention()
     func onMood()
     func onMemories()
+    func onMovies()
 }
 
 final class HomeViewController: AppViewController {
@@ -72,8 +73,12 @@ extension HomeViewController: HomeControllerDelegate {
     }
     
     func onMemories() {
-        SwiftyBeaver.info("Tapped on memories")
+        SwiftyBeaver.info("Tapped on memories.")
         
         BannerService.shared.showNotImplementedBanner()
+    }
+    
+    func onMovies() {
+        SwiftyBeaver.info("Tapped on movies.")
     }
 }

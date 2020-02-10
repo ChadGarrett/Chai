@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum ChaiError: Error {
+    /// The form/textfield is not complete
+    case IncompleteData(String)
+    
+    case ObjectNotFound(String)
+}
+
 protocol AddReminderDelegate: class {
     func onAdd()
 }

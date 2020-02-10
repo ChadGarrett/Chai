@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import SwiftyBeaver
+import Rswift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    /// Services that need to be run on app startup
     let services: [BaseService] = [
         MigrationService(),
         LoggingService(),
@@ -28,7 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
 
+        // Setup each service
         self.services.forEach { $0.setup() }
+        
+        do {
+            try R.validate()
+        } catch let error {
+            SwiftyBeaver.error("Unable to validate static resources.", error.localizedDescription)
+            fatalError()
+        }
         
         return true
     }

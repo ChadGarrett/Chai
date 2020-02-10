@@ -34,6 +34,7 @@
 "button_attention_snacks" = "Snacks";
 "button_attention_massage" = "Massage";
 "button_attention_dinner" = "Dinner";
+"button_movies" = "Movie Watchlist";
 
 // Mood categories
 "mood_category_bad" = "Bad";
