@@ -10,6 +10,19 @@
 		C14364320B82766E8C00609B /* Pods_ChaiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942ECA67895B00322F6590D /* Pods_ChaiTests.framework */; };
 		C1B4CFB274BCF1B159884353 /* Pods_Chai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */; };
 		E52E012E23F14563001D48F5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E012D23F14563001D48F5 /* R.generated.swift */; };
+		E52E846923F2C26A00B6591A /* DebitOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */; };
+		E52E846B23F2C28F00B6591A /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846A23F2C28F00B6591A /* SavingsViewController.swift */; };
+		E52E846D23F2C29E00B6591A /* DebitOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846C23F2C29E00B6591A /* DebitOrderView.swift */; };
+		E52E846F23F2C55F00B6591A /* DebitOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */; };
+		E52E847123F2C59200B6591A /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847023F2C59200B6591A /* AppTableViewCell.swift */; };
+		E52E847523F2C7C500B6591A /* DebitOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847423F2C7C500B6591A /* DebitOrder.swift */; };
+		E52E847723F2CF2200B6591A /* AppCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847623F2CF2200B6591A /* AppCardView.swift */; };
+		E52E847A23F2D11000B6591A /* DebitOrderDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847923F2D11000B6591A /* DebitOrderDataService.swift */; };
+		E52E847C23F2D14E00B6591A /* DebitOrderContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847B23F2D14E00B6591A /* DebitOrderContext.swift */; };
+		E52E847F23F2FD1900B6591A /* LoadingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847E23F2FD1900B6591A /* LoadingTableCell.swift */; };
+		E52E848123F4045600B6591A /* NumberFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848023F4045600B6591A /* NumberFormatter+App.swift */; };
+		E52E848323F404DC00B6591A /* NumberHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848223F404DC00B6591A /* NumberHelper.swift */; };
+		E52E848723F4078700B6591A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848623F4078700B6591A /* APIService.swift */; };
 		E585F3D5223AF60B00AC012B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3D4223AF60B00AC012B /* HomeView.swift */; };
 		E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C29A022365D3B00F28A90 /* AppDelegate.swift */; };
 		E59C29A822365D3C00F28A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A622365D3C00F28A90 /* Main.storyboard */; };
@@ -73,6 +86,19 @@
 		56050B1AFB5429D90ED038A5 /* Pods-Chai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chai/Pods-Chai.release.xcconfig"; sourceTree = "<group>"; };
 		E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E52E012D23F14563001D48F5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderViewController.swift; sourceTree = "<group>"; };
+		E52E846A23F2C28F00B6591A /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
+		E52E846C23F2C29E00B6591A /* DebitOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderView.swift; sourceTree = "<group>"; };
+		E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderCell.swift; sourceTree = "<group>"; };
+		E52E847023F2C59200B6591A /* AppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
+		E52E847423F2C7C500B6591A /* DebitOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrder.swift; sourceTree = "<group>"; };
+		E52E847623F2CF2200B6591A /* AppCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardView.swift; sourceTree = "<group>"; };
+		E52E847923F2D11000B6591A /* DebitOrderDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderDataService.swift; sourceTree = "<group>"; };
+		E52E847B23F2D14E00B6591A /* DebitOrderContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderContext.swift; sourceTree = "<group>"; };
+		E52E847E23F2FD1900B6591A /* LoadingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableCell.swift; sourceTree = "<group>"; };
+		E52E848023F4045600B6591A /* NumberFormatter+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+App.swift"; sourceTree = "<group>"; };
+		E52E848223F404DC00B6591A /* NumberHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberHelper.swift; sourceTree = "<group>"; };
+		E52E848623F4078700B6591A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		E585F3D4223AF60B00AC012B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E59C299D22365D3B00F28A90 /* Chai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59C29A022365D3B00F28A90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +190,50 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E52E846523F2C23F00B6591A /* Money */ = {
+			isa = PBXGroup;
+			children = (
+				E52E846723F2C25800B6591A /* Savings */,
+				E52E846623F2C24C00B6591A /* DebitOrders */,
+			);
+			path = Money;
+			sourceTree = "<group>";
+		};
+		E52E846623F2C24C00B6591A /* DebitOrders */ = {
+			isa = PBXGroup;
+			children = (
+				E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */,
+				E52E846C23F2C29E00B6591A /* DebitOrderView.swift */,
+				E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */,
+			);
+			path = DebitOrders;
+			sourceTree = "<group>";
+		};
+		E52E846723F2C25800B6591A /* Savings */ = {
+			isa = PBXGroup;
+			children = (
+				E52E846A23F2C28F00B6591A /* SavingsViewController.swift */,
+			);
+			path = Savings;
+			sourceTree = "<group>";
+		};
+		E52E847823F2D0F400B6591A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E52E847923F2D11000B6591A /* DebitOrderDataService.swift */,
+				E52E848623F4078700B6591A /* APIService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E52E847D23F2FCFE00B6591A /* LoadingCells */ = {
+			isa = PBXGroup;
+			children = (
+				E52E847E23F2FD1900B6591A /* LoadingTableCell.swift */,
+			);
+			path = LoadingCells;
+			sourceTree = "<group>";
+		};
 		E585F3D1223AF5EF00AC012B /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +304,7 @@
 		E59C29C322365F3900F28A90 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E52E846523F2C23F00B6591A /* Money */,
 				E5BB545622D6228600206F82 /* Attention */,
 				E585F3D1223AF5EF00AC012B /* Home */,
 				E5B515AF22D392C800B36BE3 /* Mood */,
@@ -249,6 +320,8 @@
 				E59C29CA223665E400F28A90 /* AppViewController.swift */,
 				E59C29CC2236667F00F28A90 /* AppView.swift */,
 				E59C29D022368B1000F28A90 /* StyleHelper.swift */,
+				E52E847023F2C59200B6591A /* AppTableViewCell.swift */,
+				E52E848223F404DC00B6591A /* NumberHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -262,6 +335,7 @@
 				E5B515A222D3752300B36BE3 /* Reminder.swift */,
 				E5BB546322D6543300206F82 /* AttentionType.swift */,
 				E5BB546722D764D600206F82 /* Users.swift */,
+				E52E847423F2C7C500B6591A /* DebitOrder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +343,7 @@
 		E5B5157A22CDC05D00B36BE3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E52E847D23F2FCFE00B6591A /* LoadingCells */,
 				E5B515A722D37E0E00B36BE3 /* EmptyCells */,
 				E5B5158E22CF228700B36BE3 /* Templates */,
 				E5B5157B22CDC06800B36BE3 /* Buttons */,
@@ -292,6 +367,7 @@
 				E5B515B422D49DD100B36BE3 /* Date+App.swift */,
 				E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */,
 				E5BB546922D76A0300206F82 /* String+Kalido.swift */,
+				E52E848023F4045600B6591A /* NumberFormatter+App.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,6 +403,7 @@
 			children = (
 				E5B515A422D37A4600B36BE3 /* Buttons */,
 				E5B515A522D37A6D00B36BE3 /* AddReminderView.swift */,
+				E52E847623F2CF2200B6591A /* AppCardView.swift */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -351,6 +428,7 @@
 		E5B515AC22D386E600B36BE3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E52E847823F2D0F400B6591A /* API */,
 				E5B515B622D4ADF100B36BE3 /* Data */,
 				E5B515AD22D386F800B36BE3 /* BannerService.swift */,
 				E5C760CC232F64010001886C /* BaseService.swift */,
@@ -376,6 +454,7 @@
 				E5B515BB22D4C99000B36BE3 /* MigrationService.swift */,
 				E5BB545B22D6327100206F82 /* ReminderContext.swift */,
 				E5BB545D22D6328800206F82 /* MoodContext.swift */,
+				E52E847B23F2D14E00B6591A /* DebitOrderContext.swift */,
 			);
 			name = Data;
 			path = "New Group";
@@ -572,33 +651,46 @@
 				E5BB546422D6543300206F82 /* AttentionType.swift in Sources */,
 				E59C29CB223665E400F28A90 /* AppViewController.swift in Sources */,
 				E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */,
+				E52E847523F2C7C500B6591A /* DebitOrder.swift in Sources */,
 				E5B515A622D37A6D00B36BE3 /* AddReminderView.swift in Sources */,
 				E5B515B322D392EA00B36BE3 /* MoodView.swift in Sources */,
+				E52E846F23F2C55F00B6591A /* DebitOrderCell.swift in Sources */,
 				E5B515AB22D384F700B36BE3 /* ReminderCell.swift in Sources */,
+				E52E846D23F2C29E00B6591A /* DebitOrderView.swift in Sources */,
 				E5B515BA22D4BBEE00B36BE3 /* BaseObject.swift in Sources */,
 				E59C29D122368B1000F28A90 /* StyleHelper.swift in Sources */,
+				E52E846923F2C26A00B6591A /* DebitOrderViewController.swift in Sources */,
 				E5C760CD232F64010001886C /* BaseService.swift in Sources */,
+				E52E847A23F2D11000B6591A /* DebitOrderDataService.swift in Sources */,
+				E52E848123F4045600B6591A /* NumberFormatter+App.swift in Sources */,
 				E5B5157922CDC01F00B36BE3 /* HomeViewController.swift in Sources */,
+				E52E847723F2CF2200B6591A /* AppCardView.swift in Sources */,
 				E5BB546022D637D900206F82 /* BlankCollectionCell.swift in Sources */,
 				E585F3D5223AF60B00AC012B /* HomeView.swift in Sources */,
 				E5B515C022D4DA0300B36BE3 /* Mood.swift in Sources */,
 				E5B515A922D37E2000B36BE3 /* BlankTableCell.swift in Sources */,
 				E5B5157D22CDC07600B36BE3 /* AppButton.swift in Sources */,
+				E52E846B23F2C28F00B6591A /* SavingsViewController.swift in Sources */,
 				E5B515BE22D4D49C00B36BE3 /* MoodCategory.swift in Sources */,
 				E59C29CD2236667F00F28A90 /* AppView.swift in Sources */,
 				E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */,
 				E5B5158122CDC1FD00B36BE3 /* UIView+App.swift in Sources */,
 				E5B5159F22D367B000B36BE3 /* ReminderViewController.swift in Sources */,
+				E52E848323F404DC00B6591A /* NumberHelper.swift in Sources */,
 				E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */,
 				E5BB545C22D6327100206F82 /* ReminderContext.swift in Sources */,
 				E5B515A122D367B800B36BE3 /* ReminderView.swift in Sources */,
 				E5C760CF232F645C0001886C /* LoggingService.swift in Sources */,
 				E5BB546A22D76A0300206F82 /* String+Kalido.swift in Sources */,
+				E52E848723F4078700B6591A /* APIService.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* Array+App.swift in Sources */,
 				E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */,
+				E52E847C23F2D14E00B6591A /* DebitOrderContext.swift in Sources */,
 				E5B515BC22D4C99000B36BE3 /* MigrationService.swift in Sources */,
 				E5BB546822D764D600206F82 /* Users.swift in Sources */,
 				E5B515B822D4AE0000B36BE3 /* DBManager.swift in Sources */,
+				E52E847123F2C59200B6591A /* AppTableViewCell.swift in Sources */,
+				E52E847F23F2FD1900B6591A /* LoadingTableCell.swift in Sources */,
 				E5C760D1232F64910001886C /* CrashService.swift in Sources */,
 				E52E012E23F14563001D48F5 /* R.generated.swift in Sources */,
 				E5B515A322D3752300B36BE3 /* Reminder.swift in Sources */,
