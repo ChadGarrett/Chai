@@ -17,8 +17,6 @@ final class DebitOrderViewController: BaseViewController {
     
     private var debitOrderView: DebitOrderView
     
-    private var token: NotificationToken?
-    
     // MARK: Setup
     
     override init() {
@@ -29,12 +27,10 @@ final class DebitOrderViewController: BaseViewController {
         
         self.setupView()
         self.setupTableDataDependencies()
-        self.setupBinding()
     }
     
     deinit {
-        self.token?.invalidate()
-        self.token = nil
+        self.dataProvider.stop()
     }
     
     private func setupView() {
@@ -51,16 +47,18 @@ final class DebitOrderViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+        self.dataProvider.start()
     }
     
     // MARK: Data
     
-    private func setupBinding() {
-        if self.token == nil {
-            self.token = DebitOrderContext.shared.bind(to: self.debitOrderView.tableView)
-        }
-    }
+    private lazy var dataProvider: BaseDataProvider<DebitOrder> = {
+        return BaseDataProvider<DebitOrder>(
+            bindTo: .tableView(self.debitOrderView.tableView),
+            basePredicate: NSPredicate(value: true),
+            filter: NSPredicate(value: true),
+            sort: [SortDescriptor(keyPath: "amount", ascending: false)])
+    }()
     
     private func fetchData() {
         DebitOrderDataService.fetchDebitOrders()
@@ -80,11 +78,11 @@ final class DebitOrderViewController: BaseViewController {
 
 extension DebitOrderViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DebitOrderContext.shared.getDebitOrders().count
+        return self.dataProvider.query().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let debitOrder = DebitOrderContext.shared.getDebitOrder(at: indexPath.row)
+        guard let debitOrder = self.dataProvider.object(at: indexPath.row) //DebitOrderContext.shared.getDebitOrder(at: indexPath.row)
             else { return self.getBlankTableCell(tableView, for: indexPath) }
         
         return self.getDebitOrderCell(tableView, for: indexPath, with: debitOrder)
@@ -103,7 +101,7 @@ extension DebitOrderViewController: UITableViewDataSource {
 
 extension DebitOrderViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let debitOrder = DebitOrderContext.shared.getDebitOrder(at: indexPath.row)
+        guard let debitOrder = self.dataProvider.object(at: indexPath.row)
             else { return }
         
         SwiftyBeaver.debug("Tapped on \(debitOrder)")

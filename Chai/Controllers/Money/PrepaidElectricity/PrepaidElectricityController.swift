@@ -15,8 +15,6 @@ final class PrepaidElectricityController: BaseViewController {
     
     private let prepaidElectricityView: PrepaidElectricityView
     
-    private var token: NotificationToken?
-    
     // MARK: Setup
     
     override init() {
@@ -24,12 +22,10 @@ final class PrepaidElectricityController: BaseViewController {
         super.init()
         self.setupLayout()
         self.setupTableDataDependencies()
-        self.setupBinding()
     }
     
     deinit {
-        self.token?.invalidate()
-        self.token = nil
+        self.dataProvider.stop()
     }
     
     private func setupLayout() {
@@ -45,16 +41,18 @@ final class PrepaidElectricityController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+        self.dataProvider.start()
     }
     
     // MARK: Data
     
-    private func setupBinding() {
-        if self.token == nil {
-            self.token = DebitOrderContext.shared.bind(to: self.prepaidElectricityView.tableView)
-        }
-    }
+    private lazy var dataProvider: BaseDataProvider<PrepaidElectricity> = {
+        return BaseDataProvider<PrepaidElectricity>(
+            bindTo: .tableView(self.prepaidElectricityView.tableView),
+            basePredicate: NSPredicate(value: true),
+            filter: NSPredicate(value: true),
+            sort: [])
+    }()
     
     private func setupTableDataDependencies() {
         self.prepaidElectricityView.tableView.dataSource = self
@@ -63,7 +61,6 @@ final class PrepaidElectricityController: BaseViewController {
     
     private func fetchData() {
         PrepaidElectricityDataService.fetchPrepaidElectricity()
-        self.prepaidElectricityView.tableView.reloadData()
     }
     
     // MARK: Actions
@@ -76,11 +73,11 @@ final class PrepaidElectricityController: BaseViewController {
 
 extension PrepaidElectricityController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PrepaidElectricityContext.shared.getElectricity().count
+        return self.dataProvider.query().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let electricity = PrepaidElectricityContext.shared.getElectricity(at: indexPath.row)
+        guard let electricity = self.dataProvider.object(at: indexPath.row)
             else { return self.getBlankTableCell(tableView, for: indexPath)}
         
         return self.getElectricityCell(tableView, with: electricity, for: indexPath)
@@ -99,7 +96,7 @@ extension PrepaidElectricityController: UITableViewDataSource {
 
 extension PrepaidElectricityController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let electricity = PrepaidElectricityContext.shared.getElectricity(at: indexPath.row)
+        guard let electricity = self.dataProvider.object(at: indexPath.row)
             else { return }
         
         SwiftyBeaver.verbose("Selected: \(electricity)")
