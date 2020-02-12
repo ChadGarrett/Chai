@@ -23,5 +23,6 @@ class APIService {
 extension APIService {
     struct Endpoints {
         static let debitOrders: String = APIService.baseURL + "personal/debitorders/"
+        static let electricity: String = APIService.baseURL + "personal/electricity/"
     }
 }

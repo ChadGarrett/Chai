@@ -51,7 +51,7 @@ final class DebitOrderViewController: AppViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.fetchData()
+        self.fetchData()
     }
     
     // MARK: Data
@@ -63,7 +63,7 @@ final class DebitOrderViewController: AppViewController {
     }
     
     private func fetchData() {
-        DebitOrderDataService.getAllDebitOrders()
+        DebitOrderDataService.fetchDebitOrders()
     }
     
     private lazy var btnRefresh: UIBarButtonItem = {
@@ -72,7 +72,7 @@ final class DebitOrderViewController: AppViewController {
     }()
     
     @objc private func onRefresh() {
-        SwiftyBeaver.info("Refreshing data.")
+        SwiftyBeaver.info("Manually refreshing data.")
         self.fetchData()
     }
 }

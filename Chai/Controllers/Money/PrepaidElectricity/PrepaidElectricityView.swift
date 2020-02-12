@@ -1,15 +1,14 @@
 //
-//  DebitOrderView.swift
+//  PrepaidElectricityView.swift
 //  Chai
 //
-//  Created by Chad Garrett on 2020/02/11.
+//  Created by Chad Garrett on 2020/02/12.
 //  Copyright © 2020 Chad Garrett. All rights reserved.
 //
 
 import UIKit
 
-final class DebitOrderView: AppView {
-    
+final class PrepaidElectricityView: AppView {
     override func setupView() {
         super.setupView()
         
@@ -23,8 +22,9 @@ final class DebitOrderView: AppView {
     /// List showing all the debit orders
     internal lazy var tableView: UITableView = {
         let tableView: UITableView = UITableView()
+        tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(cellType: DebitOrderCell.self)
+        tableView.register(cellType: PrepaidElectricityCell.self)
         tableView.register(cellType: BlankTableCell.self)
         tableView.tableFooterView = UIView()
         return tableView

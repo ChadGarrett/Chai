@@ -12,7 +12,12 @@ import NotificationBannerSwift
 final class BannerService {
     static let shared = BannerService()
     
-    /// Displays a success banner
+    internal func showStatusBarBanner(title: String, style: BannerStyle) {
+        let banner = StatusBarNotificationBanner(title: title, style: style)
+        banner.dismissOnSwipeUp = true
+        banner.show()
+    }
+    
     internal func showBanner(title: String, subtitle: String? = nil, style: BannerStyle) {
         let banner = NotificationBanner(title: title, subtitle: subtitle, style: style)
         banner.dismissOnSwipeUp = true

@@ -11,7 +11,7 @@ import SwiftyBeaver
 import SwiftyJSON
 
 final class DebitOrderDataService: APIService {
-    public static func getAllDebitOrders() {
+    public static func fetchDebitOrders() {
         SwiftyBeaver.info("Fetching all debit orders.")
         AF.request(Endpoints.debitOrders, method: .get, headers: headers).validate().responseJSON { (response) in
             switch response.result {
@@ -38,7 +38,7 @@ final class DebitOrderDataService: APIService {
                     return debitOrder
                 }) ?? []
 
-                BannerService.shared.showBanner(title: "Synced debit orders", subtitle: "Last sync: TODO", style: .success)
+                BannerService.shared.showStatusBarBanner(title: "Synced debit orders", style: .success)
                 SwiftyBeaver.verbose("Debit orders: \(debitOrders)")
                 DebitOrderContext.shared.syncDebitOrders(debitOrders)
             }

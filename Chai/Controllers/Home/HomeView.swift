@@ -32,10 +32,12 @@ final class HomeView: AppView {
     private func setupSubviews() {
         self.addSubview(self.stkButtons)
         
-        self.stkButtons.addArrangedSubview(self.btnRemind)
-        self.stkButtons.addArrangedSubview(self.btnAttention)
-        self.stkButtons.addArrangedSubview(self.btnMood)
-        self.stkButtons.addArrangedSubview(self.btnMemories)
+//        self.stkButtons.addArrangedSubview(self.btnRemind)
+//        self.stkButtons.addArrangedSubview(self.btnAttention)
+//        self.stkButtons.addArrangedSubview(self.btnMood)
+//        self.stkButtons.addArrangedSubview(self.btnMemories)
+        self.stkButtons.addArrangedSubview(self.btnDebitOrders)
+        self.stkButtons.addArrangedSubview(self.btnPrepaidElectricity)
     }
     
     private func setupLayout() {
@@ -88,6 +90,20 @@ final class HomeView: AppView {
         button.backgroundColor = Style.colors.wetAsphalt
         return button
     }()
+    
+    private lazy var btnDebitOrders: GenericButton = {
+        let button = GenericButton("Debit Orders")
+        button.addTarget(self, action: #selector(onDebitOrders), for: .touchUpInside)
+        button.backgroundColor = Style.colors.ecstasy
+        return button
+    }()
+    
+    private lazy var btnPrepaidElectricity: GenericButton = {
+        let button = GenericButton("Electricity")
+        button.addTarget(self, action: #selector(onPrepaidElectricity), for: .touchUpInside)
+        button.backgroundColor = Style.colors.nephritis
+        return button
+    }()
 }
 
 // Actions
@@ -110,5 +126,13 @@ extension HomeView {
     
     @objc private func onMovies() {
         self.delegate?.onMovies()
+    }
+    
+    @objc private func onDebitOrders() {
+        self.delegate?.onDebitOrders()
+    }
+    
+    @objc private func onPrepaidElectricity() {
+        self.delegate?.onPrepaidElectricity()
     }
 }

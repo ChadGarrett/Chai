@@ -16,6 +16,8 @@ protocol HomeControllerDelegate: class {
     func onMood()
     func onMemories()
     func onMovies()
+    func onDebitOrders()
+    func onPrepaidElectricity()
 }
 
 final class HomeViewController: AppViewController {
@@ -48,33 +50,47 @@ final class HomeViewController: AppViewController {
 
 extension HomeViewController: HomeControllerDelegate {
     func onRemind() {
-        SwiftyBeaver.info("Tapped on remind.")
+        SwiftyBeaver.debug("Tapped on remind.")
         
         let controller = ReminderViewController()
         self.route(to: controller)
     }
     
     func onAttention() {
-        SwiftyBeaver.info("Tapped on attention.")
+        SwiftyBeaver.debug("Tapped on attention.")
         
         let controller = AttentionViewController()
         self.route(to: controller)
     }
     
     func onMood() {
-        SwiftyBeaver.info("Tapped on mood.")
+        SwiftyBeaver.debug("Tapped on mood.")
         
         let controller = MoodViewController()
         self.route(to: controller)
     }
     
     func onMemories() {
-        SwiftyBeaver.info("Tapped on memories.")
+        SwiftyBeaver.debug("Tapped on memories.")
         
         BannerService.shared.showNotImplementedBanner()
     }
     
     func onMovies() {
-        SwiftyBeaver.info("Tapped on movies.")
+        SwiftyBeaver.debug("Tapped on movies.")
+        
+        BannerService.shared.showNotImplementedBanner()
+    }
+    
+    func onDebitOrders() {
+        SwiftyBeaver.debug("Tapped on debit order.")
+        
+        self.route(to: DebitOrderViewController())
+    }
+    
+    func onPrepaidElectricity() {
+        SwiftyBeaver.debug("Tapped on prepaid electricity.")
+        
+        self.route(to: PrepaidElectricityController())
     }
 }
