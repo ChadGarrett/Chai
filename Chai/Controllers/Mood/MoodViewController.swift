@@ -14,7 +14,7 @@ protocol MoodControllerDelegate: class {
     func onMoodChange(to value: Float)
 }
 
-final class MoodViewController: AppViewController {
+final class MoodViewController: BaseViewController {
     
     private lazy var moodView: MoodView = {
         let view = MoodView()

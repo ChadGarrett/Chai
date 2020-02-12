@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DebitOrderView: AppView {
+final class DebitOrderView: BaseView {
     
     override func setupView() {
         super.setupView()

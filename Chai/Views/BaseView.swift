@@ -1,5 +1,5 @@
 //
-//  Appview.swift
+//  BaseView.swift
 //  Chai
 //
 //  Created by Chad Garrett on 2019/03/11.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AppView: UIView {
+class BaseView: UIView {
     
     convenience init() {
         self.init(frame: .zero)

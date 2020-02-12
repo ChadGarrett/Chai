@@ -9,7 +9,7 @@
 import UIKit
 
 /// A table view cell that shows loading text, to be used when fetching data
-final class LoadingTableCell: AppTableViewCell {
+final class LoadingTableCell: BaseTableViewCell {
 
     // MARK: Setup
     

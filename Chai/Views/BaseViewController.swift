@@ -1,5 +1,5 @@
 //
-//  AppViewController.swift
+//  BaseViewController.swift
 //  Chai
 //
 //  Created by Chad Garrett on 2019/03/11.
@@ -10,7 +10,7 @@ import PureLayout
 import Rswift
 import UIKit
 
-class AppViewController: UIViewController {
+class BaseViewController: UIViewController {
     public init() {
         super.init(nibName: nil, bundle: nil)
     }

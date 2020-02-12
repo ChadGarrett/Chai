@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import FontAwesome_swift
 
-final class HomeView: AppView {
+final class HomeView: BaseView {
     
     // Delegate
     
@@ -32,7 +32,6 @@ final class HomeView: AppView {
     private func setupSubviews() {
         self.addSubview(self.stkButtons)
         
-//        self.stkButtons.addArrangedSubview(self.btnRemind)
 //        self.stkButtons.addArrangedSubview(self.btnAttention)
 //        self.stkButtons.addArrangedSubview(self.btnMood)
 //        self.stkButtons.addArrangedSubview(self.btnMemories)
@@ -54,13 +53,6 @@ final class HomeView: AppView {
         stackView.distribution = .fillEqually
         stackView.spacing = Style.padding.s
         return stackView
-    }()
-    
-    private lazy var btnRemind: GenericButton = {
-        let button = GenericButton(R.string.localizable.button_remind())
-        button.addTarget(self, action: #selector(onRemind), for: .touchUpInside)
-        button.backgroundColor = Style.colors.jaffa
-        return button
     }()
     
     private lazy var btnAttention: GenericButton = {
@@ -108,10 +100,6 @@ final class HomeView: AppView {
 
 // Actions
 extension HomeView {
-    @objc private func onRemind() {
-        self.delegate?.onRemind()
-    }
-    
     @objc private func onAttention() {
         self.delegate?.onAttention()
     }

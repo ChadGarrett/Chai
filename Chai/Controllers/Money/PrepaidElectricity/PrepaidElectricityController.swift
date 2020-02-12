@@ -9,7 +9,7 @@
 import RealmSwift
 import SwiftyBeaver
 
-final class PrepaidElectricityController: AppViewController {
+final class PrepaidElectricityController: BaseViewController {
     
     // MARK: Properties
     

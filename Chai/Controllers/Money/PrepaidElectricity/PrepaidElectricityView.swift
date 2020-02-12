@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PrepaidElectricityView: AppView {
+final class PrepaidElectricityView: BaseView {
     override func setupView() {
         super.setupView()
         

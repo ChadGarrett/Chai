@@ -13,7 +13,7 @@ protocol AttentionViewDelegate: class {
     func onAskForAttention(of type: AttentionType)
 }
 
-final class AttentionViewController: AppViewController {
+final class AttentionViewController: BaseViewController {
 
     private lazy var attentionView: AttentionView = {
         let view = AttentionView()

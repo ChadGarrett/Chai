@@ -6,18 +6,12 @@
   Copyright © 2019 Chad Garrett. All rights reserved.
 */
 
-// Names of users
-"first_name_ime" = "Imé";
-"last_name_ime" = "du Plessis";
-"first_name_chad" = "Chad";
-"last_name_chad" = "Garrett";
-
 // Titles
 "title_home" = "Home";
-"title_reminders" = "Chores";
 "title_attention" = "Attention";
 "title_mood" = "Mood";
 "title_debit_orders" = "Debit Orders";
+"title_prepaid_electricity" = "Prepaid Electricity";
 
 // Buttons
 "button_add" = "Add";
@@ -46,13 +40,7 @@
 "mood_category_unknown" = "Unknown";
 
 // Headings
-"heading_add_reminder" = "Add a Reminder";
 "heading_mood" = "Current mood";
-
-// Text field placeholders
-"placeholder_add_reminder" = "What is there to do?";
-"placeholder_reminder_person_responsible" = "Who should do this?";
-"placeholder_reminder_date" = "Set a date and time";
 
 // Misc
 "mood_explanation" = "Slide the scale to indicate how you are currently feeling. The mood-o-meter will sync when you go back. When I check our app and see your mood is low, I'll know that either I messed up or that just generally things could be better.";

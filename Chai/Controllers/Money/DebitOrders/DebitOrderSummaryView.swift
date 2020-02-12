@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DebitOrderSummaryView: AppView {
+final class DebitOrderSummaryView: BaseView {
     
     // MARK: Setup
     

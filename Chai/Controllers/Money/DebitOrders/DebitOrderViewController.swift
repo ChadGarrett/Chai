@@ -11,7 +11,7 @@ import RealmSwift
 import SwiftyBeaver
 
 /// Controller to view and manage debit orders
-final class DebitOrderViewController: AppViewController {
+final class DebitOrderViewController: BaseViewController {
     
     // MARK: Properties
     

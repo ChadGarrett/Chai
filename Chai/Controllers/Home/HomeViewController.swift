@@ -11,7 +11,6 @@ import SwiftyBeaver
 import Rswift
 
 protocol HomeControllerDelegate: class {
-    func onRemind()
     func onAttention()
     func onMood()
     func onMemories()
@@ -20,7 +19,7 @@ protocol HomeControllerDelegate: class {
     func onPrepaidElectricity()
 }
 
-final class HomeViewController: AppViewController {
+final class HomeViewController: BaseViewController {
     
     private lazy var homeView: HomeView = {
         let view = HomeView()
@@ -49,13 +48,6 @@ final class HomeViewController: AppViewController {
 }
 
 extension HomeViewController: HomeControllerDelegate {
-    func onRemind() {
-        SwiftyBeaver.debug("Tapped on remind.")
-        
-        let controller = ReminderViewController()
-        self.route(to: controller)
-    }
-    
     func onAttention() {
         SwiftyBeaver.debug("Tapped on attention.")
         

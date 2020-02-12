@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AttentionView: AppView {
+final class AttentionView: BaseView {
     
     // Delegate
     

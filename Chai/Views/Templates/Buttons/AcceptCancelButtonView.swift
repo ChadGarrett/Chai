@@ -14,7 +14,7 @@ protocol AcceptCancelButtonDelegate: class {
 }
 
 /// A side by side Accept and Cancel button
-final class AcceptCancelButtonView: AppView {
+final class AcceptCancelButtonView: BaseView {
     
     // Delegate
     

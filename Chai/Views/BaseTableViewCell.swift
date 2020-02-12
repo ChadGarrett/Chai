@@ -1,5 +1,5 @@
 //
-//  AppTableViewCell.swift
+//  BaseTableViewCell.swift
 //  Chai
 //
 //  Created by Chad Garrett on 2020/02/11.
@@ -8,7 +8,7 @@
 
 import Reusable
 
-class AppTableViewCell: UITableViewCell, Reusable {
+class BaseTableViewCell: UITableViewCell, Reusable {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

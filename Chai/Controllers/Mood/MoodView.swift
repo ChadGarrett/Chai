@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MoodView: AppView {
+final class MoodView: BaseView {
     
     // Delegate
     

@@ -8,7 +8,7 @@
 
 import Reusable
 
-final class DebitOrderCell: AppTableViewCell {
+final class DebitOrderCell: BaseTableViewCell {
     
     // MARK: Setup
     
