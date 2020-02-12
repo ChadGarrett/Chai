@@ -70,9 +70,21 @@ struct Style {
         public static let lynchColor: UIColor = UIColor(red: 0.42, green: 0.48, blue: 0.54, alpha: 1.0)
     }
     
+    // MARK: Text styles
+    
+    static let centerParagraphStyle: NSMutableParagraphStyle = {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        return paragraph
+    }()
+    
     static let heading_1: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: Style.fontSize.l)]
     static let heading_2: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Style.fontSize.m)]
     static let heading_3: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Style.fontSize.s)]
     
     static let body: [NSAttributedString.Key: Any] = [:]
+    static let body_center: [NSAttributedString.Key: Any] = [
+        .foregroundColor: UIColor.darkGray,
+        .paragraphStyle: centerParagraphStyle
+    ]
 }

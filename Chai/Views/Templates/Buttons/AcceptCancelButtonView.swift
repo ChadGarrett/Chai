@@ -13,6 +13,7 @@ protocol AcceptCancelButtonDelegate: class {
     func onCancelButton()
 }
 
+/// A side by side Accept and Cancel button
 final class AcceptCancelButtonView: AppView {
     
     // Delegate

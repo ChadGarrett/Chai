@@ -11,6 +11,10 @@ import UIKit
 
 class AppView: UIView {
     
+    convenience init() {
+        self.init(frame: .zero)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
