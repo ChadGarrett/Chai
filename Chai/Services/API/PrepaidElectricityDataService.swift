@@ -39,7 +39,7 @@ final class PrepaidElectricityDataService: APIService {
                     return electricity
                 }) ?? []
                 
-                BannerService.shared.showBanner(title: "Synced electricities", subtitle: "Last sync: TODO", style: .success)
+                BannerService.shared.showStatusBarBanner(title: "Synced electricities", style: .success)
                 SwiftyBeaver.verbose("Electricties: \(purchases)")
                 PrepaidElectricityContext.shared.syncPrepaidElectricity(purchases)
             }

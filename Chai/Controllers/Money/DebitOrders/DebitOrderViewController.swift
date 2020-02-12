@@ -73,6 +73,7 @@ final class DebitOrderViewController: AppViewController {
     
     @objc private func onRefresh() {
         SwiftyBeaver.info("Manually refreshing data.")
+        self.debitOrderView.vwSummary.updateData()
         self.fetchData()
     }
 }

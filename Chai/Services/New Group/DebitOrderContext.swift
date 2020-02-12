@@ -54,7 +54,7 @@ final class DebitOrderContext: DBManager {
     }
     
     internal func getDebitOrders() -> Results<DebitOrder> {
-        let results: Results<DebitOrder> = self.database.objects(DebitOrder.self)
+        let results: Results<DebitOrder> = self.database.objects(DebitOrder.self).sorted(byKeyPath: "amount")
         return results
     }
     

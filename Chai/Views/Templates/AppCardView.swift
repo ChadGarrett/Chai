@@ -17,6 +17,7 @@ final class AppCardView: UIView {
         self.layer.masksToBounds = true
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 0.5
+        self.addDropShadow()
         
         // TODO - technical debt - consider just addDropShadow()ing here and removing it everywhere else
     }

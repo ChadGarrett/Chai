@@ -13,12 +13,19 @@ final class DebitOrderView: AppView {
     override func setupView() {
         super.setupView()
         
+        self.addSubview(self.vwSummary)
         self.addSubview(self.tableView)
         
-        self.tableView.autoPinEdgesToSuperviewSafeArea()
+        self.vwSummary.autoPinEdge(toSuperviewSafeArea: .top, withInset: Style.padding.s)
+        self.vwSummary.autoPinEdges(toSuperviewEdges: [.left, .right], withInset: Style.padding.s)
+        
+        self.tableView.autoPinEdge(.top, to: .bottom, of: self.vwSummary, withOffset: Style.padding.s)
+        self.tableView.autoPinEdges(toSuperviewEdges: [.left, .right, .bottom])
     }
     
     // MARK: Subviews
+    
+    internal lazy var vwSummary: DebitOrderSummaryView = DebitOrderSummaryView()
     
     /// List showing all the debit orders
     internal lazy var tableView: UITableView = {

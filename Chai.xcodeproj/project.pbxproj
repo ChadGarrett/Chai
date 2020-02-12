@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C14364320B82766E8C00609B /* Pods_ChaiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942ECA67895B00322F6590D /* Pods_ChaiTests.framework */; };
-		C1B4CFB274BCF1B159884353 /* Pods_Chai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */; };
 		E52E012E23F14563001D48F5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E012D23F14563001D48F5 /* R.generated.swift */; };
 		E52E846923F2C26A00B6591A /* DebitOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */; };
 		E52E846B23F2C28F00B6591A /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846A23F2C28F00B6591A /* SavingsViewController.swift */; };
@@ -29,6 +28,8 @@
 		E52E849023F41A3C00B6591A /* PrepaidElectricityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848F23F41A3C00B6591A /* PrepaidElectricityView.swift */; };
 		E52E849223F41C8800B6591A /* PrepaidElectricityContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E849123F41C8800B6591A /* PrepaidElectricityContext.swift */; };
 		E52E849423F41E8000B6591A /* PrepaidElectricityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E849323F41E8000B6591A /* PrepaidElectricityCell.swift */; };
+		E53DA5E223F44BC1000D0914 /* DebitOrderSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA5E123F44BC1000D0914 /* DebitOrderSummaryView.swift */; };
+		E53DA5E723F44DD9000D0914 /* Pods_Chai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */; };
 		E585F3D5223AF60B00AC012B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3D4223AF60B00AC012B /* HomeView.swift */; };
 		E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C29A022365D3B00F28A90 /* AppDelegate.swift */; };
 		E59C29A822365D3C00F28A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A622365D3C00F28A90 /* Main.storyboard */; };
@@ -111,6 +112,8 @@
 		E52E848F23F41A3C00B6591A /* PrepaidElectricityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityView.swift; sourceTree = "<group>"; };
 		E52E849123F41C8800B6591A /* PrepaidElectricityContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityContext.swift; sourceTree = "<group>"; };
 		E52E849323F41E8000B6591A /* PrepaidElectricityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityCell.swift; sourceTree = "<group>"; };
+		E53DA5E123F44BC1000D0914 /* DebitOrderSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderSummaryView.swift; sourceTree = "<group>"; };
+		E53DA5E323F44DC4000D0914 /* Aardvark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Aardvark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E585F3D4223AF60B00AC012B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E59C299D22365D3B00F28A90 /* Chai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59C29A022365D3B00F28A90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,7 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1B4CFB274BCF1B159884353 /* Pods_Chai.framework in Frameworks */,
+				E53DA5E723F44DD9000D0914 /* Pods_Chai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +199,7 @@
 		821F4327D233744D51BF692C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E53DA5E323F44DC4000D0914 /* Aardvark.framework */,
 				E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */,
 				4942ECA67895B00322F6590D /* Pods_ChaiTests.framework */,
 			);
@@ -218,6 +222,7 @@
 				E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */,
 				E52E846C23F2C29E00B6591A /* DebitOrderView.swift */,
 				E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */,
+				E53DA5E123F44BC1000D0914 /* DebitOrderSummaryView.swift */,
 			);
 			path = DebitOrders;
 			sourceTree = "<group>";
@@ -711,6 +716,7 @@
 				E52E848A23F413BC00B6591A /* PrepaidElectricityController.swift in Sources */,
 				E5B515A122D367B800B36BE3 /* ReminderView.swift in Sources */,
 				E5C760CF232F645C0001886C /* LoggingService.swift in Sources */,
+				E53DA5E223F44BC1000D0914 /* DebitOrderSummaryView.swift in Sources */,
 				E5BB546A22D76A0300206F82 /* String+Kalido.swift in Sources */,
 				E52E848723F4078700B6591A /* APIService.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* Array+App.swift in Sources */,

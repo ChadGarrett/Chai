@@ -72,13 +72,40 @@ struct Style {
     
     // MARK: Text styles
     
+    static let leftParagraphStyle: NSMutableParagraphStyle = {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .left
+        return paragraph
+    }()
+    
     static let centerParagraphStyle: NSMutableParagraphStyle = {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
         return paragraph
     }()
     
-    static let heading_1: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: Style.fontSize.l)]
+    static let rightParagraphStyle: NSMutableParagraphStyle = {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .right
+        return paragraph
+    }()
+    
+    static let heading_1: [NSAttributedString.Key: Any] = [
+        NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: Style.fontSize.l),
+        NSAttributedString.Key.paragraphStyle: leftParagraphStyle
+    ]
+    
+    static let heading_1_center: [NSAttributedString.Key: Any] = [
+        NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: Style.fontSize.l),
+        NSAttributedString.Key.paragraphStyle: centerParagraphStyle
+    ]
+    
+    static let heading_1_right: [NSAttributedString.Key: Any] = [
+        NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: Style.fontSize.l),
+        NSAttributedString.Key.paragraphStyle: rightParagraphStyle
+    ]
+    
+    
     static let heading_2: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Style.fontSize.m)]
     static let heading_3: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Style.fontSize.s)]
     

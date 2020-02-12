@@ -52,7 +52,7 @@ final class PrepaidElectricityCell: AppTableViewCell {
         if let buyer = text.nonEmpty {
             self.lblBuyer.attributedText = NSAttributedString(
                 string: buyer,
-                attributes: Style.heading_1)
+                attributes: Style.heading_1_right)
         }
     }
     
