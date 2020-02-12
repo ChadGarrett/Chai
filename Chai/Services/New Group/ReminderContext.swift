@@ -15,15 +15,17 @@ final class ReminderContext: DBManager {
     
     /// Adds a Reminder to the database
     /// - Parameter reminder: The reminder to be added to the database
-    internal func addReminder(reminder: Reminder) {
+    @discardableResult internal func addReminder(reminder: Reminder) -> Bool {
         do {
             try database.write { [weak self] in
                 reminder.id = UUID().uuidString
                 self?.database.add(reminder, update: .all)
                 SwiftyBeaver.verbose("Added reminder to database: \(reminder)")
             }
+            return true
         } catch let error {
             SwiftyBeaver.error("Unable to add new reminder.", error.localizedDescription)
+            return false
         }
     }
     
@@ -32,6 +34,13 @@ final class ReminderContext: DBManager {
     internal func getReminders() -> Results<Reminder> {
         let results: Results<Reminder> = self.database.objects(Reminder.self)
         return results
+    }
+    
+    /// Returns a reminder for the given ID
+    /// - Parameter id: Unique identifier of the reminder
+    internal func getReminder(by id: Int) -> Reminder? {
+        let result = self.database.object(ofType: Reminder.self, forPrimaryKey: id)
+        return result
     }
     
     /// Returns an individual reminder based on it's index
@@ -45,14 +54,19 @@ final class ReminderContext: DBManager {
         return item
     }
     
-    internal func deleteReminder(reminder: Reminder) {
+    /// Deletes the given reminder if it exists
+    /// - Parameter reminder: Returns true if the reminder was deleted, false otherwise
+    @discardableResult internal func deleteReminder(reminder: Reminder) -> Bool {
         do {
             SwiftyBeaver.verbose("Deleting reminder: \(reminder)")
             try self.database.write { [weak self] in
                 self?.database.delete(reminder)
             }
+            return true
+            
         } catch let error {
             SwiftyBeaver.error("Unable to delete reminder.", error.localizedDescription)
+            return false
         }
     }
     
