@@ -15,8 +15,10 @@ target 'Chai' do
   pod 'AttributedStringBuilder'
   
   # Data
+  pod 'Alamofire', '~> 5.0.0-rc.3'
   pod 'RealmSwift'
   pod 'R.swift'
+  pod 'SwiftyJSON'
   
   # Debuging and Logging
   pod 'Aardvark'

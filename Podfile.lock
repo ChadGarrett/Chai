@@ -1,6 +1,7 @@
 PODS:
   - Aardvark (3.4.1):
     - CoreAardvark (~> 2.0)
+  - Alamofire (5.0.0-rc.3)
   - AttributedStringBuilder (1.1)
   - CoreAardvark (2.2.1)
   - FontAwesome.swift (1.7.1)
@@ -24,9 +25,11 @@ PODS:
   - Reusable/View (4.0.5)
   - SnapKit (5.0.0)
   - SwiftyBeaver (1.7.0)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Aardvark
+  - Alamofire (~> 5.0.0-rc.3)
   - AttributedStringBuilder
   - FontAwesome.swift
   - NotificationBannerSwift
@@ -35,6 +38,7 @@ DEPENDENCIES:
   - RealmSwift
   - Reusable
   - SwiftyBeaver
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -47,14 +51,18 @@ SPEC REPOS:
     - PureLayout
     - R.swift
     - R.swift.Library
-    - Realm
     - RealmSwift
     - Reusable
     - SnapKit
     - SwiftyBeaver
+  trunk:
+    - Alamofire
+    - Realm
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Aardvark: 5f21b5bdacbcd70507fc8855d18db0464440ca93
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   AttributedStringBuilder: 974bb0a88ec8fa5f33fc9861ad13815451ebf651
   CoreAardvark: c7d15935caf9285c4d48b3f5ddc3c1cb82c19718
   FontAwesome.swift: 8d9792fa2d2347055da35bd97752b3960bd75952
@@ -68,7 +76,8 @@ SPEC CHECKSUMS:
   Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 51716534ea6aeefafde77b4951890203fa3430a9
+PODFILE CHECKSUM: 30cb178bda052d711c63a37e6b67a288e0692fb6
 
 COCOAPODS: 1.8.4
