@@ -4,7 +4,6 @@ PODS:
   - Alamofire (5.0.0-rc.3)
   - AttributedStringBuilder (1.1)
   - CoreAardvark (2.2.1)
-  - FontAwesome.swift (1.7.1)
   - MarqueeLabel (4.0.0)
   - NotificationBannerSwift (2.2.2):
     - MarqueeLabel (~> 4.0.0)
@@ -31,7 +30,6 @@ DEPENDENCIES:
   - Aardvark
   - Alamofire (~> 5.0.0-rc.3)
   - AttributedStringBuilder
-  - FontAwesome.swift
   - NotificationBannerSwift
   - PureLayout
   - R.swift
@@ -42,10 +40,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Aardvark
     - AttributedStringBuilder
-    - CoreAardvark
-    - FontAwesome.swift
     - MarqueeLabel
     - NotificationBannerSwift
     - PureLayout
@@ -56,7 +51,9 @@ SPEC REPOS:
     - SnapKit
     - SwiftyBeaver
   trunk:
+    - Aardvark
     - Alamofire
+    - CoreAardvark
     - Realm
     - SwiftyJSON
 
@@ -65,7 +62,6 @@ SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   AttributedStringBuilder: 974bb0a88ec8fa5f33fc9861ad13815451ebf651
   CoreAardvark: c7d15935caf9285c4d48b3f5ddc3c1cb82c19718
-  FontAwesome.swift: 8d9792fa2d2347055da35bd97752b3960bd75952
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
   NotificationBannerSwift: 2d46cc1b4a0ebf4372baef383f2a2ca82bf0c235
   PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
@@ -78,6 +74,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 30cb178bda052d711c63a37e6b67a288e0692fb6
+PODFILE CHECKSUM: 47f1e9779862f90105e1d606901f89b5a3981892
 
 COCOAPODS: 1.8.4
