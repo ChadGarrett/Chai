@@ -47,11 +47,13 @@ final class PrepaidElectricityController: BaseViewController {
     // MARK: Data
     
     private lazy var dataProvider: BaseDataProvider<PrepaidElectricity> = {
-        return BaseDataProvider<PrepaidElectricity>(
+        let provider = BaseDataProvider<PrepaidElectricity>(
             bindTo: .tableView(self.prepaidElectricityView.tableView),
             basePredicate: NSPredicate(value: true),
             filter: NSPredicate(value: true),
             sort: [])
+        provider.updateDelegate = self
+        return provider
     }()
     
     private func setupTableDataDependencies() {
@@ -100,5 +102,13 @@ extension PrepaidElectricityController: UITableViewDelegate {
             else { return }
         
         SwiftyBeaver.verbose("Selected: \(electricity)")
+    }
+}
+
+extension PrepaidElectricityController: DataProviderUpdateDelegate {
+    func providerDataDidUpdate<F>(_ provider: BaseDataProvider<F>) where F : BaseObject {
+        if provider === self.dataProvider {
+            SwiftyBeaver.info("Prepaid electricity data did update.")
+        }
     }
 }

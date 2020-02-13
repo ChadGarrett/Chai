@@ -53,11 +53,13 @@ final class DebitOrderViewController: BaseViewController {
     // MARK: Data
     
     private lazy var dataProvider: BaseDataProvider<DebitOrder> = {
-        return BaseDataProvider<DebitOrder>(
+        let provider = BaseDataProvider<DebitOrder>(
             bindTo: .tableView(self.debitOrderView.tableView),
             basePredicate: NSPredicate(value: true),
             filter: NSPredicate(value: true),
             sort: [SortDescriptor(keyPath: "amount", ascending: false)])
+        provider.updateDelegate = self
+        return provider
     }()
     
     private func fetchData() {
@@ -105,5 +107,14 @@ extension DebitOrderViewController: UITableViewDelegate {
             else { return }
         
         SwiftyBeaver.debug("Tapped on \(debitOrder)")
+    }
+}
+
+extension DebitOrderViewController: DataProviderUpdateDelegate {
+    func providerDataDidUpdate<F>(_ provider: BaseDataProvider<F>) where F : BaseObject {
+        if provider === self.dataProvider {
+            SwiftyBeaver.info("Debit order data did update")
+            self.debitOrderView.vwSummary.updateData()
+        }
     }
 }

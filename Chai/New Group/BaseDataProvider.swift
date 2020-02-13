@@ -19,7 +19,7 @@ protocol DataProviderStateDelegate: class {
 }
 
 protocol DataProviderUpdateDelegate: class {
-    func providerDataDidUpdate() // TODO: Include the provider that was updated
+    func providerDataDidUpdate<F>(_ provider: BaseDataProvider<F>) // TODO: Include the provider that was updated
 }
 
 class BaseDataProvider<F: BaseObject> {
@@ -113,11 +113,15 @@ class BaseDataProvider<F: BaseObject> {
                     switch changes {
                     case .initial:
                         self?.bindTarget.handleInitialUpdate()
-                        self?.updateDelegate?.providerDataDidUpdate()
+                        if let provider = self {
+                            self?.updateDelegate?.providerDataDidUpdate(provider)
+                        }
                         
                     case .update(_, let deletes, let inserts, let changes):
                         self?.bindTarget.handleUpdates(deletes: deletes, inserts: inserts, changes: changes, limit: self?.limit)
-                        self?.updateDelegate?.providerDataDidUpdate()
+                        if let provider = self {
+                            self?.updateDelegate?.providerDataDidUpdate(provider)
+                        }
                         
                     case .error(let error):
                         fatalError("\(error)")
