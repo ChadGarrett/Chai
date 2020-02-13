@@ -86,7 +86,7 @@ final class MainView: BaseView {
     private lazy var btnDebitOrders: GenericButton = {
         let button = GenericButton("Debit Orders")
         button.addTarget(self, action: #selector(onDebitOrders), for: .touchUpInside)
-        button.backgroundColor = Style.colors.ecstasy
+        button.backgroundColor = Style.colors.pomegranate
         button.addDropShadow()
         return button
     }()
@@ -94,7 +94,7 @@ final class MainView: BaseView {
     private lazy var btnPrepaidElectricity: GenericButton = {
         let button = GenericButton("Electricity")
         button.addTarget(self, action: #selector(onPrepaidElectricity), for: .touchUpInside)
-        button.backgroundColor = Style.colors.nephritis
+        button.backgroundColor = Style.colors.sunflower
         button.addDropShadow()
         return button
     }()
@@ -102,7 +102,7 @@ final class MainView: BaseView {
     private lazy var btnSavings: GenericButton = {
         let button = GenericButton("Savings")
         button.addTarget(self, action: #selector(onSavings), for: .touchUpInside)
-        button.backgroundColor = Style.colors.monza
+        button.backgroundColor = Style.colors.nephritis
         button.addDropShadow()
         return button
     }()

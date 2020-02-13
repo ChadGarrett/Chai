@@ -73,7 +73,6 @@ final class DebitOrderViewController: BaseViewController {
     
     @objc private func onRefresh() {
         SwiftyBeaver.info("Manually refreshing data.")
-        self.debitOrderView.vwSummary.updateData()
         self.fetchData()
     }
 }
@@ -114,7 +113,9 @@ extension DebitOrderViewController: DataProviderUpdateDelegate {
     func providerDataDidUpdate<F>(_ provider: BaseDataProvider<F>) where F : BaseObject {
         if provider === self.dataProvider {
             SwiftyBeaver.info("Debit order data did update")
-            self.debitOrderView.vwSummary.updateData()
+            
+            let total: Double = self.dataProvider.query().reduce(0) { (count, item) -> Double in return count + item.amount }
+            self.debitOrderView.vwSummary.updateTotal(to: total)
         }
     }
 }

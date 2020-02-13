@@ -25,7 +25,7 @@ final class DebitOrderView: BaseView {
     
     // MARK: Subviews
     
-    internal lazy var vwSummary: DebitOrderSummaryView = DebitOrderSummaryView()
+    internal lazy var vwSummary: TotalSummaryView = TotalSummaryView()
     
     /// List showing all the debit orders
     internal lazy var tableView: UITableView = {

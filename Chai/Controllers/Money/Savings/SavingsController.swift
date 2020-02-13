@@ -25,8 +25,13 @@ final class SavingsController: BaseViewController {
         self.bindTableDelegateAndDataSource()
     }
     
+    deinit {
+        self.dataProvider.stop()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.dataProvider.start()
         self.fetchData()
     }
     
@@ -96,6 +101,8 @@ extension SavingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let saving = self.dataProvider.object(at: indexPath.row)
             else { return }
+        
+        SwiftyBeaver.verbose("Tapped on \(saving)")
     }
 }
 
@@ -103,7 +110,9 @@ extension SavingsController: DataProviderUpdateDelegate {
     func providerDataDidUpdate<F>(_ provider: BaseDataProvider<F>) where F : BaseObject {
         if provider === self.dataProvider {
             SwiftyBeaver.info("Savings data did update.")
-            // TODO: Update summary view
+            
+            let total: Double = self.dataProvider.query().reduce(0) { (count, item) -> Double in return count + item.amount }
+            self.vwSavings.vwSummary.updateTotal(to: total)
         }
     }
 }

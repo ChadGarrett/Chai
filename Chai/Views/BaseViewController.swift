@@ -13,6 +13,7 @@ import UIKit
 class BaseViewController: UIViewController {
     public init() {
         super.init(nibName: nil, bundle: nil)
+        self.view.backgroundColor = Style.colors.clouds
     }
     
     @available(*, unavailable,

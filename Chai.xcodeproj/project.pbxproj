@@ -28,7 +28,6 @@
 		E52E849023F41A3C00B6591A /* PrepaidElectricityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848F23F41A3C00B6591A /* PrepaidElectricityView.swift */; };
 		E52E849223F41C8800B6591A /* PrepaidElectricityContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E849123F41C8800B6591A /* PrepaidElectricityContext.swift */; };
 		E52E849423F41E8000B6591A /* PrepaidElectricityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E849323F41E8000B6591A /* PrepaidElectricityCell.swift */; };
-		E53DA5E223F44BC1000D0914 /* DebitOrderSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA5E123F44BC1000D0914 /* DebitOrderSummaryView.swift */; };
 		E53DA5E723F44DD9000D0914 /* Pods_Chai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */; };
 		E53DA63723F491AF000D0914 /* BaseDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA63623F491AF000D0914 /* BaseDataProvider.swift */; };
 		E53DA63923F497BA000D0914 /* ProviderQueryOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA63823F497BA000D0914 /* ProviderQueryOptions.swift */; };
@@ -40,6 +39,7 @@
 		E53DA64523F5192A000D0914 /* SavingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64423F5192A000D0914 /* SavingsCell.swift */; };
 		E53DA64723F52470000D0914 /* UIColor+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64623F52470000D0914 /* UIColor+App.swift */; };
 		E53DA64D23F53625000D0914 /* CGSize+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64C23F53625000D0914 /* CGSize+App.swift */; };
+		E53DA65123F5389A000D0914 /* TotalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65023F5389A000D0914 /* TotalSummaryView.swift */; };
 		E585F3D5223AF60B00AC012B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3D4223AF60B00AC012B /* MainView.swift */; };
 		E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C29A022365D3B00F28A90 /* AppDelegate.swift */; };
 		E59C29A822365D3C00F28A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A622365D3C00F28A90 /* Main.storyboard */; };
@@ -115,7 +115,6 @@
 		E52E848F23F41A3C00B6591A /* PrepaidElectricityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityView.swift; sourceTree = "<group>"; };
 		E52E849123F41C8800B6591A /* PrepaidElectricityContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityContext.swift; sourceTree = "<group>"; };
 		E52E849323F41E8000B6591A /* PrepaidElectricityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityCell.swift; sourceTree = "<group>"; };
-		E53DA5E123F44BC1000D0914 /* DebitOrderSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderSummaryView.swift; sourceTree = "<group>"; };
 		E53DA5E323F44DC4000D0914 /* Aardvark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Aardvark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53DA63623F491AF000D0914 /* BaseDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataProvider.swift; sourceTree = "<group>"; };
 		E53DA63823F497BA000D0914 /* ProviderQueryOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderQueryOptions.swift; sourceTree = "<group>"; };
@@ -127,6 +126,7 @@
 		E53DA64423F5192A000D0914 /* SavingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsCell.swift; sourceTree = "<group>"; };
 		E53DA64623F52470000D0914 /* UIColor+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+App.swift"; sourceTree = "<group>"; };
 		E53DA64C23F53625000D0914 /* CGSize+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+App.swift"; sourceTree = "<group>"; };
+		E53DA65023F5389A000D0914 /* TotalSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSummaryView.swift; sourceTree = "<group>"; };
 		E585F3D4223AF60B00AC012B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E59C299D22365D3B00F28A90 /* Chai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59C29A022365D3B00F28A90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,7 +228,6 @@
 				E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */,
 				E52E846C23F2C29E00B6591A /* DebitOrderView.swift */,
 				E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */,
-				E53DA5E123F44BC1000D0914 /* DebitOrderSummaryView.swift */,
 			);
 			path = DebitOrders;
 			sourceTree = "<group>";
@@ -433,6 +432,7 @@
 			children = (
 				E5B515A422D37A4600B36BE3 /* Buttons */,
 				E52E847623F2CF2200B6591A /* AppCardView.swift */,
+				E53DA65023F5389A000D0914 /* TotalSummaryView.swift */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -714,6 +714,7 @@
 				E5B5157D22CDC07600B36BE3 /* AppButton.swift in Sources */,
 				E52E846B23F2C28F00B6591A /* SavingsController.swift in Sources */,
 				E5B515BE22D4D49C00B36BE3 /* MoodCategory.swift in Sources */,
+				E53DA65123F5389A000D0914 /* TotalSummaryView.swift in Sources */,
 				E59C29CD2236667F00F28A90 /* BaseView.swift in Sources */,
 				E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */,
 				E5B5158122CDC1FD00B36BE3 /* UIView+App.swift in Sources */,
@@ -721,7 +722,6 @@
 				E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */,
 				E52E848A23F413BC00B6591A /* PrepaidElectricityController.swift in Sources */,
 				E5C760CF232F645C0001886C /* LoggingService.swift in Sources */,
-				E53DA5E223F44BC1000D0914 /* DebitOrderSummaryView.swift in Sources */,
 				E5BB546A22D76A0300206F82 /* String+Kalido.swift in Sources */,
 				E52E848723F4078700B6591A /* APIService.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* Array+App.swift in Sources */,

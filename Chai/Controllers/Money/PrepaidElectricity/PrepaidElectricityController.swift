@@ -42,6 +42,7 @@ final class PrepaidElectricityController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dataProvider.start()
+        self.fetchData()
     }
     
     // MARK: Data
