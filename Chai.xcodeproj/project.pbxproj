@@ -39,6 +39,7 @@
 		E53DA64323F510E2000D0914 /* SavingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64223F510E2000D0914 /* SavingContext.swift */; };
 		E53DA64523F5192A000D0914 /* SavingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64423F5192A000D0914 /* SavingsCell.swift */; };
 		E53DA64723F52470000D0914 /* UIColor+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64623F52470000D0914 /* UIColor+App.swift */; };
+		E53DA64D23F53625000D0914 /* CGSize+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64C23F53625000D0914 /* CGSize+App.swift */; };
 		E585F3D5223AF60B00AC012B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3D4223AF60B00AC012B /* MainView.swift */; };
 		E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C29A022365D3B00F28A90 /* AppDelegate.swift */; };
 		E59C29A822365D3C00F28A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A622365D3C00F28A90 /* Main.storyboard */; };
@@ -125,6 +126,7 @@
 		E53DA64223F510E2000D0914 /* SavingContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingContext.swift; sourceTree = "<group>"; };
 		E53DA64423F5192A000D0914 /* SavingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsCell.swift; sourceTree = "<group>"; };
 		E53DA64623F52470000D0914 /* UIColor+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+App.swift"; sourceTree = "<group>"; };
+		E53DA64C23F53625000D0914 /* CGSize+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+App.swift"; sourceTree = "<group>"; };
 		E585F3D4223AF60B00AC012B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E59C299D22365D3B00F28A90 /* Chai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59C29A022365D3B00F28A90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				E5BB546922D76A0300206F82 /* String+Kalido.swift */,
 				E52E848023F4045600B6591A /* NumberFormatter+App.swift */,
 				E53DA64623F52470000D0914 /* UIColor+App.swift */,
+				E53DA64C23F53625000D0914 /* CGSize+App.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				E5B515BA22D4BBEE00B36BE3 /* BaseObject.swift in Sources */,
 				E59C29D122368B1000F28A90 /* StyleHelper.swift in Sources */,
 				E52E849423F41E8000B6591A /* PrepaidElectricityCell.swift in Sources */,
+				E53DA64D23F53625000D0914 /* CGSize+App.swift in Sources */,
 				E52E846923F2C26A00B6591A /* DebitOrderViewController.swift in Sources */,
 				E52E849223F41C8800B6591A /* PrepaidElectricityContext.swift in Sources */,
 				E5C760CD232F64010001886C /* BaseService.swift in Sources */,
