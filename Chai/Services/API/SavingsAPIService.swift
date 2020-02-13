@@ -11,13 +11,13 @@ import SwiftyBeaver
 import SwiftyJSON
 
 final class SavingsAPIService: APIService {
-    static func fetchSavings() {
+    static func fetchSavings(_ onCompletion: @escaping(Result<[Saving], Error>) -> Void) {
         SwiftyBeaver.info("Fetching all savings.")
         AF.request(Endpoints.savings, method: .get, headers: headers).validate().responseJSON { (response) in
             switch response.result {
             case .failure(let error):
                 SwiftyBeaver.error("Unable to fetch all savings.", error.localizedDescription)
-                BannerService.shared.showBanner(title: "Unable to fetch all savings", style: .danger)
+                onCompletion(.failure(error))
                 
             case .success(let result):
                 SwiftyBeaver.info("Succesfully fetched savings.")
@@ -37,9 +37,9 @@ final class SavingsAPIService: APIService {
                     return saving
                 }) ?? []
                 
-                BannerService.shared.showStatusBarBanner(title: "Synced savings", style: .success)
                 SwiftyBeaver.verbose("Savings: \(savings)")
                 SavingContext.shared.syncSavings(savings)
+                onCompletion(.success(savings))
             }
         }
     }

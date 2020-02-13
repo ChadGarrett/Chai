@@ -12,14 +12,14 @@ import SwiftyJSON
 
 final class PrepaidElectricityDataService: APIService {
     
-    static func fetchPrepaidElectricity() {
+    static func fetchPrepaidElectricity(_ onCompletion: @escaping(Result<[PrepaidElectricity], Error>) -> Void) {
         SwiftyBeaver.info("Fetching all prepaid electricity.")
         
         AF.request(Endpoints.electricity, method: .get, headers: headers).validate().responseJSON { (response) in
             switch response.result {
             case .failure(let error):
                 SwiftyBeaver.error("Unable to fetch prepaid electricity.", error.errorDescription ?? "")
-                BannerService.shared.showBanner(title: "Unable to fetch electricity.", style: .danger)
+                onCompletion(.failure(error))
 
             case .success(let result):
                 SwiftyBeaver.info("Succesfully fetched electricity.")
@@ -39,9 +39,9 @@ final class PrepaidElectricityDataService: APIService {
                     return electricity
                 }) ?? []
                 
-                BannerService.shared.showStatusBarBanner(title: "Synced electricities", style: .success)
                 SwiftyBeaver.verbose("Electricties: \(purchases)")
                 PrepaidElectricityContext.shared.syncPrepaidElectricity(purchases)
+                onCompletion(.success(purchases))
             }
         }
     }

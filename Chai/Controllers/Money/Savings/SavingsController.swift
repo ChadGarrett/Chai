@@ -64,7 +64,15 @@ final class SavingsController: BaseViewController {
     }()
     
     private func fetchData() {
-        SavingsAPIService.fetchSavings()
+        SavingsAPIService.fetchSavings() { (result) in
+            switch result {
+            case .failure:
+                BannerService.shared.showBanner(title: "Unable to fetch all savings", style: .danger)
+
+            case .success:
+                BannerService.shared.showStatusBarBanner(title: "Synced savings", style: .success)
+            }        
+        }
     }
     
     // MARK: Actions

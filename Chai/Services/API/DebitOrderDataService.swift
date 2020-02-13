@@ -11,13 +11,13 @@ import SwiftyBeaver
 import SwiftyJSON
 
 final class DebitOrderDataService: APIService {
-    public static func fetchDebitOrders() {
+    public static func fetchDebitOrders(_ onCompletion: @escaping(Result<[DebitOrder], Error>) -> Void) {
         SwiftyBeaver.info("Fetching all debit orders.")
         AF.request(Endpoints.debitOrders, method: .get, headers: headers).validate().responseJSON { (response) in
             switch response.result {
             case .failure(let error):
                 SwiftyBeaver.error("Unable to fetch all debit orders.", error.errorDescription ?? "")
-                BannerService.shared.showBanner(title: "Unable to fetch debit orders.", style: .danger)
+                onCompletion(.failure(error))
 
             case .success(let result):
                 SwiftyBeaver.info("Succesfully fetched debit orders.")
@@ -38,9 +38,10 @@ final class DebitOrderDataService: APIService {
                     return debitOrder
                 }) ?? []
 
-                BannerService.shared.showStatusBarBanner(title: "Synced debit orders", style: .success)
                 SwiftyBeaver.verbose("Debit orders: \(debitOrders)")
                 DebitOrderContext.shared.syncDebitOrders(debitOrders)
+                
+                onCompletion(.success(debitOrders))
             }
         }
     }

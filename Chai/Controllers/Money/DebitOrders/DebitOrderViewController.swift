@@ -48,6 +48,7 @@ final class DebitOrderViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dataProvider.start()
+        self.fetchData()
     }
     
     // MARK: Data
@@ -63,7 +64,15 @@ final class DebitOrderViewController: BaseViewController {
     }()
     
     private func fetchData() {
-        DebitOrderDataService.fetchDebitOrders()
+        DebitOrderDataService.fetchDebitOrders { (result) in
+            switch result {
+            case .failure:
+                BannerService.shared.showBanner(title: "Unable to fetch debit orders.", style: .danger)
+                
+            case .success:
+                BannerService.shared.showStatusBarBanner(title: "Synced debit orders", style: .success)
+            }
+        }
     }
     
     private lazy var btnRefresh: UIBarButtonItem = {

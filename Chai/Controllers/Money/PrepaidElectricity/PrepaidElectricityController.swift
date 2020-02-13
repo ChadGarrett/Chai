@@ -63,7 +63,15 @@ final class PrepaidElectricityController: BaseViewController {
     }
     
     private func fetchData() {
-        PrepaidElectricityDataService.fetchPrepaidElectricity()
+        PrepaidElectricityDataService.fetchPrepaidElectricity() { (result) in
+            switch result {
+            case .failure:
+                BannerService.shared.showBanner(title: "Unable to fetch electricity.", style: .danger)
+                
+            case .success:
+                BannerService.shared.showStatusBarBanner(title: "Synced electricities", style: .success)
+            }
+        }
     }
     
     // MARK: Actions
