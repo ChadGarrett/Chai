@@ -36,6 +36,7 @@ final class MainView: BaseView {
 //        self.stkButtons.addArrangedSubview(self.btnMemories)
         self.stkButtons.addArrangedSubview(self.btnDebitOrders)
         self.stkButtons.addArrangedSubview(self.btnPrepaidElectricity)
+        self.stkButtons.addArrangedSubview(self.btnSavings)
     }
     
     private func setupLayout() {
@@ -97,6 +98,14 @@ final class MainView: BaseView {
         button.addDropShadow()
         return button
     }()
+    
+    private lazy var btnSavings: GenericButton = {
+        let button = GenericButton("Savings")
+        button.addTarget(self, action: #selector(onSavings), for: .touchUpInside)
+        button.backgroundColor = Style.colors.monza
+        button.addDropShadow()
+        return button
+    }()
 }
 
 // Actions
@@ -123,5 +132,9 @@ extension MainView {
     
     @objc private func onPrepaidElectricity() {
         self.delegate?.onPrepaidElectricity()
+    }
+    
+    @objc private func onSavings() {
+        self.delegate?.onSavings()
     }
 }

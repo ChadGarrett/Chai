@@ -12,6 +12,7 @@
 "title_mood" = "Mood";
 "title_debit_orders" = "Debit Orders";
 "title_prepaid_electricity" = "Prepaid Electricity";
+"title_savings" = "Savings";
 
 // Buttons
 "button_add" = "Add";
@@ -45,3 +46,6 @@
 // Misc
 "mood_explanation" = "Slide the scale to indicate how you are currently feeling. The mood-o-meter will sync when you go back. When I check our app and see your mood is low, I'll know that either I messed up or that just generally things could be better.";
 "loading" = "Loading...";
+
+// Savings
+"savings_last_updated" = "Last updated: %@";

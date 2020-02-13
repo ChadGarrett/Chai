@@ -12,36 +12,6 @@ import SwiftyBeaver
 final class PrepaidElectricityContext: DBManager {
     static let shared = PrepaidElectricityContext()
     
-    /// Binds the given tableview to the data source
-    internal func bind(to tableView: UITableView) -> NotificationToken {
-        return self.getElectricity().observe { (changes: RealmCollectionChange) in
-            switch changes {
-            case .initial:
-                tableView.reloadData()
-                
-            case .update(_, let deletions, let insertions, let modifications):
-                tableView.beginUpdates()
-                
-                tableView.insertRows(
-                    at: insertions.map({ IndexPath(row: $0, section: 0)}),
-                    with: .automatic)
-                
-                tableView.deleteRows(
-                    at: deletions.map({ IndexPath(row: $0, section: 0)}),
-                    with: .automatic)
-                
-                tableView.reloadRows(
-                    at: modifications.map({ IndexPath(row: $0, section: 0)}),
-                    with: .automatic)
-                
-                tableView.endUpdates()
-                
-            case .error(let error):
-                SwiftyBeaver.error("Unable to update table.", error.localizedDescription)
-            }
-        }
-    }
-    
     internal func syncPrepaidElectricity(_ prepaidElectricity: [PrepaidElectricity]) {
         do {
             try database.write { [weak self] in

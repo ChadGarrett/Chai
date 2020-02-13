@@ -17,6 +17,7 @@ protocol MainControllerDelegate: class {
     func onMovies()
     func onDebitOrders()
     func onPrepaidElectricity()
+    func onSavings()
 }
 
 final class MainController: BaseViewController {
@@ -84,5 +85,11 @@ extension MainController: MainControllerDelegate {
         SwiftyBeaver.debug("Tapped on prepaid electricity.")
         
         self.route(to: PrepaidElectricityController())
+    }
+    
+    func onSavings() {
+        SwiftyBeaver.debug("Tapped on savings.")
+        
+        self.route(to: SavingsController())
     }
 }
