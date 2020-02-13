@@ -40,6 +40,8 @@
 		E53DA64723F52470000D0914 /* UIColor+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64623F52470000D0914 /* UIColor+App.swift */; };
 		E53DA64D23F53625000D0914 /* CGSize+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64C23F53625000D0914 /* CGSize+App.swift */; };
 		E53DA65123F5389A000D0914 /* TotalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65023F5389A000D0914 /* TotalSummaryView.swift */; };
+		E53DA65823F55ACD000D0914 /* MainMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65723F55ACD000D0914 /* MainMenuItemCell.swift */; };
+		E53DA65A23F55AEE000D0914 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65923F55AEE000D0914 /* BaseCollectionViewCell.swift */; };
 		E585F3D5223AF60B00AC012B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3D4223AF60B00AC012B /* MainView.swift */; };
 		E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C29A022365D3B00F28A90 /* AppDelegate.swift */; };
 		E59C29A822365D3C00F28A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A622365D3C00F28A90 /* Main.storyboard */; };
@@ -127,6 +129,8 @@
 		E53DA64623F52470000D0914 /* UIColor+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+App.swift"; sourceTree = "<group>"; };
 		E53DA64C23F53625000D0914 /* CGSize+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+App.swift"; sourceTree = "<group>"; };
 		E53DA65023F5389A000D0914 /* TotalSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSummaryView.swift; sourceTree = "<group>"; };
+		E53DA65723F55ACD000D0914 /* MainMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuItemCell.swift; sourceTree = "<group>"; };
+		E53DA65923F55AEE000D0914 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		E585F3D4223AF60B00AC012B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E59C299D22365D3B00F28A90 /* Chai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59C29A022365D3B00F28A90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 			children = (
 				E5B5157822CDC01F00B36BE3 /* MainController.swift */,
 				E585F3D4223AF60B00AC012B /* MainView.swift */,
+				E53DA65723F55ACD000D0914 /* MainMenuItemCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				E5B5157B22CDC06800B36BE3 /* Buttons */,
 				E59C29CA223665E400F28A90 /* BaseViewController.swift */,
 				E59C29CC2236667F00F28A90 /* BaseView.swift */,
+				E53DA65923F55AEE000D0914 /* BaseCollectionViewCell.swift */,
 				E52E847023F2C59200B6591A /* BaseTableViewCell.swift */,
 			);
 			path = Views;
@@ -684,6 +690,7 @@
 				E52E848C23F4140E00B6591A /* PrepaidElectricityDataService.swift in Sources */,
 				E53DA63723F491AF000D0914 /* BaseDataProvider.swift in Sources */,
 				E5BB546422D6543300206F82 /* AttentionType.swift in Sources */,
+				E53DA65823F55ACD000D0914 /* MainMenuItemCell.swift in Sources */,
 				E59C29CB223665E400F28A90 /* BaseViewController.swift in Sources */,
 				E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */,
 				E52E847523F2C7C500B6591A /* DebitOrder.swift in Sources */,
@@ -708,6 +715,7 @@
 				E53DA63B23F49AA6000D0914 /* DataProviderBindTarget.swift in Sources */,
 				E585F3D5223AF60B00AC012B /* MainView.swift in Sources */,
 				E5B515C022D4DA0300B36BE3 /* Mood.swift in Sources */,
+				E53DA65A23F55AEE000D0914 /* BaseCollectionViewCell.swift in Sources */,
 				E5B515A922D37E2000B36BE3 /* BlankTableCell.swift in Sources */,
 				E53DA63F23F50ED7000D0914 /* SavingsAPIService.swift in Sources */,
 				E53DA63D23F50D41000D0914 /* SavingsView.swift in Sources */,

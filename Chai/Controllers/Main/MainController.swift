@@ -10,17 +10,43 @@ import Foundation
 import SwiftyBeaver
 import Rswift
 
-protocol MainControllerDelegate: class {
-    func onAttention()
-    func onMood()
-    func onMemories()
-    func onMovies()
-    func onDebitOrders()
-    func onPrepaidElectricity()
-    func onSavings()
-}
-
 final class MainController: BaseViewController {
+    
+    enum MenuItem: Int, CaseIterable {
+        case debitOrders = 0
+        case prepaidElectricity
+        case savings
+        
+        var image: UIImage? {
+            switch self {
+            case .debitOrders: return R.image.flashlight()
+            case .prepaidElectricity: return R.image.flashlight()
+            case .savings: return R.image.flashlight()
+            }
+        }
+        
+        var title: String {
+            switch self {
+            case .debitOrders: return "Debit Orders"
+            case .prepaidElectricity: return "Electricity"
+            case .savings: return "Savings"
+            }
+        }
+        
+        var color: UIColor {
+            switch self {
+            case .debitOrders: return Style.colors.pomegranate
+            case .prepaidElectricity: return Style.colors.sunflower
+            case .savings: return Style.colors.nephritis
+            }
+        }
+    }
+    
+    private var menuItems: [MenuItem] = [
+        .debitOrders,
+        .prepaidElectricity,
+        .savings
+    ]
     
     private lazy var mainView: MainView = {
         let view = MainView()
@@ -48,48 +74,17 @@ final class MainController: BaseViewController {
     }
 }
 
-extension MainController: MainControllerDelegate {
-    func onAttention() {
-        SwiftyBeaver.debug("Tapped on attention.")
-        
-        let controller = AttentionViewController()
-        self.route(to: controller)
-    }
-    
-    func onMood() {
-        SwiftyBeaver.debug("Tapped on mood.")
-        
-        let controller = MoodViewController()
-        self.route(to: controller)
-    }
-    
-    func onMemories() {
-        SwiftyBeaver.debug("Tapped on memories.")
-        
-        BannerService.shared.showNotImplementedBanner()
-    }
-    
-    func onMovies() {
-        SwiftyBeaver.debug("Tapped on movies.")
-        
-        BannerService.shared.showNotImplementedBanner()
-    }
-    
-    func onDebitOrders() {
-        SwiftyBeaver.debug("Tapped on debit order.")
-        
-        self.route(to: DebitOrderViewController())
-    }
-    
-    func onPrepaidElectricity() {
-        SwiftyBeaver.debug("Tapped on prepaid electricity.")
-        
-        self.route(to: PrepaidElectricityController())
-    }
-    
-    func onSavings() {
-        SwiftyBeaver.debug("Tapped on savings.")
-        
-        self.route(to: SavingsController())
+extension MainController: MainViewDelegate {
+    func didSelect(_ menuItem: MainController.MenuItem) {
+        switch menuItem {
+        case .debitOrders:
+            self.route(to: DebitOrderViewController())
+            
+        case .prepaidElectricity:
+            self.route(to: PrepaidElectricityController())
+            
+        case .savings:
+            self.route(to: SavingsController())
+        }
     }
 }

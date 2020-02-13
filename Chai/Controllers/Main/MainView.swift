@@ -8,133 +8,90 @@
 
 import Foundation
 import UIKit
+import SwiftyBeaver
+
+protocol MainViewDelegate: class {
+    func didSelect(_ menuItem: MainController.MenuItem)
+}
 
 final class MainView: BaseView {
+    typealias MenuItem = MainController.MenuItem
     
-    // Delegate
+    // MARK: -Delegate
     
-    internal weak var delegate: MainControllerDelegate?
+    internal weak var delegate: MainViewDelegate?
     
-    // Setup
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    
-        self.setupSubviews()
-        self.setupLayout()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupSubviews() {
-        self.addSubview(self.stkButtons)
+    // MARK: -Setup
+    override func setupView() {
+        super.setupView()
         
-//        self.stkButtons.addArrangedSubview(self.btnAttention)
-//        self.stkButtons.addArrangedSubview(self.btnMood)
-//        self.stkButtons.addArrangedSubview(self.btnMemories)
-        self.stkButtons.addArrangedSubview(self.btnDebitOrders)
-        self.stkButtons.addArrangedSubview(self.btnPrepaidElectricity)
-        self.stkButtons.addArrangedSubview(self.btnSavings)
+        self.addSubview(self.collectionView)
+        self.collectionView.autoPinEdgesToSuperviewSafeArea()
     }
     
-    private func setupLayout() {
-        self.stkButtons.autoPinEdgesToSuperviewSafeArea(with:
-            UIEdgeInsets(top: Style.padding.xs, left: Style.padding.xs, bottom: Style.padding.xs, right: Style.padding.xs))
-    }
+    // MARK: -Subviews
     
-    // Subviews
-    
-    private lazy var stkButtons: UIStackView = {
-        let stackView: UIStackView = UIStackView()
-        stackView.alignment = .fill
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = Style.padding.s
-        return stackView
-    }()
-    
-    private lazy var btnAttention: GenericButton = {
-        let button = GenericButton(R.string.localizable.button_attention())
-        button.addTarget(self, action: #selector(onAttention), for: .touchUpInside)
-        button.backgroundColor = Style.colors.alizarin
-        return button
-    }()
-    
-    private lazy var btnMood: GenericButton = {
-        let button = GenericButton(R.string.localizable.button_mood())
-        button.addTarget(self, action: #selector(onMood), for: .touchUpInside)
-        button.backgroundColor = Style.colors.plum
-        return button
-    }()
-    
-    private lazy var btnMemories: GenericButton = {
-        let button = GenericButton(R.string.localizable.button_memories())
-        button.addTarget(self, action: #selector(onMemories), for: .touchUpInside)
-        button.backgroundColor = Style.colors.dodgerBlue
-        return button
-    }()
-    
-    private lazy var btnMovies: GenericButton = {
-        let button = GenericButton(R.string.localizable.button_movies())
-        button.addTarget(self, action: #selector(onMovies), for: .touchUpInside)
-        button.backgroundColor = Style.colors.wetAsphalt
-        return button
-    }()
-    
-    private lazy var btnDebitOrders: GenericButton = {
-        let button = GenericButton("Debit Orders")
-        button.addTarget(self, action: #selector(onDebitOrders), for: .touchUpInside)
-        button.backgroundColor = Style.colors.pomegranate
-        button.addDropShadow()
-        return button
-    }()
-    
-    private lazy var btnPrepaidElectricity: GenericButton = {
-        let button = GenericButton("Electricity")
-        button.addTarget(self, action: #selector(onPrepaidElectricity), for: .touchUpInside)
-        button.backgroundColor = Style.colors.sunflower
-        button.addDropShadow()
-        return button
-    }()
-    
-    private lazy var btnSavings: GenericButton = {
-        let button = GenericButton("Savings")
-        button.addTarget(self, action: #selector(onSavings), for: .touchUpInside)
-        button.backgroundColor = Style.colors.nephritis
-        button.addDropShadow()
-        return button
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = Style.padding.xs
+        layout.sectionInset = UIEdgeInsets(insetHorizontal: Style.padding.xs, insetVertical: Style.padding.m)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.register(cellType: MainMenuItemCell.self)
+        collectionView.register(cellType: BlankCollectionCell.self)
+        collectionView.dragDelegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        return collectionView
     }()
 }
 
-// Actions
-extension MainView {
-    @objc private func onAttention() {
-        self.delegate?.onAttention()
+extension MainView: UICollectionViewDragDelegate {
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return []
+    }
+}
+
+extension MainView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return MenuItem.allCases.count
     }
     
-    @objc private func onMood() {
-        self.delegate?.onMood()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let menuItem = MenuItem.allCases.item(at: indexPath.row)
+            else { return self.getBlankCollectionCell(for: indexPath) }
+        
+        return self.getMenuItemCell(for: indexPath, menuItem: menuItem)
     }
     
-    @objc private func onMemories() {
-        self.delegate?.onMemories()
+    private func getBlankCollectionCell(for indexPath: IndexPath) -> UICollectionViewCell {
+        return self.collectionView.dequeueReusableCell(for: indexPath, cellType: BlankCollectionCell.self)
     }
     
-    @objc private func onMovies() {
-        self.delegate?.onMovies()
+    private func getMenuItemCell(for indexPath: IndexPath, menuItem: MenuItem) -> UICollectionViewCell {
+        let cell: MainMenuItemCell = self.collectionView.dequeueReusableCell(for: indexPath)
+        cell.prepareForDisplay(menuItem)
+        return cell
     }
-    
-    @objc private func onDebitOrders() {
-        self.delegate?.onDebitOrders()
+}
+
+extension MainView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width/2.0 - Style.padding.s
+        let collectionViewHeight = collectionViewWidth
+
+        return CGSize(width: collectionViewWidth, height: collectionViewHeight)
     }
-    
-    @objc private func onPrepaidElectricity() {
-        self.delegate?.onPrepaidElectricity()
-    }
-    
-    @objc private func onSavings() {
-        self.delegate?.onSavings()
+}
+
+extension MainView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let menuItem = MenuItem.allCases.item(at: indexPath.row)
+        else { return }
+        
+        SwiftyBeaver.info("Tapped on \(menuItem.title)")
+        self.delegate?.didSelect(menuItem)
     }
 }
