@@ -8,13 +8,12 @@
 
 import Foundation
 import UIKit
-import FontAwesome_swift
 
-final class HomeView: BaseView {
+final class MainView: BaseView {
     
     // Delegate
     
-    internal weak var delegate: HomeControllerDelegate?
+    internal weak var delegate: MainControllerDelegate?
     
     // Setup
     
@@ -87,6 +86,7 @@ final class HomeView: BaseView {
         let button = GenericButton("Debit Orders")
         button.addTarget(self, action: #selector(onDebitOrders), for: .touchUpInside)
         button.backgroundColor = Style.colors.ecstasy
+        button.addDropShadow()
         return button
     }()
     
@@ -94,12 +94,13 @@ final class HomeView: BaseView {
         let button = GenericButton("Electricity")
         button.addTarget(self, action: #selector(onPrepaidElectricity), for: .touchUpInside)
         button.backgroundColor = Style.colors.nephritis
+        button.addDropShadow()
         return button
     }()
 }
 
 // Actions
-extension HomeView {
+extension MainView {
     @objc private func onAttention() {
         self.delegate?.onAttention()
     }

@@ -10,7 +10,7 @@ import Foundation
 import SwiftyBeaver
 import Rswift
 
-protocol HomeControllerDelegate: class {
+protocol MainControllerDelegate: class {
     func onAttention()
     func onMood()
     func onMemories()
@@ -19,10 +19,10 @@ protocol HomeControllerDelegate: class {
     func onPrepaidElectricity()
 }
 
-final class HomeViewController: BaseViewController {
+final class MainController: BaseViewController {
     
-    private lazy var homeView: HomeView = {
-        let view = HomeView()
+    private lazy var mainView: MainView = {
+        let view = MainView()
         view.delegate = self
         return view
     }()
@@ -35,11 +35,11 @@ final class HomeViewController: BaseViewController {
     }
     
     private func setupSubviews() {
-        self.view.addSubview(self.homeView)
+        self.view.addSubview(self.mainView)
     }
     
     private func setupLayout() {
-        self.homeView.autoPinEdgesToSuperviewEdges()
+        self.mainView.autoPinEdgesToSuperviewEdges()
     }
     
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ final class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: HomeControllerDelegate {
+extension MainController: MainControllerDelegate {
     func onAttention() {
         SwiftyBeaver.debug("Tapped on attention.")
         
