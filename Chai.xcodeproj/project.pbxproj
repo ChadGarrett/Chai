@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C14364320B82766E8C00609B /* Pods_ChaiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942ECA67895B00322F6590D /* Pods_ChaiTests.framework */; };
+		779169A9F5050D645A9B8B93 /* libPods-Chai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BFC8B10AD4AD81429C3E6 /* libPods-Chai.a */; };
+		C59CB44976933B704F8FD36F /* libPods-ChaiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */; };
 		E52E012E23F14563001D48F5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E012D23F14563001D48F5 /* R.generated.swift */; };
 		E52E846923F2C26A00B6591A /* DebitOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */; };
 		E52E846B23F2C28F00B6591A /* SavingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846A23F2C28F00B6591A /* SavingsController.swift */; };
@@ -28,7 +29,6 @@
 		E52E849023F41A3C00B6591A /* PrepaidElectricityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848F23F41A3C00B6591A /* PrepaidElectricityView.swift */; };
 		E52E849223F41C8800B6591A /* PrepaidElectricityContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E849123F41C8800B6591A /* PrepaidElectricityContext.swift */; };
 		E52E849423F41E8000B6591A /* PrepaidElectricityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E849323F41E8000B6591A /* PrepaidElectricityCell.swift */; };
-		E53DA5E723F44DD9000D0914 /* Pods_Chai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */; };
 		E53DA63723F491AF000D0914 /* BaseDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA63623F491AF000D0914 /* BaseDataProvider.swift */; };
 		E53DA63923F497BA000D0914 /* ProviderQueryOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA63823F497BA000D0914 /* ProviderQueryOptions.swift */; };
 		E53DA63B23F49AA6000D0914 /* DataProviderBindTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA63A23F49AA6000D0914 /* DataProviderBindTarget.swift */; };
@@ -42,6 +42,7 @@
 		E53DA65123F5389A000D0914 /* TotalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65023F5389A000D0914 /* TotalSummaryView.swift */; };
 		E53DA65823F55ACD000D0914 /* MainMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65723F55ACD000D0914 /* MainMenuItemCell.swift */; };
 		E53DA65A23F55AEE000D0914 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65923F55AEE000D0914 /* BaseCollectionViewCell.swift */; };
+		E53DA66323F6D30A000D0914 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E585F3D5223AF60B00AC012B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3D4223AF60B00AC012B /* MainView.swift */; };
 		E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C29A022365D3B00F28A90 /* AppDelegate.swift */; };
 		E59C29A822365D3C00F28A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A622365D3C00F28A90 /* Main.storyboard */; };
@@ -91,12 +92,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E53DA66423F6D30B000D0914 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E53DA66323F6D30A000D0914 /* (null) in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		1C914FA4A4961069AC18A71C /* Pods-ChaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.release.xcconfig"; sourceTree = "<group>"; };
-		4942ECA67895B00322F6590D /* Pods_ChaiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChaiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53A41775A048AFF0E202A9FF /* Pods-Chai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chai/Pods-Chai.debug.xcconfig"; sourceTree = "<group>"; };
-		56050B1AFB5429D90ED038A5 /* Pods-Chai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chai/Pods-Chai.release.xcconfig"; sourceTree = "<group>"; };
-		E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D38D2108E03E8972E0653A4 /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		267BFC8B10AD4AD81429C3E6 /* libPods-Chai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		313449C2DFCD9C7113DEFA74 /* Pods-Chai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.release.xcconfig"; path = "Target Support Files/Pods-Chai/Pods-Chai.release.xcconfig"; sourceTree = "<group>"; };
+		6E3D67A9FAED454B78A46216 /* Pods_Chai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EB1C20533C59A25D65A6EAB /* Pods-Chai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.debug.xcconfig"; path = "Target Support Files/Pods-Chai/Pods-Chai.debug.xcconfig"; sourceTree = "<group>"; };
+		B15A51E5AF5221245FA4B2AD /* Pods-ChaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.release.xcconfig"; path = "Target Support Files/Pods-ChaiTests/Pods-ChaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E52E012D23F14563001D48F5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderViewController.swift; sourceTree = "<group>"; };
 		E52E846A23F2C28F00B6591A /* SavingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsController.swift; sourceTree = "<group>"; };
@@ -117,7 +133,6 @@
 		E52E848F23F41A3C00B6591A /* PrepaidElectricityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityView.swift; sourceTree = "<group>"; };
 		E52E849123F41C8800B6591A /* PrepaidElectricityContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityContext.swift; sourceTree = "<group>"; };
 		E52E849323F41E8000B6591A /* PrepaidElectricityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityCell.swift; sourceTree = "<group>"; };
-		E53DA5E323F44DC4000D0914 /* Aardvark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Aardvark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53DA63623F491AF000D0914 /* BaseDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataProvider.swift; sourceTree = "<group>"; };
 		E53DA63823F497BA000D0914 /* ProviderQueryOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderQueryOptions.swift; sourceTree = "<group>"; };
 		E53DA63A23F49AA6000D0914 /* DataProviderBindTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderBindTarget.swift; sourceTree = "<group>"; };
@@ -172,7 +187,7 @@
 		E5C760CC232F64010001886C /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		E5C760CE232F645C0001886C /* LoggingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingService.swift; sourceTree = "<group>"; };
 		E5C760D0232F64910001886C /* CrashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashService.swift; sourceTree = "<group>"; };
-		F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChaiTests/Pods-ChaiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E53DA5E723F44DD9000D0914 /* Pods_Chai.framework in Frameworks */,
+				779169A9F5050D645A9B8B93 /* libPods-Chai.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,30 +203,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C14364320B82766E8C00609B /* Pods_ChaiTests.framework in Frameworks */,
+				C59CB44976933B704F8FD36F /* libPods-ChaiTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		71DDB1B960882B3974794DFF /* Pods */ = {
+		0D8C7B00472243FCA89D7CF7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				53A41775A048AFF0E202A9FF /* Pods-Chai.debug.xcconfig */,
-				56050B1AFB5429D90ED038A5 /* Pods-Chai.release.xcconfig */,
-				F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */,
-				1C914FA4A4961069AC18A71C /* Pods-ChaiTests.release.xcconfig */,
+				8EB1C20533C59A25D65A6EAB /* Pods-Chai.debug.xcconfig */,
+				313449C2DFCD9C7113DEFA74 /* Pods-Chai.release.xcconfig */,
+				0D38D2108E03E8972E0653A4 /* Pods-ChaiTests.debug.xcconfig */,
+				B15A51E5AF5221245FA4B2AD /* Pods-ChaiTests.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		821F4327D233744D51BF692C /* Frameworks */ = {
+		3A529DE74227227C86EFD1EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E53DA5E323F44DC4000D0914 /* Aardvark.framework */,
-				E47E968F9BF2E24220D64EAA /* Pods_Chai.framework */,
-				4942ECA67895B00322F6590D /* Pods_ChaiTests.framework */,
+				267BFC8B10AD4AD81429C3E6 /* libPods-Chai.a */,
+				F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -275,6 +289,14 @@
 			path = PrepaidElectricity;
 			sourceTree = "<group>";
 		};
+		E53DA66623F6D73F000D0914 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				6E3D67A9FAED454B78A46216 /* Pods_Chai.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		E585F3D1223AF5EF00AC012B /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,8 +313,9 @@
 				E59C299F22365D3B00F28A90 /* Chai */,
 				E59C29B622365D3D00F28A90 /* ChaiTests */,
 				E59C299E22365D3B00F28A90 /* Products */,
-				71DDB1B960882B3974794DFF /* Pods */,
-				821F4327D233744D51BF692C /* Frameworks */,
+				0D8C7B00472243FCA89D7CF7 /* Pods */,
+				3A529DE74227227C86EFD1EA /* Frameworks */,
+				E53DA66623F6D73F000D0914 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -514,12 +537,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E59C29BC22365D3D00F28A90 /* Build configuration list for PBXNativeTarget "Chai" */;
 			buildPhases = (
-				C0CEF5D0CF66AD23F856B3B4 /* [CP] Check Pods Manifest.lock */,
+				3FD69DADE8D3FBFC2A3F7C78 /* [CP] Check Pods Manifest.lock */,
 				E5B5158222CE6E7E00B36BE3 /* ShellScript */,
 				E59C299922365D3B00F28A90 /* Sources */,
 				E59C299A22365D3B00F28A90 /* Frameworks */,
 				E59C299B22365D3B00F28A90 /* Resources */,
-				800A8E67CF05368D75CECBC2 /* [CP] Embed Pods Frameworks */,
+				E53DA66423F6D30B000D0914 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -534,7 +557,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E59C29BF22365D3D00F28A90 /* Build configuration list for PBXNativeTarget "ChaiTests" */;
 			buildPhases = (
-				50665467C48B97221ED04428 /* [CP] Check Pods Manifest.lock */,
+				7B1F8EC3C44576261CF29B19 /* [CP] Check Pods Manifest.lock */,
 				E59C29AF22365D3D00F28A90 /* Sources */,
 				E59C29B022365D3D00F28A90 /* Frameworks */,
 				E59C29B122365D3D00F28A90 /* Resources */,
@@ -611,53 +634,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		50665467C48B97221ED04428 /* [CP] Check Pods Manifest.lock */ = {
+		3FD69DADE8D3FBFC2A3F7C78 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ChaiTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Chai-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		800A8E67CF05368D75CECBC2 /* [CP] Embed Pods Frameworks */ = {
+		7B1F8EC3C44576261CF29B19 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Chai/Pods-Chai-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Chai/Pods-Chai-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chai/Pods-Chai-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C0CEF5D0CF66AD23F856B3B4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Chai-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ChaiTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -909,7 +923,7 @@
 		};
 		E59C29BD22365D3D00F28A90 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53A41775A048AFF0E202A9FF /* Pods-Chai.debug.xcconfig */;
+			baseConfigurationReference = 8EB1C20533C59A25D65A6EAB /* Pods-Chai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -928,7 +942,7 @@
 		};
 		E59C29BE22365D3D00F28A90 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56050B1AFB5429D90ED038A5 /* Pods-Chai.release.xcconfig */;
+			baseConfigurationReference = 313449C2DFCD9C7113DEFA74 /* Pods-Chai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -947,7 +961,7 @@
 		};
 		E59C29C022365D3D00F28A90 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8547553B9CEDD6FC06D9E3B /* Pods-ChaiTests.debug.xcconfig */;
+			baseConfigurationReference = 0D38D2108E03E8972E0653A4 /* Pods-ChaiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -969,7 +983,7 @@
 		};
 		E59C29C122365D3D00F28A90 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C914FA4A4961069AC18A71C /* Pods-ChaiTests.release.xcconfig */;
+			baseConfigurationReference = B15A51E5AF5221245FA4B2AD /* Pods-ChaiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
