@@ -48,7 +48,6 @@ final class DebitOrderViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dataProvider.start()
-        self.fetchData()
     }
     
     // MARK: Data
@@ -92,7 +91,7 @@ extension DebitOrderViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let debitOrder = self.dataProvider.object(at: indexPath.row) //DebitOrderContext.shared.getDebitOrder(at: indexPath.row)
+        guard let debitOrder = self.dataProvider.object(at: indexPath.row)
             else { return self.getBlankTableCell(tableView, for: indexPath) }
         
         return self.getDebitOrderCell(tableView, for: indexPath, with: debitOrder)

@@ -32,7 +32,6 @@ final class SavingsController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dataProvider.start()
-        self.fetchData()
     }
     
     private func setupLayout() {
@@ -71,7 +70,7 @@ final class SavingsController: BaseViewController {
 
             case .success:
                 BannerService.shared.showStatusBarBanner(title: "Synced savings", style: .success)
-            }        
+            }
         }
     }
     

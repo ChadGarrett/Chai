@@ -16,12 +16,14 @@ final class MainController: BaseViewController {
         case debitOrders = 0
         case prepaidElectricity
         case savings
+        case settings
         
         var image: UIImage? {
             switch self {
             case .debitOrders: return R.image.flashlight()
             case .prepaidElectricity: return R.image.flashlight()
             case .savings: return R.image.flashlight()
+            case .settings: return R.image.screwdriver()
             }
         }
         
@@ -30,6 +32,7 @@ final class MainController: BaseViewController {
             case .debitOrders: return "Debit Orders"
             case .prepaidElectricity: return "Electricity"
             case .savings: return "Savings"
+            case .settings: return "Settings"
             }
         }
         
@@ -38,6 +41,7 @@ final class MainController: BaseViewController {
             case .debitOrders: return Style.colors.pomegranate
             case .prepaidElectricity: return Style.colors.sunflower
             case .savings: return Style.colors.nephritis
+            case .settings: return Style.colors.concrete
             }
         }
     }
@@ -85,6 +89,16 @@ extension MainController: MainViewDelegate {
             
         case .savings:
             self.route(to: SavingsController())
+            
+        case .settings:
+            self.resetApp()
         }
+    }
+    
+    private func resetApp() {
+        SwiftyBeaver.info("RESETING APP!")
+        
+        SwiftyBeaver.info("Emptying Realm")
+        DBManager().deleteAllFromDatabase()
     }
 }

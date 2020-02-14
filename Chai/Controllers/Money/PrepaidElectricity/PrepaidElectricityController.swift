@@ -29,6 +29,7 @@ final class PrepaidElectricityController: BaseViewController {
     }
     
     private func setupLayout() {
+        self.title = R.string.localizable.title_prepaid_electricity()
         self.navigationItem.setRightBarButton(self.btnRefresh, animated: true)
         self.view.addSubview(self.prepaidElectricityView)
         self.prepaidElectricityView.autoPinEdgesToSuperviewEdges()
@@ -42,7 +43,6 @@ final class PrepaidElectricityController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dataProvider.start()
-        self.fetchData()
     }
     
     // MARK: Data
