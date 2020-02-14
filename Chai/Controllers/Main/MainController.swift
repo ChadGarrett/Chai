@@ -16,13 +16,15 @@ final class MainController: BaseViewController {
         case debitOrders = 0
         case prepaidElectricity
         case savings
+        case gym
         case settings
         
         var image: UIImage? {
             switch self {
-            case .debitOrders: return R.image.flashlight()
+            case .debitOrders: return R.image.tickets()
             case .prepaidElectricity: return R.image.flashlight()
-            case .savings: return R.image.flashlight()
+            case .savings: return R.image.tennis()
+            case .gym: return R.image.treadmill()
             case .settings: return R.image.screwdriver()
             }
         }
@@ -32,15 +34,17 @@ final class MainController: BaseViewController {
             case .debitOrders: return "Debit Orders"
             case .prepaidElectricity: return "Electricity"
             case .savings: return "Savings"
+            case .gym: return "Gym"
             case .settings: return "Settings"
             }
         }
         
         var color: UIColor {
             switch self {
-            case .debitOrders: return Style.colors.pomegranate
+            case .debitOrders: return Style.colors.alizarin
             case .prepaidElectricity: return Style.colors.sunflower
             case .savings: return Style.colors.nephritis
+            case .gym: return Style.colors.turquoise
             case .settings: return Style.colors.concrete
             }
         }
@@ -90,6 +94,9 @@ extension MainController: MainViewDelegate {
         case .savings:
             self.route(to: SavingsController())
             
+        case .gym:
+            BannerService.shared.showNotImplementedBanner()
+            
         case .settings:
             self.resetApp()
         }
@@ -100,5 +107,7 @@ extension MainController: MainViewDelegate {
         
         SwiftyBeaver.info("Emptying Realm")
         DBManager().deleteAllFromDatabase()
+        
+        BannerService.shared.showBanner(title: "Reset app", style: .danger)
     }
 }

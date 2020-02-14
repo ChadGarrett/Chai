@@ -26,6 +26,7 @@ struct Style {
         static let xl: CGFloat = 24
     }
     
+    // https://github.com/brynbellomy/FlatUIColors/blob/master/ColorsPalette.png
     struct colors {
         public static let turquoise: UIColor = UIColor(red: 0.10, green: 0.74, blue: 0.61, alpha: 1.0)
         public static let greenSea: UIColor = UIColor(red: 0.09, green: 0.63, blue: 0.52, alpha: 1.0)

@@ -14,7 +14,7 @@ final class PrepaidElectricityView: BaseView {
         
         self.addSubview(self.tableView)
         
-        self.tableView.autoPinEdgesToSuperviewSafeArea()
+        self.tableView.autoPinEdgesToSuperviewEdges()
     }
     
     // MARK: Subviews

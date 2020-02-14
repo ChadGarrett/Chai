@@ -16,7 +16,7 @@ final class DebitOrderView: BaseView {
         self.addSubview(self.vwSummary)
         self.addSubview(self.tableView)
         
-        self.vwSummary.autoPinEdge(toSuperviewSafeArea: .top, withInset: Style.padding.s)
+        self.vwSummary.autoPinEdge(toSuperviewEdge: .top, withInset: Style.padding.s)
         self.vwSummary.autoPinEdges(toSuperviewEdges: [.left, .right], withInset: Style.padding.s)
         
         self.tableView.autoPinEdge(.top, to: .bottom, of: self.vwSummary, withOffset: Style.padding.s)
