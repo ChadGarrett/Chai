@@ -41,7 +41,7 @@ final class MainController: BaseViewController {
         
         var color: UIColor {
             switch self {
-            case .debitOrders: return Style.colors.alizarin
+            case .debitOrders: return Style.colors.lightWisteria
             case .prepaidElectricity: return Style.colors.sunflower
             case .savings: return Style.colors.nephritis
             case .gym: return Style.colors.turquoise
@@ -49,12 +49,6 @@ final class MainController: BaseViewController {
             }
         }
     }
-    
-    private var menuItems: [MenuItem] = [
-        .debitOrders,
-        .prepaidElectricity,
-        .savings
-    ]
     
     private lazy var mainView: MainView = {
         let view = MainView()
