@@ -1,5 +1,5 @@
 //
-//  DebitOrderViewController.swift
+//  DebitOrderController.swift
 //  Chai
 //
 //  Created by Chad Garrett on 2020/02/11.
@@ -11,7 +11,7 @@ import RealmSwift
 import SwiftyBeaver
 
 /// Controller to view and manage debit orders
-final class DebitOrderViewController: BaseViewController {
+final class DebitOrderController: BaseViewController {
     
     // MARK: Properties
     
@@ -33,11 +33,17 @@ final class DebitOrderViewController: BaseViewController {
         self.dataProvider.stop()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.searchController = self.searchController
+        self.definesPresentationContext = true
+    }
+    
     private func setupView() {
         self.navigationItem.setRightBarButton(self.btnRefresh, animated: true)
         
         self.view.addSubview(self.debitOrderView)
-        self.debitOrderView.autoPinEdgesToSuperviewEdges()
+        self.debitOrderView.autoPinEdgesToSuperviewSafeArea()
     }
     
     private func setupTableDataDependencies() {
@@ -74,6 +80,37 @@ final class DebitOrderViewController: BaseViewController {
         }
     }
     
+    // MARK: Filters
+    
+    private lazy var searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchResultsUpdater = self
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.searchBar.placeholder = "Search"
+        controller.delegate = self
+        return controller
+    }()
+    
+    private var currentSearchText: String = "" {
+        didSet {
+            self.filterAndSearchDidUpdate()
+        }
+    }
+    
+    private var currentSearchPredicate: NSPredicate {
+        get {
+            if self.currentSearchText.isEmpty {
+                return NSPredicate(value: true)
+            } else {
+                return NSPredicate(format: "title CONTAINS(%@)", self.currentSearchText)
+            }
+        }
+    }
+    
+    private func filterAndSearchDidUpdate() {
+        self.dataProvider.filter = self.currentSearchPredicate
+    }
+    
     private lazy var btnRefresh: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.refresh, target: self, action: #selector(onRefresh))
         return button
@@ -85,7 +122,7 @@ final class DebitOrderViewController: BaseViewController {
     }
 }
 
-extension DebitOrderViewController: UITableViewDataSource {
+extension DebitOrderController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataProvider.query().count
     }
@@ -108,7 +145,7 @@ extension DebitOrderViewController: UITableViewDataSource {
     }
 }
 
-extension DebitOrderViewController: UITableViewDelegate {
+extension DebitOrderController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let debitOrder = self.dataProvider.object(at: indexPath.row)
             else { return }
@@ -117,13 +154,36 @@ extension DebitOrderViewController: UITableViewDelegate {
     }
 }
 
-extension DebitOrderViewController: DataProviderUpdateDelegate {
+extension DebitOrderController: DataProviderUpdateDelegate {
     func providerDataDidUpdate<F>(_ provider: BaseDataProvider<F>) where F : BaseObject {
         if provider === self.dataProvider {
             SwiftyBeaver.info("Debit order data did update")
             
             let total: Double = self.dataProvider.query().reduce(0) { (count, item) -> Double in return count + item.amount }
             self.debitOrderView.vwSummary.updateTotal(to: total)
+        }
+    }
+}
+
+extension DebitOrderController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        self.currentSearchText = searchController.searchBar.text ?? ""
+    }
+}
+
+extension DebitOrderController: UISearchControllerDelegate {
+    func didPresentSearchController(_ searchController: UISearchController) {
+        self.view.setNeedsLayout()
+        
+        UIView.animate(withDuration: 0.1) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: 0.1) {
+            self.view.layoutIfNeeded()
         }
     }
 }

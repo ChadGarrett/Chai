@@ -10,7 +10,7 @@
 		779169A9F5050D645A9B8B93 /* libPods-Chai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BFC8B10AD4AD81429C3E6 /* libPods-Chai.a */; };
 		C59CB44976933B704F8FD36F /* libPods-ChaiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */; };
 		E52E012E23F14563001D48F5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E012D23F14563001D48F5 /* R.generated.swift */; };
-		E52E846923F2C26A00B6591A /* DebitOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */; };
+		E52E846923F2C26A00B6591A /* DebitOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846823F2C26A00B6591A /* DebitOrderController.swift */; };
 		E52E846B23F2C28F00B6591A /* SavingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846A23F2C28F00B6591A /* SavingsController.swift */; };
 		E52E846D23F2C29E00B6591A /* DebitOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846C23F2C29E00B6591A /* DebitOrderView.swift */; };
 		E52E846F23F2C55F00B6591A /* DebitOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */; };
@@ -114,7 +114,7 @@
 		8EB1C20533C59A25D65A6EAB /* Pods-Chai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.debug.xcconfig"; path = "Target Support Files/Pods-Chai/Pods-Chai.debug.xcconfig"; sourceTree = "<group>"; };
 		B15A51E5AF5221245FA4B2AD /* Pods-ChaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.release.xcconfig"; path = "Target Support Files/Pods-ChaiTests/Pods-ChaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E52E012D23F14563001D48F5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderViewController.swift; sourceTree = "<group>"; };
+		E52E846823F2C26A00B6591A /* DebitOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderController.swift; sourceTree = "<group>"; };
 		E52E846A23F2C28F00B6591A /* SavingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsController.swift; sourceTree = "<group>"; };
 		E52E846C23F2C29E00B6591A /* DebitOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderView.swift; sourceTree = "<group>"; };
 		E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderCell.swift; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 		E52E846623F2C24C00B6591A /* DebitOrders */ = {
 			isa = PBXGroup;
 			children = (
-				E52E846823F2C26A00B6591A /* DebitOrderViewController.swift */,
+				E52E846823F2C26A00B6591A /* DebitOrderController.swift */,
 				E52E846C23F2C29E00B6591A /* DebitOrderView.swift */,
 				E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */,
 			);
@@ -716,7 +716,7 @@
 				E59C29D122368B1000F28A90 /* StyleHelper.swift in Sources */,
 				E52E849423F41E8000B6591A /* PrepaidElectricityCell.swift in Sources */,
 				E53DA64D23F53625000D0914 /* CGSize+App.swift in Sources */,
-				E52E846923F2C26A00B6591A /* DebitOrderViewController.swift in Sources */,
+				E52E846923F2C26A00B6591A /* DebitOrderController.swift in Sources */,
 				E52E849223F41C8800B6591A /* PrepaidElectricityContext.swift in Sources */,
 				E5C760CD232F64010001886C /* BaseService.swift in Sources */,
 				E53DA64723F52470000D0914 /* UIColor+App.swift in Sources */,
