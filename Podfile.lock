@@ -4,6 +4,7 @@ PODS:
   - Alamofire (5.0.0-rc.3)
   - AttributedStringBuilder (1.1)
   - CoreAardvark (2.2.1)
+  - Eureka (5.2.0)
   - MarqueeLabel (4.0.2)
   - NotificationBannerSwift (3.0.2):
     - MarqueeLabel (~> 4.0.0)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - Aardvark
   - Alamofire (~> 5.0.0-rc.3)
   - AttributedStringBuilder
+  - Eureka
   - NotificationBannerSwift
   - PureLayout
   - R.swift
@@ -44,6 +46,7 @@ SPEC REPOS:
     - Alamofire
     - AttributedStringBuilder
     - CoreAardvark
+    - Eureka
     - MarqueeLabel
     - NotificationBannerSwift
     - PureLayout
@@ -61,6 +64,7 @@ SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   AttributedStringBuilder: 974bb0a88ec8fa5f33fc9861ad13815451ebf651
   CoreAardvark: c7d15935caf9285c4d48b3f5ddc3c1cb82c19718
+  Eureka: 820a761c700f6eaab3b60758f138e0d9b99072b3
   MarqueeLabel: f762aa681ae201f66c1d511858b171f75d83013a
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
   PureLayout: 9b4ad47b2f0388c84ff534af23d96e720c1b875a
@@ -73,6 +77,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: f9a9aba96a6a6166e21682377804d728b0d20b95
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: ce59b86cbe88a8ba1edbd60bb53e6ad051b45fde
+PODFILE CHECKSUM: 0b7088f252fea4757b70e8a7194bfac8016eff56
 
 COCOAPODS: 1.8.4

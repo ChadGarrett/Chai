@@ -40,7 +40,7 @@ final class DebitOrderController: BaseViewController {
     }
     
     private func setupView() {
-        self.navigationItem.setRightBarButton(self.btnRefresh, animated: true)
+        self.navigationItem.rightBarButtonItems = [self.btnAdd, self.btnRefresh] //.setRightBarButton(self.btnRefresh, animated: true)
         
         self.view.addSubview(self.debitOrderView)
         self.debitOrderView.autoPinEdgesToSuperviewSafeArea()
@@ -116,9 +116,21 @@ final class DebitOrderController: BaseViewController {
         return button
     }()
     
+    private lazy var btnAdd: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(onAdd))
+        return button
+    }()
+    
     @objc private func onRefresh() {
         SwiftyBeaver.info("Manually refreshing data.")
         self.fetchData()
+    }
+    
+    @objc private func onAdd() {
+        SwiftyBeaver.debug("Tapped on add")
+        
+        let controller = DebitOrderEditController(mode: .create)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -151,6 +163,9 @@ extension DebitOrderController: UITableViewDelegate {
             else { return }
         
         SwiftyBeaver.debug("Tapped on \(debitOrder)")
+        
+        let controller = DebitOrderEditController(mode: .edit(debitOrder))
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

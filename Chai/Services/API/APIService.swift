@@ -14,7 +14,8 @@ class APIService {
     static let baseURL: String = "http://127.0.0.1:8000/"
     
     static let headers: HTTPHeaders = [
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "Authorization": "Token 7eda9fe3bde210c9ace7a339c658b1d337adc142"
     ]
 }
 

@@ -10,7 +10,7 @@ use_modular_headers!
   # UI
   pod 'PureLayout'
   pod 'Reusable'
-  #pod 'Eureka'
+  pod 'Eureka'
   pod 'NotificationBannerSwift'
   pod 'AttributedStringBuilder'
   

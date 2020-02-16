@@ -44,6 +44,7 @@
 		E53DA65A23F55AEE000D0914 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65923F55AEE000D0914 /* BaseCollectionViewCell.swift */; };
 		E53DA66323F6D30A000D0914 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E585F3D5223AF60B00AC012B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3D4223AF60B00AC012B /* MainView.swift */; };
+		E59AEBD123F88B5400E9F7A2 /* DebitOrderEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AEBD023F88B5400E9F7A2 /* DebitOrderEditController.swift */; };
 		E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C29A022365D3B00F28A90 /* AppDelegate.swift */; };
 		E59C29A822365D3C00F28A90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A622365D3C00F28A90 /* Main.storyboard */; };
 		E59C29AA22365D3D00F28A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E59C29A922365D3D00F28A90 /* Assets.xcassets */; };
@@ -147,6 +148,7 @@
 		E53DA65723F55ACD000D0914 /* MainMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuItemCell.swift; sourceTree = "<group>"; };
 		E53DA65923F55AEE000D0914 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		E585F3D4223AF60B00AC012B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E59AEBD023F88B5400E9F7A2 /* DebitOrderEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderEditController.swift; sourceTree = "<group>"; };
 		E59C299D22365D3B00F28A90 /* Chai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59C29A022365D3B00F28A90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E59C29A722365D3C00F28A90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				E52E846823F2C26A00B6591A /* DebitOrderController.swift */,
 				E52E846C23F2C29E00B6591A /* DebitOrderView.swift */,
 				E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */,
+				E59AEBD023F88B5400E9F7A2 /* DebitOrderEditController.swift */,
 			);
 			path = DebitOrders;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				E53DA65823F55ACD000D0914 /* MainMenuItemCell.swift in Sources */,
 				E59C29CB223665E400F28A90 /* BaseViewController.swift in Sources */,
 				E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */,
+				E59AEBD123F88B5400E9F7A2 /* DebitOrderEditController.swift in Sources */,
 				E52E847523F2C7C500B6591A /* DebitOrder.swift in Sources */,
 				E53DA64123F50FC3000D0914 /* Saving.swift in Sources */,
 				E5B515B322D392EA00B36BE3 /* MoodView.swift in Sources */,

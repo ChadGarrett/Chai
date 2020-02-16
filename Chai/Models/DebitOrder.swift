@@ -6,7 +6,9 @@
 //  Copyright © 2020 Chad Garrett. All rights reserved.
 //
 
+import Alamofire
 import RealmSwift
+import SwiftyJSON
 
 final class DebitOrder: BaseObject, Codable {
     @objc dynamic var title: String = ""
@@ -17,11 +19,40 @@ final class DebitOrder: BaseObject, Codable {
     @objc dynamic var endDate: String = ""
     
     enum CodingKeys: String, CodingKey {
-      case title
+      case title = "title"
       case descriptionAbout = "description"
-      case amount
+      case amount = "amount"
       case billingDate = "billing_date"
       case startDate = "start_date"
       case endDate = "end_date"
+    }
+
+    func clone() -> DebitOrder? {
+        return self.mutableCopy() as? DebitOrder
+    }
+    
+    static func absorb(from data: JSON) -> DebitOrder {
+        let debitOrder: DebitOrder = DebitOrder()
+        debitOrder.id = data["id"].stringValue
+        debitOrder.title = data["title"].stringValue
+        debitOrder.descriptionAbout = data["description"].stringValue
+        debitOrder.amount = data["amount"].doubleValue
+        debitOrder.billingDate = data["billing_date"].stringValue
+        debitOrder.startDate = data["start_date"].stringValue
+        debitOrder.endDate = data["end_date"].stringValue
+        return debitOrder
+    }
+    
+    func asParameters() -> Parameters {
+        let parameters: Parameters = [
+            "id": self.id,
+            "title": self.title,
+            "description": self.descriptionAbout,
+            "amount": self.amount,
+            "billing_date": self.billingDate,
+            "start_date": self.startDate,
+            "end_date": self.endDate
+        ]
+        return parameters
     }
 }
