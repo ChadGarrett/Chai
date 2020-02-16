@@ -6,12 +6,47 @@
 //  Copyright © 2020 Chad Garrett. All rights reserved.
 //
 
+import Alamofire
 import RealmSwift
+import SwiftyJSON
 
-final class Saving: BaseObject {
+final class Saving: BaseObject, Codable {
     @objc dynamic var title: String = ""
     @objc dynamic var descriptionAbout: String = ""
     @objc dynamic var amount: Double = 0.0
     @objc dynamic var lastUpdated: String = ""
     @objc dynamic var colorHexCode: String = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case descriptionAbout = "description"
+        case amount
+        case lastUpdated = "last_updated"
+        case colorHexCode = "color_hex_code"
+    }
+    
+    func clone() -> Saving? {
+        return self.mutableCopy() as? Saving
+    }
+    
+    static func absorb(from data: JSON) -> Saving {
+        let saving: Saving = Saving()
+        saving.id = data["id"].stringValue
+        saving.descriptionAbout = data["description"].stringValue
+        saving.amount = data["amount"].doubleValue
+        saving.lastUpdated = data["last_updated"].stringValue
+        saving.colorHexCode = data["color_hex_code"].stringValue
+        return saving
+    }
+    
+    func asParameters() -> Parameters {
+        let parameters: Parameters = [
+            "id": self.id,
+            "description": self.descriptionAbout,
+            "amount": self.amount,
+            "last_updated": self.lastUpdated,
+            "color_hex_code": self.colorHexCode
+        ]
+        return parameters
+    }
 }

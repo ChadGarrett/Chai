@@ -6,7 +6,9 @@
 //  Copyright © 2020 Chad Garrett. All rights reserved.
 //
 
+import Alamofire
 import RealmSwift
+import SwiftyJSON
 
 final class PrepaidElectricity: BaseObject, Codable {
     @objc dynamic var buyer: String = ""
@@ -21,5 +23,31 @@ final class PrepaidElectricity: BaseObject, Codable {
       case charges
       case amountBought = "amount_bought"
       case dateBought = "date_bought"
+    }
+    
+    func clone() -> PrepaidElectricity? {
+        return self.mutableCopy() as? PrepaidElectricity
+    }
+    
+    static func absorb(from data: JSON) -> PrepaidElectricity {
+        let prepaidElectricity: PrepaidElectricity = PrepaidElectricity()
+        prepaidElectricity.id = data["id"].stringValue
+        prepaidElectricity.randAmount = data["rand_amount"].doubleValue
+        prepaidElectricity.charges = data["charges"].doubleValue
+        prepaidElectricity.amountBought = data["amount_bought"].doubleValue
+        prepaidElectricity.dateBought = data["date_bought"].stringValue
+        return prepaidElectricity
+    }
+    
+    func asParameters() -> Parameters {
+        let parameters: Parameters = [
+            "id": self.id,
+            "buyer": self.buyer,
+            "rand_amount": self.randAmount,
+            "charges": self.charges,
+            "amount_bought": self.amountBought,
+            "date_bought": self.dateBought
+        ]
+        return parameters
     }
 }

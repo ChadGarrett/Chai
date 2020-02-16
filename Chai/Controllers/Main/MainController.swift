@@ -1,5 +1,5 @@
 //
-//  HomeViewontroller.swift
+//  MainController.swift
 //  Chai
 //
 //  Created by Chad Garrett on 2019/03/14.
@@ -80,7 +80,7 @@ extension MainController: MainViewDelegate {
     func didSelect(_ menuItem: MainController.MenuItem) {
         switch menuItem {
         case .debitOrders:
-            self.route(to: DebitOrderViewController())
+            self.route(to: DebitOrderController())
             
         case .prepaidElectricity:
             self.route(to: PrepaidElectricityController())

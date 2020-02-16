@@ -12,6 +12,8 @@ import SwiftyBeaver
 final class PrepaidElectricityContext: DBManager {
     static let shared = PrepaidElectricityContext()
     
+    // MARK: Sync down
+    
     internal func syncPrepaidElectricity(_ prepaidElectricity: [PrepaidElectricity]) {
         do {
             try database.write { [weak self] in
@@ -22,17 +24,45 @@ final class PrepaidElectricityContext: DBManager {
         }
     }
     
-    internal func getElectricity() -> Results<PrepaidElectricity> {
-        let results: Results<PrepaidElectricity> = self.database.objects(PrepaidElectricity.self)
-        return results
+    // MARK: Add
+    
+    @discardableResult internal func add(prepaidElectricity: PrepaidElectricity) -> Bool {
+        do {
+            try database.write { [weak self] in
+                self?.database.add(prepaidElectricity, update: .all)
+            }
+            return true
+        } catch let error {
+            SwiftyBeaver.error("Unable to add Prepaid Electricity locally.", error.localizedDescription)
+            return false
+        }
     }
     
-    internal func getElectricity(at index: Int) -> PrepaidElectricity? {
-        let results = self.database.objects(PrepaidElectricity.self)
-        guard index < results.count
-            else { return nil }
-        
-        let item = results[index]
-        return item
+    // MARK: Update
+    
+    @discardableResult internal func update(prepaidElectricity: PrepaidElectricity) -> Bool {
+        do {
+            try database.write { [weak self] in
+                self?.database.add(prepaidElectricity, update: .modified)
+            }
+            return true
+        } catch let error {
+            SwiftyBeaver.error("Unable to update Prepaid Electrciy locally.", error.localizedDescription)
+            return false
+        }
+    }
+    
+    // MARK: Delete
+    
+    @discardableResult internal func delete(prepaidElectrcity: PrepaidElectricity) -> Bool {
+        do {
+            try database.write { [weak self] in
+                self?.database.delete(prepaidElectrcity)
+            }
+            return true
+        } catch let error {
+            SwiftyBeaver.error("Unable to delete Prepaid Electricity locally.", error.localizedDescription)
+            return false
+        }
     }
 }
