@@ -30,13 +30,18 @@ final class PrepaidElectricityController: BaseViewController {
     
     private func setupLayout() {
         self.title = R.string.localizable.title_prepaid_electricity()
-        self.navigationItem.setRightBarButton(self.btnRefresh, animated: true)
+        self.navigationItem.rightBarButtonItems = [self.btnAdd, self.btnRefresh]
         self.view.addSubview(self.prepaidElectricityView)
         self.prepaidElectricityView.autoPinEdgesToSuperviewEdges()
     }
     
     private lazy var btnRefresh: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.refresh, target: self, action: #selector(onRefresh))
+        return button
+    }()
+    
+    private lazy var btnAdd: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(onAdd))
         return button
     }()
     
@@ -80,6 +85,13 @@ final class PrepaidElectricityController: BaseViewController {
         SwiftyBeaver.info("Manually refreshing data.")
         self.fetchData()
     }
+    
+    @objc private func onAdd() {
+        SwiftyBeaver.info("Adding new prepaid electricity.")
+        
+        let controller = PrepaidElectricityEditController(mode: .create)
+        self.route(to: controller)
+    }
 }
 
 extension PrepaidElectricityController: UITableViewDataSource {
@@ -107,10 +119,12 @@ extension PrepaidElectricityController: UITableViewDataSource {
 
 extension PrepaidElectricityController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let electricity = self.dataProvider.object(at: indexPath.row)
+        guard let object = self.dataProvider.object(at: indexPath.row)
             else { return }
         
-        SwiftyBeaver.verbose("Selected: \(electricity)")
+        SwiftyBeaver.verbose("Selected: \(object)")
+        let controller = PrepaidElectricityEditController(mode: .edit(object))
+        self.route(to: controller)
     }
 }
 

@@ -80,6 +80,7 @@
 		E5C760CF232F645C0001886C /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C760CE232F645C0001886C /* LoggingService.swift */; };
 		E5C760D1232F64910001886C /* CrashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C760D0232F64910001886C /* CrashService.swift */; };
 		E5DD88F623FA7C1E002AFB1C /* RealmInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD88F523FA7C1E002AFB1C /* RealmInterface.swift */; };
+		E5DD88FF23FB2127002AFB1C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD88FE23FB2127002AFB1C /* DateHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +188,7 @@
 		E5C760CE232F645C0001886C /* LoggingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingService.swift; sourceTree = "<group>"; };
 		E5C760D0232F64910001886C /* CrashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashService.swift; sourceTree = "<group>"; };
 		E5DD88F523FA7C1E002AFB1C /* RealmInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInterface.swift; sourceTree = "<group>"; };
+		E5DD88FE23FB2127002AFB1C /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -376,6 +378,7 @@
 				E5B5157F22CDC1CC00B36BE3 /* Extensions */,
 				E59C29D022368B1000F28A90 /* StyleHelper.swift */,
 				E52E848223F404DC00B6591A /* NumberHelper.swift */,
+				E5DD88FE23FB2127002AFB1C /* DateHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */,
 				E59AEBD123F88B5400E9F7A2 /* DebitOrderEditController.swift in Sources */,
 				E52E847523F2C7C500B6591A /* DebitOrderObject.swift in Sources */,
+				E5DD88FF23FB2127002AFB1C /* DateHelper.swift in Sources */,
 				E53DA64123F50FC3000D0914 /* SavingObject.swift in Sources */,
 				E5B515B322D392EA00B36BE3 /* MoodView.swift in Sources */,
 				E52E846F23F2C55F00B6591A /* DebitOrderCell.swift in Sources */,

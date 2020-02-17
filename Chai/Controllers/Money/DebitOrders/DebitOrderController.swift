@@ -130,7 +130,7 @@ final class DebitOrderController: BaseViewController {
         SwiftyBeaver.debug("Tapped on add")
         
         let controller = DebitOrderEditController(mode: .create)
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.route(to: controller)
     }
 }
 

@@ -26,13 +26,20 @@ final class DebitOrderEditController: FormViewController {
     init(mode: Mode) {
         self.mode = mode
         super.init(style: .plain)
-        
+        self.setupTitle()
         self.navigationItem.setRightBarButton(self.btnSave, animated: true)
         self.setupForm(for: mode)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupTitle() {
+        switch self.mode {
+        case .create: self.title = "Add"
+        case .edit: self.title = "Edit"
+        }
     }
     
     private func setupForm(for mode: Mode) {
@@ -46,9 +53,9 @@ final class DebitOrderEditController: FormViewController {
         self.rowTitle.value = debitOrder.title
         self.rowDescription.value = debitOrder.descriptionAbout
         self.rowAmount.value = debitOrder.amount
-        self.rowBillingDate.value = self.stringToDate(string: debitOrder.billingDate)
-        self.rowStartDate.value = self.stringToDate(string: debitOrder.startDate)
-        self.rowEndDate.value = self.stringToDate(string: debitOrder.endDate)
+        self.rowBillingDate.value = DateHelper.stringToDate(string: debitOrder.billingDate)
+        self.rowStartDate.value = DateHelper.stringToDate(string: debitOrder.startDate)
+        self.rowEndDate.value = DateHelper.stringToDate(string: debitOrder.endDate)
     }
     
     override func viewDidLoad() {
@@ -69,19 +76,6 @@ final class DebitOrderEditController: FormViewController {
             form +++ self.advancedSection
                 <<< self.rowDelete
         }
-    }
-    
-    private func stringToDate(string date: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.date(from: date)
-    }
-    
-    private func dateToString(date: Date?) -> String? {
-        guard let date = date else { return nil }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.string(from: date)
     }
     
     // MARK: -Subviews
@@ -179,15 +173,15 @@ extension DebitOrderEditController {
             order.amount = amount
         }
         
-        if let billingDate = self.dateToString(date: self.rowBillingDate.value) {
+        if let billingDate = DateHelper.dateToString(date: self.rowBillingDate.value) {
             order.billingDate = billingDate
         }
         
-        if let startDate = self.dateToString(date: self.rowStartDate.value) {
+        if let startDate = DateHelper.dateToString(date: self.rowStartDate.value) {
             order.startDate = startDate
         }
         
-        if let endDate = self.dateToString(date: self.rowEndDate.value) {
+        if let endDate = DateHelper.dateToString(date: self.rowEndDate.value) {
             order.endDate = endDate
         }
         
