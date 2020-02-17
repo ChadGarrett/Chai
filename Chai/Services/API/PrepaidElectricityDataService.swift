@@ -80,7 +80,7 @@ final class PrepaidElectricityDataService: APIService {
         AF.request(Endpoints.electricity + prepaidElectricity.id + "/", method: .patch, parameters: parameters, headers: headers).validate().responseJSON { (response) in
             switch response.result {
             case .failure(let error):
-                SwiftyBeaver.error("Unable to update prepaid electrcitiy remotely.", error.localizedDescription)
+                SwiftyBeaver.error("Unable to update prepaid electricity remotely.", error.localizedDescription)
                 onCompletion(.failure(error))
                 
             case .success(let returnedObject):

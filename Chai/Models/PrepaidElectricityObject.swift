@@ -32,6 +32,7 @@ final class PrepaidElectricityObject: BaseObject, Codable {
     static func absorb(from data: JSON) -> PrepaidElectricityObject {
         let prepaidElectricity: PrepaidElectricityObject = PrepaidElectricityObject()
         prepaidElectricity.id = data["id"].stringValue
+        prepaidElectricity.buyer = data["buyer"].stringValue
         prepaidElectricity.randAmount = data["rand_amount"].doubleValue
         prepaidElectricity.charges = data["charges"].doubleValue
         prepaidElectricity.amountBought = data["amount_bought"].doubleValue
