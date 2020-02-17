@@ -1,5 +1,5 @@
 //
-//  PrepaidElectricity.swift
+//  PrepaidElectricityObject.swift
 //  Chai
 //
 //  Created by Chad Garrett on 2020/02/12.
@@ -10,7 +10,7 @@ import Alamofire
 import RealmSwift
 import SwiftyJSON
 
-final class PrepaidElectricity: BaseObject, Codable {
+final class PrepaidElectricityObject: BaseObject, Codable {
     @objc dynamic var buyer: String = ""
     @objc dynamic var randAmount: Double = 0.0
     @objc dynamic var charges: Double = 0.0
@@ -25,12 +25,12 @@ final class PrepaidElectricity: BaseObject, Codable {
       case dateBought = "date_bought"
     }
     
-    func clone() -> PrepaidElectricity? {
-        return self.mutableCopy() as? PrepaidElectricity
+    func clone() -> PrepaidElectricityObject? {
+        return self.mutableCopy() as? PrepaidElectricityObject
     }
     
-    static func absorb(from data: JSON) -> PrepaidElectricity {
-        let prepaidElectricity: PrepaidElectricity = PrepaidElectricity()
+    static func absorb(from data: JSON) -> PrepaidElectricityObject {
+        let prepaidElectricity: PrepaidElectricityObject = PrepaidElectricityObject()
         prepaidElectricity.id = data["id"].stringValue
         prepaidElectricity.randAmount = data["rand_amount"].doubleValue
         prepaidElectricity.charges = data["charges"].doubleValue

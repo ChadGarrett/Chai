@@ -15,7 +15,7 @@
 		E52E846D23F2C29E00B6591A /* DebitOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846C23F2C29E00B6591A /* DebitOrderView.swift */; };
 		E52E846F23F2C55F00B6591A /* DebitOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */; };
 		E52E847123F2C59200B6591A /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847023F2C59200B6591A /* BaseTableViewCell.swift */; };
-		E52E847523F2C7C500B6591A /* DebitOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847423F2C7C500B6591A /* DebitOrder.swift */; };
+		E52E847523F2C7C500B6591A /* DebitOrderObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847423F2C7C500B6591A /* DebitOrderObject.swift */; };
 		E52E847723F2CF2200B6591A /* AppCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847623F2CF2200B6591A /* AppCardView.swift */; };
 		E52E847A23F2D11000B6591A /* DebitOrderDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847923F2D11000B6591A /* DebitOrderDataService.swift */; };
 		E52E847F23F2FD1900B6591A /* LoadingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E847E23F2FD1900B6591A /* LoadingTableCell.swift */; };
@@ -24,7 +24,7 @@
 		E52E848723F4078700B6591A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848623F4078700B6591A /* APIService.swift */; };
 		E52E848A23F413BC00B6591A /* PrepaidElectricityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848923F413BC00B6591A /* PrepaidElectricityController.swift */; };
 		E52E848C23F4140E00B6591A /* PrepaidElectricityDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848B23F4140E00B6591A /* PrepaidElectricityDataService.swift */; };
-		E52E848E23F414DF00B6591A /* PrepaidElectricity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848D23F414DF00B6591A /* PrepaidElectricity.swift */; };
+		E52E848E23F414DF00B6591A /* PrepaidElectricityObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848D23F414DF00B6591A /* PrepaidElectricityObject.swift */; };
 		E52E849023F41A3C00B6591A /* PrepaidElectricityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E848F23F41A3C00B6591A /* PrepaidElectricityView.swift */; };
 		E52E849423F41E8000B6591A /* PrepaidElectricityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E849323F41E8000B6591A /* PrepaidElectricityCell.swift */; };
 		E53DA63723F491AF000D0914 /* BaseDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA63623F491AF000D0914 /* BaseDataProvider.swift */; };
@@ -32,7 +32,7 @@
 		E53DA63B23F49AA6000D0914 /* DataProviderBindTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA63A23F49AA6000D0914 /* DataProviderBindTarget.swift */; };
 		E53DA63D23F50D41000D0914 /* SavingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA63C23F50D41000D0914 /* SavingsView.swift */; };
 		E53DA63F23F50ED7000D0914 /* SavingsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA63E23F50ED7000D0914 /* SavingsAPIService.swift */; };
-		E53DA64123F50FC3000D0914 /* Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64023F50FC3000D0914 /* Saving.swift */; };
+		E53DA64123F50FC3000D0914 /* SavingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64023F50FC3000D0914 /* SavingObject.swift */; };
 		E53DA64523F5192A000D0914 /* SavingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64423F5192A000D0914 /* SavingsCell.swift */; };
 		E53DA64723F52470000D0914 /* UIColor+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64623F52470000D0914 /* UIColor+App.swift */; };
 		E53DA64D23F53625000D0914 /* CGSize+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA64C23F53625000D0914 /* CGSize+App.swift */; };
@@ -119,7 +119,7 @@
 		E52E846C23F2C29E00B6591A /* DebitOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderView.swift; sourceTree = "<group>"; };
 		E52E846E23F2C55F00B6591A /* DebitOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderCell.swift; sourceTree = "<group>"; };
 		E52E847023F2C59200B6591A /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		E52E847423F2C7C500B6591A /* DebitOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrder.swift; sourceTree = "<group>"; };
+		E52E847423F2C7C500B6591A /* DebitOrderObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderObject.swift; sourceTree = "<group>"; };
 		E52E847623F2CF2200B6591A /* AppCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardView.swift; sourceTree = "<group>"; };
 		E52E847923F2D11000B6591A /* DebitOrderDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderDataService.swift; sourceTree = "<group>"; };
 		E52E847E23F2FD1900B6591A /* LoadingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableCell.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		E52E848623F4078700B6591A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		E52E848923F413BC00B6591A /* PrepaidElectricityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityController.swift; sourceTree = "<group>"; };
 		E52E848B23F4140E00B6591A /* PrepaidElectricityDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityDataService.swift; sourceTree = "<group>"; };
-		E52E848D23F414DF00B6591A /* PrepaidElectricity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricity.swift; sourceTree = "<group>"; };
+		E52E848D23F414DF00B6591A /* PrepaidElectricityObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityObject.swift; sourceTree = "<group>"; };
 		E52E848F23F41A3C00B6591A /* PrepaidElectricityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityView.swift; sourceTree = "<group>"; };
 		E52E849323F41E8000B6591A /* PrepaidElectricityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityCell.swift; sourceTree = "<group>"; };
 		E53DA63623F491AF000D0914 /* BaseDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataProvider.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		E53DA63A23F49AA6000D0914 /* DataProviderBindTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderBindTarget.swift; sourceTree = "<group>"; };
 		E53DA63C23F50D41000D0914 /* SavingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsView.swift; sourceTree = "<group>"; };
 		E53DA63E23F50ED7000D0914 /* SavingsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsAPIService.swift; sourceTree = "<group>"; };
-		E53DA64023F50FC3000D0914 /* Saving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saving.swift; sourceTree = "<group>"; };
+		E53DA64023F50FC3000D0914 /* SavingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingObject.swift; sourceTree = "<group>"; };
 		E53DA64423F5192A000D0914 /* SavingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsCell.swift; sourceTree = "<group>"; };
 		E53DA64623F52470000D0914 /* UIColor+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+App.swift"; sourceTree = "<group>"; };
 		E53DA64C23F53625000D0914 /* CGSize+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+App.swift"; sourceTree = "<group>"; };
@@ -387,9 +387,9 @@
 				E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */,
 				E5B515BF22D4DA0300B36BE3 /* Mood.swift */,
 				E5BB546322D6543300206F82 /* AttentionType.swift */,
-				E52E847423F2C7C500B6591A /* DebitOrder.swift */,
-				E52E848D23F414DF00B6591A /* PrepaidElectricity.swift */,
-				E53DA64023F50FC3000D0914 /* Saving.swift */,
+				E52E847423F2C7C500B6591A /* DebitOrderObject.swift */,
+				E52E848D23F414DF00B6591A /* PrepaidElectricityObject.swift */,
+				E53DA64023F50FC3000D0914 /* SavingObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -708,8 +708,8 @@
 				E59C29CB223665E400F28A90 /* BaseViewController.swift in Sources */,
 				E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */,
 				E59AEBD123F88B5400E9F7A2 /* DebitOrderEditController.swift in Sources */,
-				E52E847523F2C7C500B6591A /* DebitOrder.swift in Sources */,
-				E53DA64123F50FC3000D0914 /* Saving.swift in Sources */,
+				E52E847523F2C7C500B6591A /* DebitOrderObject.swift in Sources */,
+				E53DA64123F50FC3000D0914 /* SavingObject.swift in Sources */,
 				E5B515B322D392EA00B36BE3 /* MoodView.swift in Sources */,
 				E52E846F23F2C55F00B6591A /* DebitOrderCell.swift in Sources */,
 				E52E846D23F2C29E00B6591A /* DebitOrderView.swift in Sources */,
@@ -754,7 +754,7 @@
 				E53DA63923F497BA000D0914 /* ProviderQueryOptions.swift in Sources */,
 				E52E847123F2C59200B6591A /* BaseTableViewCell.swift in Sources */,
 				E52E847F23F2FD1900B6591A /* LoadingTableCell.swift in Sources */,
-				E52E848E23F414DF00B6591A /* PrepaidElectricity.swift in Sources */,
+				E52E848E23F414DF00B6591A /* PrepaidElectricityObject.swift in Sources */,
 				E5C760D1232F64910001886C /* CrashService.swift in Sources */,
 				E52E012E23F14563001D48F5 /* R.generated.swift in Sources */,
 				E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */,

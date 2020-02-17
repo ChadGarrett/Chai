@@ -11,11 +11,11 @@ import SwiftyBeaver
 import SwiftyJSON
 
 final class PrepaidElectricityDataService: APIService {
-    private static let realmInterface: RealmInterface<PrepaidElectricity> = RealmInterface()
+    private static let realmInterface: RealmInterface<PrepaidElectricityObject> = RealmInterface()
     
     // MARK: Fetch
     
-    static func fetchPrepaidElectricity(_ onCompletion: @escaping(Result<[PrepaidElectricity], Error>) -> Void) {
+    static func fetchPrepaidElectricity(_ onCompletion: @escaping(Result<[PrepaidElectricityObject], Error>) -> Void) {
         SwiftyBeaver.info("Fetching all prepaid electricity.")
         
         AF.request(Endpoints.electricity, method: .get, headers: headers).validate().responseJSON { (response) in
@@ -28,10 +28,10 @@ final class PrepaidElectricityDataService: APIService {
                 SwiftyBeaver.info("Succesfully fetched electricity.")
                 
                 let data = JSON(result)
-                var purchases: [PrepaidElectricity] = []
+                var purchases: [PrepaidElectricityObject] = []
 
-                purchases = data.array?.compactMap({ (responseJson: JSON) -> PrepaidElectricity? in
-                    let electricity: PrepaidElectricity = PrepaidElectricity.absorb(from: responseJson)
+                purchases = data.array?.compactMap({ (responseJson: JSON) -> PrepaidElectricityObject? in
+                    let electricity: PrepaidElectricityObject = PrepaidElectricityObject.absorb(from: responseJson)
                     return electricity
                 }) ?? []
                 
@@ -45,7 +45,7 @@ final class PrepaidElectricityDataService: APIService {
     
     // MARK: Create
     
-    internal static func create(prepaidElectricity: PrepaidElectricity, _ onCompletion: @escaping(Result<PrepaidElectricity, Error>) -> Void) {
+    internal static func create(prepaidElectricity: PrepaidElectricityObject, _ onCompletion: @escaping(Result<PrepaidElectricityObject, Error>) -> Void) {
         SwiftyBeaver.info("Creating new prepaid electrcity.")
         SwiftyBeaver.verbose("Prepaid electricity: \(prepaidElectricity)")
         
@@ -59,7 +59,7 @@ final class PrepaidElectricityDataService: APIService {
                 
             case .success(let returnedObject):
                 let data = JSON(returnedObject)
-                let newPrepaidElectricity = PrepaidElectricity.absorb(from: data)
+                let newPrepaidElectricity = PrepaidElectricityObject.absorb(from: data)
                 
                 SwiftyBeaver.info("Created new prepaid electricity remotely.")
                 self.realmInterface.add(object: newPrepaidElectricity)
@@ -71,7 +71,7 @@ final class PrepaidElectricityDataService: APIService {
     
     // MARK: Update
     
-    internal static func update(_ prepaidElectricity: PrepaidElectricity, _ onCompletion: @escaping(Result<PrepaidElectricity, Error>) -> Void) {
+    internal static func update(_ prepaidElectricity: PrepaidElectricityObject, _ onCompletion: @escaping(Result<PrepaidElectricityObject, Error>) -> Void) {
         SwiftyBeaver.info("Updating prepaid electricity.")
         SwiftyBeaver.verbose("Prepaid electricity: \(prepaidElectricity)")
         
@@ -85,7 +85,7 @@ final class PrepaidElectricityDataService: APIService {
                 
             case .success(let returnedObject):
                 let data = JSON(returnedObject)
-                let updatedPrepaidElectricity = PrepaidElectricity.absorb(from: data)
+                let updatedPrepaidElectricity = PrepaidElectricityObject.absorb(from: data)
                 
                 SwiftyBeaver.info("Updated prepaid electricity remotely.")
                 self.realmInterface.update(object: updatedPrepaidElectricity)
@@ -97,7 +97,7 @@ final class PrepaidElectricityDataService: APIService {
     
     // MARK: Delete
     
-    internal static func delete(_ prepaidElectricity: PrepaidElectricity, _ onCompletion: @escaping(Result<Bool, Error>) -> Void) {
+    internal static func delete(_ prepaidElectricity: PrepaidElectricityObject, _ onCompletion: @escaping(Result<Bool, Error>) -> Void) {
         SwiftyBeaver.info("Deleting prepaid electricity.")
         SwiftyBeaver.verbose("Prepaid electricity: \(prepaidElectricity)")
         

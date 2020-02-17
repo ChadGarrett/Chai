@@ -1,5 +1,5 @@
 //
-//  DebitOrder.swift
+//  DebitOrderObject.swift
 //  Chai
 //
 //  Created by Chad Garrett on 2020/02/11.
@@ -10,7 +10,7 @@ import Alamofire
 import RealmSwift
 import SwiftyJSON
 
-final class DebitOrder: BaseObject, Codable {
+final class DebitOrderObject: BaseObject, Codable {
     @objc dynamic var title: String = ""
     @objc dynamic var descriptionAbout: String = ""
     @objc dynamic var amount: Double = 0.0
@@ -27,12 +27,12 @@ final class DebitOrder: BaseObject, Codable {
       case endDate = "end_date"
     }
 
-    func clone() -> DebitOrder? {
-        return self.mutableCopy() as? DebitOrder
+    func clone() -> DebitOrderObject? {
+        return self.mutableCopy() as? DebitOrderObject
     }
     
-    static func absorb(from data: JSON) -> DebitOrder {
-        let debitOrder: DebitOrder = DebitOrder()
+    static func absorb(from data: JSON) -> DebitOrderObject {
+        let debitOrder: DebitOrderObject = DebitOrderObject()
         debitOrder.id = data["id"].stringValue
         debitOrder.title = data["title"].stringValue
         debitOrder.descriptionAbout = data["description"].stringValue

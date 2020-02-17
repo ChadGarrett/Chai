@@ -11,11 +11,11 @@ import SwiftyBeaver
 import SwiftyJSON
 
 final class DebitOrderDataService: APIService {
-    private static let realmInterface: RealmInterface<DebitOrder> = RealmInterface()
+    private static let realmInterface: RealmInterface<DebitOrderObject> = RealmInterface()
     
     // MARK: Fetch
     
-    public static func fetchDebitOrders(_ onCompletion: @escaping(Result<[DebitOrder], Error>) -> Void) {
+    public static func fetchDebitOrders(_ onCompletion: @escaping(Result<[DebitOrderObject], Error>) -> Void) {
         SwiftyBeaver.info("Fetching all debit orders.")
         AF.request(Endpoints.debitOrders, method: .get, headers: headers).validate().responseJSON { (response) in
             switch response.result {
@@ -27,10 +27,10 @@ final class DebitOrderDataService: APIService {
                 SwiftyBeaver.info("Succesfully fetched debit orders.")
                 
                 let data = JSON(result)
-                var debitOrders: [DebitOrder] = []
+                var debitOrders: [DebitOrderObject] = []
 
-                debitOrders = data.array?.compactMap({ (responseJson: JSON) -> DebitOrder? in
-                    let debitOrder: DebitOrder = DebitOrder.absorb(from: responseJson)
+                debitOrders = data.array?.compactMap({ (responseJson: JSON) -> DebitOrderObject? in
+                    let debitOrder: DebitOrderObject = DebitOrderObject.absorb(from: responseJson)
                     return debitOrder
                 }) ?? []
 
@@ -44,7 +44,7 @@ final class DebitOrderDataService: APIService {
     
     // MARK: Create
     
-    public static func createDebitOrder(debitOrder: DebitOrder, _ onCompletion: @escaping(Result<DebitOrder, Error>) -> Void) {
+    public static func createDebitOrder(debitOrder: DebitOrderObject, _ onCompletion: @escaping(Result<DebitOrderObject, Error>) -> Void) {
         SwiftyBeaver.info("Creating new debit order.")
         SwiftyBeaver.verbose("Debit order: \(debitOrder)")
         
@@ -58,7 +58,7 @@ final class DebitOrderDataService: APIService {
                 
             case .success(let returnedObject):
                 let data = JSON(returnedObject)
-                let newDebitOrder = DebitOrder.absorb(from: data)
+                let newDebitOrder = DebitOrderObject.absorb(from: data)
                 
                 SwiftyBeaver.info("Created new debit order remotely.")
                 self.realmInterface.add(object: newDebitOrder)
@@ -70,7 +70,7 @@ final class DebitOrderDataService: APIService {
     
     // MARK: Update
     
-    public static func updateDebitOrder(debitOrder: DebitOrder, _ onCompletion: @escaping(Result<DebitOrder, Error>) -> Void) {
+    public static func updateDebitOrder(debitOrder: DebitOrderObject, _ onCompletion: @escaping(Result<DebitOrderObject, Error>) -> Void) {
         SwiftyBeaver.info("Updating debit order.")
         SwiftyBeaver.verbose("Debit order: \(debitOrder)")
         
@@ -84,7 +84,7 @@ final class DebitOrderDataService: APIService {
                 
             case .success(let responseObject):
                 let data = JSON(responseObject)
-                let updatedDebitOrder = DebitOrder.absorb(from: data)
+                let updatedDebitOrder = DebitOrderObject.absorb(from: data)
                 
                 SwiftyBeaver.info("Updated debit order remotely.")
                 self.realmInterface.update(object: updatedDebitOrder)
@@ -96,7 +96,7 @@ final class DebitOrderDataService: APIService {
     
     // MARK: Delete
     
-    public static func deleteDebitOrder(debitOrder: DebitOrder, _ onCompletion: @escaping(Result<Bool, Error>) -> Void) {
+    public static func deleteDebitOrder(debitOrder: DebitOrderObject, _ onCompletion: @escaping(Result<Bool, Error>) -> Void) {
         SwiftyBeaver.info("Deleting debit order.")
         SwiftyBeaver.verbose("Debit order: \(debitOrder)")
         

@@ -25,7 +25,7 @@ final class DebitOrderCell: BaseTableViewCell {
         self.lblName.autoPinEdge(toSuperviewEdge: .bottom, withInset: Style.padding.s, relation: .greaterThanOrEqual)
     }
     
-    internal func prepareForDisplay(debitOrder: DebitOrder) {
+    internal func prepareForDisplay(debitOrder: DebitOrderObject) {
         self.lblName.attributedText = NSAttributedString(
             string: debitOrder.title,
             attributes: Style.heading_2)

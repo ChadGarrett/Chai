@@ -45,7 +45,7 @@ final class SavingsCell: BaseTableViewCell {
     
     // MARK: Interface
     
-    internal func prepareForDisplay(saving: Saving) {
+    internal func prepareForDisplay(saving: SavingObject) {
         self.prepareHeading(text: saving.title)
         self.prepareAmount(amount: saving.amount)
         self.prepareDescription(text: saving.descriptionAbout)

@@ -36,7 +36,7 @@ final class PrepaidElectricityCell: BaseTableViewCell {
         self.lblKwh.autoPinEdges(toSuperviewEdges: [.left, .right, .bottom], withInset: Style.padding.s)
     }
     
-    internal func prepareForDisplay(prepaidElectricity: PrepaidElectricity) {
+    internal func prepareForDisplay(prepaidElectricity: PrepaidElectricityObject) {
         self.setupDateBought(text: prepaidElectricity.dateBought)
         self.setupBuyer(text: prepaidElectricity.buyer)
         self.setupDetails(randAmount: prepaidElectricity.randAmount, charges: prepaidElectricity.charges, amountBought: prepaidElectricity.amountBought)

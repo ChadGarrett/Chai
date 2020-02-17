@@ -47,8 +47,8 @@ final class PrepaidElectricityController: BaseViewController {
     
     // MARK: Data
     
-    private lazy var dataProvider: BaseDataProvider<PrepaidElectricity> = {
-        let provider = BaseDataProvider<PrepaidElectricity>(
+    private lazy var dataProvider: BaseDataProvider<PrepaidElectricityObject> = {
+        let provider = BaseDataProvider<PrepaidElectricityObject>(
             bindTo: .tableView(self.prepaidElectricityView.tableView),
             basePredicate: NSPredicate(value: true),
             filter: NSPredicate(value: true),
@@ -98,7 +98,7 @@ extension PrepaidElectricityController: UITableViewDataSource {
         return tableView.dequeueReusableCell(for: indexPath, cellType: BlankTableCell.self)
     }
     
-    private func getElectricityCell(_ tableView: UITableView, with electricity: PrepaidElectricity, for indexPath: IndexPath) -> UITableViewCell {
+    private func getElectricityCell(_ tableView: UITableView, with electricity: PrepaidElectricityObject, for indexPath: IndexPath) -> UITableViewCell {
         let cell: PrepaidElectricityCell = tableView.dequeueReusableCell(for: indexPath)
         cell.prepareForDisplay(prepaidElectricity: electricity)
         return cell

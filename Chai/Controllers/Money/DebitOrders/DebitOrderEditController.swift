@@ -14,7 +14,7 @@ final class DebitOrderEditController: FormViewController {
     
     enum Mode {
         case create
-        case edit(DebitOrder)
+        case edit(DebitOrderObject)
     }
     
     // MARK: Properties
@@ -42,7 +42,7 @@ final class DebitOrderEditController: FormViewController {
         }
     }
     
-    private func prepopulateForm(with debitOrder: DebitOrder) {
+    private func prepopulateForm(with debitOrder: DebitOrderObject) {
         self.rowTitle.value = debitOrder.title
         self.rowDescription.value = debitOrder.descriptionAbout
         self.rowAmount.value = debitOrder.amount
@@ -156,15 +156,15 @@ extension DebitOrderEditController {
         }
     }
     
-    private func getDebitOrderFromForm(appendTo debitOrder: DebitOrder? = nil) -> DebitOrder {
-        let order: DebitOrder
+    private func getDebitOrderFromForm(appendTo debitOrder: DebitOrderObject? = nil) -> DebitOrderObject {
+        let order: DebitOrderObject
         
         switch self.mode {
         case .create:
-            order = DebitOrder()
+            order = DebitOrderObject()
             
         case .edit(let oldDebitOrder):
-            order = DebitOrder(value: oldDebitOrder) // Deep copy
+            order = DebitOrderObject(value: oldDebitOrder) // Deep copy
         }
         
         if let title = self.rowTitle.value {
@@ -195,7 +195,7 @@ extension DebitOrderEditController {
     }
     
     private func addNewDebitOrder() {
-        let debitOrder: DebitOrder = self.getDebitOrderFromForm()
+        let debitOrder: DebitOrderObject = self.getDebitOrderFromForm()
         
         DebitOrderDataService.createDebitOrder(debitOrder: debitOrder) { (result) in
             switch result {
@@ -214,8 +214,8 @@ extension DebitOrderEditController {
         BannerService.shared.showBanner(title: "Failed creating debit order", style: .danger)
     }
     
-    private func updateDebitOrder(_ debitOrder: DebitOrder) {
-        let debitOrder: DebitOrder = self.getDebitOrderFromForm(appendTo: debitOrder)
+    private func updateDebitOrder(_ debitOrder: DebitOrderObject) {
+        let debitOrder: DebitOrderObject = self.getDebitOrderFromForm(appendTo: debitOrder)
         
         DebitOrderDataService.updateDebitOrder(debitOrder: debitOrder) { (result) in
             switch result {

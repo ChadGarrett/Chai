@@ -52,8 +52,8 @@ final class SavingsController: BaseViewController {
     
     // MARK: Data
     
-    private lazy var dataProvider: BaseDataProvider<Saving> = {
-        let provider = BaseDataProvider<Saving>(
+    private lazy var dataProvider: BaseDataProvider<SavingObject> = {
+        let provider = BaseDataProvider<SavingObject>(
             bindTo: .tableView(self.vwSavings.tableView),
             basePredicate: NSPredicate(value: true),
             filter: NSPredicate(value: true),
@@ -99,7 +99,7 @@ extension SavingsController: UITableViewDataSource {
         return tableView.dequeueReusableCell(for: indexPath, cellType: BlankTableCell.self)
     }
     
-    private func getSavingsCell(_ tableView: UITableView, for indexPath: IndexPath, saving: Saving) -> UITableViewCell {
+    private func getSavingsCell(_ tableView: UITableView, for indexPath: IndexPath, saving: SavingObject) -> UITableViewCell {
         let cell: SavingsCell = tableView.dequeueReusableCell(for: indexPath)
         cell.prepareForDisplay(saving: saving)
         return cell

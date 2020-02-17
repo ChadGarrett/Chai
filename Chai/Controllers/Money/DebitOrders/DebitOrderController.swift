@@ -58,8 +58,8 @@ final class DebitOrderController: BaseViewController {
     
     // MARK: Data
     
-    private lazy var dataProvider: BaseDataProvider<DebitOrder> = {
-        let provider = BaseDataProvider<DebitOrder>(
+    private lazy var dataProvider: BaseDataProvider<DebitOrderObject> = {
+        let provider = BaseDataProvider<DebitOrderObject>(
             bindTo: .tableView(self.debitOrderView.tableView),
             basePredicate: NSPredicate(value: true),
             filter: NSPredicate(value: true),
@@ -150,7 +150,7 @@ extension DebitOrderController: UITableViewDataSource {
         return tableView.dequeueReusableCell(for: indexPath, cellType: BlankTableCell.self)
     }
     
-    private func getDebitOrderCell(_ tableView: UITableView, for indexPath: IndexPath, with debitOrder: DebitOrder) -> UITableViewCell {
+    private func getDebitOrderCell(_ tableView: UITableView, for indexPath: IndexPath, with debitOrder: DebitOrderObject) -> UITableViewCell {
         let cell: DebitOrderCell = tableView.dequeueReusableCell(for: indexPath)
         cell.prepareForDisplay(debitOrder: debitOrder)
         return cell
