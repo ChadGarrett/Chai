@@ -63,7 +63,7 @@ final class SavingsController: BaseViewController {
     }()
     
     private func fetchData() {
-        SavingsAPIService.fetchSavings() { (result) in
+        SavingsAPIService.fetch { (result) in
             switch result {
             case .failure:
                 BannerService.shared.showBanner(title: "Unable to fetch all savings", style: .danger)
@@ -80,6 +80,8 @@ final class SavingsController: BaseViewController {
         self.fetchData()
     }
 }
+
+// MARK: UITableViewDataSource
 
 extension SavingsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,6 +106,8 @@ extension SavingsController: UITableViewDataSource {
     }
 }
 
+// MARK: UITableViewDelegate
+
 extension SavingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let saving = self.dataProvider.object(at: indexPath.row)
@@ -112,6 +116,8 @@ extension SavingsController: UITableViewDelegate {
         SwiftyBeaver.verbose("Tapped on \(saving)")
     }
 }
+
+// MARK: DataProviderUpdateDelegate
 
 extension SavingsController: DataProviderUpdateDelegate {
     func providerDataDidUpdate<F>(_ provider: BaseDataProvider<F>) where F : BaseObject {

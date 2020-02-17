@@ -13,17 +13,19 @@ import SwiftyJSON
 final class SavingsAPIService: APIService {
     private static let realmInterface: RealmInterface<Saving> = RealmInterface()
     
-    static func fetchSavings(_ onCompletion: @escaping(Result<[Saving], Error>) -> Void) {
+    // MARK: Fetch
+    
+    static func fetch(_ onCompletion: @escaping (Result<[Saving], Error>) -> Void)  {
         SwiftyBeaver.info("Fetching all savings.")
         AF.request(Endpoints.savings, method: .get, headers: headers).validate().responseJSON { (response) in
             switch response.result {
             case .failure(let error):
                 SwiftyBeaver.error("Unable to fetch all savings.", error.localizedDescription)
                 onCompletion(.failure(error))
-                
+
             case .success(let result):
                 SwiftyBeaver.info("Succesfully fetched savings.")
-                
+
                 let data = JSON(result)
                 var savings: [Saving] = []
 
@@ -38,7 +40,7 @@ final class SavingsAPIService: APIService {
                     saving.colorHexCode = responseJson["color_hex_code"].stringValue
                     return saving
                 }) ?? []
-                
+
                 SwiftyBeaver.verbose("Savings: \(savings)")
                 self.realmInterface.sync(savings)
                 onCompletion(.success(savings))
@@ -46,9 +48,21 @@ final class SavingsAPIService: APIService {
         }
     }
     
-    // TODO: Create
+    // MARK: Create
     
-    // TODO: Update
+    static func create(_ saving: Saving, _ onCompletion: @escaping(Result<Saving, Error>) -> Void) {
+        
+    }
     
-    // TODO: Delete
+    // MARK: Update
+    
+    static func update(_ saving: Saving, _ onCompletion: @escaping(Result<Saving, Error>) -> Void) {
+        
+    }
+    
+    // MARK: Delete
+    
+    static func delete(_ saving: Saving, _ onCompletion: @escaping(Result<Bool, Error>) -> Void) {
+        
+    }
 }

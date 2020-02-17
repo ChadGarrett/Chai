@@ -13,6 +13,8 @@ import SwiftyJSON
 final class PrepaidElectricityDataService: APIService {
     private static let realmInterface: RealmInterface<PrepaidElectricity> = RealmInterface()
     
+    // MARK: Fetch
+    
     static func fetchPrepaidElectricity(_ onCompletion: @escaping(Result<[PrepaidElectricity], Error>) -> Void) {
         SwiftyBeaver.info("Fetching all prepaid electricity.")
         
@@ -28,28 +30,89 @@ final class PrepaidElectricityDataService: APIService {
                 let data = JSON(result)
                 var purchases: [PrepaidElectricity] = []
 
-                // TODO: PrepaidElectricity is codable, so this shouldn't be necessary
                 purchases = data.array?.compactMap({ (responseJson: JSON) -> PrepaidElectricity? in
-                    let electricity: PrepaidElectricity = PrepaidElectricity()
-                    electricity.id = responseJson["id"].stringValue
-                    electricity.buyer = responseJson["buyer"].stringValue
-                    electricity.randAmount = responseJson["rand_amount"].doubleValue
-                    electricity.charges = responseJson["charges"].doubleValue
-                    electricity.amountBought = responseJson["amount_bought"].doubleValue
-                    electricity.dateBought = responseJson["date_bought"].stringValue
+                    let electricity: PrepaidElectricity = PrepaidElectricity.absorb(from: responseJson)
                     return electricity
                 }) ?? []
                 
                 SwiftyBeaver.verbose("Electricties: \(purchases)")
                 self.realmInterface.sync(purchases)
+                
                 onCompletion(.success(purchases))
             }
         }
     }
     
-    // TODO: Create
+    // MARK: Create
     
-    // TODO: Update
+    internal static func create(prepaidElectricity: PrepaidElectricity, _ onCompletion: @escaping(Result<PrepaidElectricity, Error>) -> Void) {
+        SwiftyBeaver.info("Creating new prepaid electrcity.")
+        SwiftyBeaver.verbose("Prepaid electricity: \(prepaidElectricity)")
+        
+        let parameters: Parameters = prepaidElectricity.asParameters()
+        
+        AF.request(Endpoints.electricity, method: .post, parameters: parameters, headers: headers).validate().responseJSON { (response) in
+            switch response.result {
+            case .failure(let error):
+                SwiftyBeaver.error("Unable to create new prepaid electricity remotely.", error.localizedDescription)
+                onCompletion(.failure(error))
+                
+            case .success(let returnedObject):
+                let data = JSON(returnedObject)
+                let newPrepaidElectricity = PrepaidElectricity.absorb(from: data)
+                
+                SwiftyBeaver.info("Created new prepaid electricity remotely.")
+                self.realmInterface.add(object: newPrepaidElectricity)
+                
+                onCompletion(.success(newPrepaidElectricity))
+            }
+        }
+    }
     
-    // TODO: Delete
+    // MARK: Update
+    
+    internal static func update(_ prepaidElectricity: PrepaidElectricity, _ onCompletion: @escaping(Result<PrepaidElectricity, Error>) -> Void) {
+        SwiftyBeaver.info("Updating prepaid electricity.")
+        SwiftyBeaver.verbose("Prepaid electricity: \(prepaidElectricity)")
+        
+        let parameters: Parameters = prepaidElectricity.asParameters()
+        
+        AF.request(Endpoints.electricity + prepaidElectricity.id + "/", method: .patch, parameters: parameters, headers: headers).validate().responseJSON { (response) in
+            switch response.result {
+            case .failure(let error):
+                SwiftyBeaver.error("Unable to update prepaid electrcitiy remotely.", error.localizedDescription)
+                onCompletion(.failure(error))
+                
+            case .success(let returnedObject):
+                let data = JSON(returnedObject)
+                let updatedPrepaidElectricity = PrepaidElectricity.absorb(from: data)
+                
+                SwiftyBeaver.info("Updated prepaid electricity remotely.")
+                self.realmInterface.update(object: updatedPrepaidElectricity)
+                
+                onCompletion(.success(updatedPrepaidElectricity))
+            }
+        }
+    }
+    
+    // MARK: Delete
+    
+    internal static func delete(_ prepaidElectricity: PrepaidElectricity, _ onCompletion: @escaping(Result<Bool, Error>) -> Void) {
+        SwiftyBeaver.info("Deleting prepaid electricity.")
+        SwiftyBeaver.verbose("Prepaid electricity: \(prepaidElectricity)")
+        
+        AF.request(Endpoints.electricity + prepaidElectricity.id + "/", method: .delete, headers: headers).validate().response { (response) in
+            switch response.result {
+            case .failure(let error):
+                SwiftyBeaver.error("Unable to delete prepaid electrcitiy.", error.localizedDescription)
+                onCompletion(.failure(error))
+                
+            case .success:
+                SwiftyBeaver.info("Deleted prepaid electricity.")
+                self.realmInterface.delete(object: prepaidElectricity)
+                
+                onCompletion(.success(true))
+            }
+        }
+    }
 }
