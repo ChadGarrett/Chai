@@ -11,6 +11,7 @@ import SwiftyBeaver
 import SwiftyJSON
 
 final class DebitOrderDataService: APIService {
+    private static let realmInterface: RealmInterface<DebitOrder> = RealmInterface()
     
     // MARK: Fetch
     
@@ -34,7 +35,7 @@ final class DebitOrderDataService: APIService {
                 }) ?? []
 
                 SwiftyBeaver.verbose("Debit orders: \(debitOrders)")
-                DebitOrderContext.shared.syncDebitOrders(debitOrders)
+                self.realmInterface.sync(debitOrders)
                 
                 onCompletion(.success(debitOrders))
             }
@@ -59,8 +60,8 @@ final class DebitOrderDataService: APIService {
                 let data = JSON(returnedObject)
                 let newDebitOrder = DebitOrder.absorb(from: data)
                 
-                SwiftyBeaver.info("Created new debit order")
-                DebitOrderContext.shared.add(debitOrder: newDebitOrder)
+                SwiftyBeaver.info("Created new debit order remotely.")
+                self.realmInterface.add(object: newDebitOrder)
                 
                 onCompletion(.success(debitOrder))
             }
@@ -86,7 +87,7 @@ final class DebitOrderDataService: APIService {
                 let updatedDebitOrder = DebitOrder.absorb(from: data)
                 
                 SwiftyBeaver.info("Updated debit order remotely.")
-                DebitOrderContext.shared.updateDebitOrder(newValue: updatedDebitOrder)
+                self.realmInterface.update(object: updatedDebitOrder)
                 
                 onCompletion(.success(updatedDebitOrder))
             }
@@ -107,7 +108,7 @@ final class DebitOrderDataService: APIService {
                 
             case .success:
                 SwiftyBeaver.info("Deleted deit order remotely.")
-                DebitOrderContext.shared.delete(debitOrder: debitOrder)
+                self.realmInterface.delete(object: debitOrder)
                 
                 onCompletion(.success(true))
             }

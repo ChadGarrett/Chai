@@ -11,6 +11,8 @@ import SwiftyBeaver
 import SwiftyJSON
 
 final class SavingsAPIService: APIService {
+    private static let realmInterface: RealmInterface<Saving> = RealmInterface()
+    
     static func fetchSavings(_ onCompletion: @escaping(Result<[Saving], Error>) -> Void) {
         SwiftyBeaver.info("Fetching all savings.")
         AF.request(Endpoints.savings, method: .get, headers: headers).validate().responseJSON { (response) in
@@ -38,9 +40,15 @@ final class SavingsAPIService: APIService {
                 }) ?? []
                 
                 SwiftyBeaver.verbose("Savings: \(savings)")
-                SavingContext.shared.syncSavings(savings)
+                self.realmInterface.sync(savings)
                 onCompletion(.success(savings))
             }
         }
     }
+    
+    // TODO: Create
+    
+    // TODO: Update
+    
+    // TODO: Delete
 }

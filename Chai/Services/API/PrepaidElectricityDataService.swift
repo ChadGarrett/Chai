@@ -11,6 +11,7 @@ import SwiftyBeaver
 import SwiftyJSON
 
 final class PrepaidElectricityDataService: APIService {
+    private static let realmInterface: RealmInterface<PrepaidElectricity> = RealmInterface()
     
     static func fetchPrepaidElectricity(_ onCompletion: @escaping(Result<[PrepaidElectricity], Error>) -> Void) {
         SwiftyBeaver.info("Fetching all prepaid electricity.")
@@ -40,9 +41,15 @@ final class PrepaidElectricityDataService: APIService {
                 }) ?? []
                 
                 SwiftyBeaver.verbose("Electricties: \(purchases)")
-                PrepaidElectricityContext.shared.syncPrepaidElectricity(purchases)
+                self.realmInterface.sync(purchases)
                 onCompletion(.success(purchases))
             }
         }
     }
+    
+    // TODO: Create
+    
+    // TODO: Update
+    
+    // TODO: Delete
 }
