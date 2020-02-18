@@ -37,8 +37,8 @@ final class DebitOrderEditController: FormViewController {
     
     private func setupTitle() {
         switch self.mode {
-        case .create: self.title = "Add"
-        case .edit: self.title = "Edit"
+        case .create: self.title = R.string.localizable.title_add()
+        case .edit: self.title = R.string.localizable.title_edit()
         }
     }
     

@@ -81,6 +81,7 @@
 		E5C760D1232F64910001886C /* CrashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C760D0232F64910001886C /* CrashService.swift */; };
 		E5DD88F623FA7C1E002AFB1C /* RealmInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD88F523FA7C1E002AFB1C /* RealmInterface.swift */; };
 		E5DD88FF23FB2127002AFB1C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD88FE23FB2127002AFB1C /* DateHelper.swift */; };
+		E5DD890123FBCD66002AFB1C /* MainMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD890023FBCD66002AFB1C /* MainMenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +190,7 @@
 		E5C760D0232F64910001886C /* CrashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashService.swift; sourceTree = "<group>"; };
 		E5DD88F523FA7C1E002AFB1C /* RealmInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInterface.swift; sourceTree = "<group>"; };
 		E5DD88FE23FB2127002AFB1C /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		E5DD890023FBCD66002AFB1C /* MainMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuItem.swift; sourceTree = "<group>"; };
 		F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChaiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -393,6 +395,7 @@
 				E52E847423F2C7C500B6591A /* DebitOrderObject.swift */,
 				E52E848D23F414DF00B6591A /* PrepaidElectricityObject.swift */,
 				E53DA64023F50FC3000D0914 /* SavingObject.swift */,
+				E5DD890023FBCD66002AFB1C /* MainMenuItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 				E52E848723F4078700B6591A /* APIService.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* Array+App.swift in Sources */,
 				E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */,
+				E5DD890123FBCD66002AFB1C /* MainMenuItem.swift in Sources */,
 				E52E849023F41A3C00B6591A /* PrepaidElectricityView.swift in Sources */,
 				E5DD88F623FA7C1E002AFB1C /* RealmInterface.swift in Sources */,
 				E5B515BC22D4C99000B36BE3 /* MigrationService.swift in Sources */,

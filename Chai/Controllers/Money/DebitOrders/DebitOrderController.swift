@@ -40,7 +40,7 @@ final class DebitOrderController: BaseViewController {
     }
     
     private func setupView() {
-        self.navigationItem.rightBarButtonItems = [self.btnAdd, self.btnRefresh] //.setRightBarButton(self.btnRefresh, animated: true)
+        self.navigationItem.rightBarButtonItems = [self.btnAdd, self.btnRefresh]
         
         self.view.addSubview(self.debitOrderView)
         self.debitOrderView.autoPinEdgesToSuperviewSafeArea()
@@ -86,7 +86,7 @@ final class DebitOrderController: BaseViewController {
         let controller = UISearchController(searchResultsController: nil)
         controller.searchResultsUpdater = self
         controller.obscuresBackgroundDuringPresentation = false
-        controller.searchBar.placeholder = "Search"
+        controller.searchBar.placeholder = R.string.localizable.search_placeholder()
         controller.delegate = self
         return controller
     }()

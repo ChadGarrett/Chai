@@ -19,7 +19,7 @@ import UIKit
 // |___________|
 
 final class MainMenuItemCell: BaseCollectionViewCell {
-    typealias MenuItem = MainController.MenuItem
+    typealias MenuItem = MainMenuItem
     
     // MARK: -Setup
     

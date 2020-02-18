@@ -13,6 +13,8 @@
 "title_debit_orders" = "Debit Orders";
 "title_prepaid_electricity" = "Prepaid Electricity";
 "title_savings" = "Savings";
+"title_add" = "Add";
+"title_edit" = "Edit";
 
 // Buttons
 "button_add" = "Add";
@@ -31,6 +33,11 @@
 "button_attention_massage" = "Massage";
 "button_attention_dinner" = "Dinner";
 "button_movies" = "Movie Watchlist";
+"button_prepaid_electricity" = "Prepaid Electricity";
+"button_savings" = "Savings";
+"button_debit_orders" = "Debit Orders";
+"button_gym" = "Gym";
+"button_settings" = "Settings";
 
 // Mood categories
 "mood_category_bad" = "Bad";
@@ -46,6 +53,7 @@
 // Misc
 "mood_explanation" = "Slide the scale to indicate how you are currently feeling. The mood-o-meter will sync when you go back. When I check our app and see your mood is low, I'll know that either I messed up or that just generally things could be better.";
 "loading" = "Loading...";
+"search_placeholder" = "Search";
 
 // Savings
 "savings_last_updated" = "Last updated: %@";

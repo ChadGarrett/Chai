@@ -11,11 +11,10 @@ import UIKit
 import SwiftyBeaver
 
 protocol MainViewDelegate: class {
-    func didSelect(_ menuItem: MainController.MenuItem)
+    func didSelect(_ menuItem: MainMenuItem)
 }
 
 final class MainView: BaseView {
-    typealias MenuItem = MainController.MenuItem
     
     // MARK: -Delegate
     
@@ -56,11 +55,11 @@ extension MainView: UICollectionViewDragDelegate {
 
 extension MainView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MenuItem.allCases.count
+        return MainMenuItem.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let menuItem = MenuItem.allCases.item(at: indexPath.row)
+        guard let menuItem = MainMenuItem.allCases.item(at: indexPath.row)
             else { return self.getBlankCollectionCell(for: indexPath) }
         
         return self.getMenuItemCell(for: indexPath, menuItem: menuItem)
@@ -70,7 +69,7 @@ extension MainView: UICollectionViewDataSource {
         return self.collectionView.dequeueReusableCell(for: indexPath, cellType: BlankCollectionCell.self)
     }
     
-    private func getMenuItemCell(for indexPath: IndexPath, menuItem: MenuItem) -> UICollectionViewCell {
+    private func getMenuItemCell(for indexPath: IndexPath, menuItem: MainMenuItem) -> UICollectionViewCell {
         let cell: MainMenuItemCell = self.collectionView.dequeueReusableCell(for: indexPath)
         cell.prepareForDisplay(menuItem)
         return cell
@@ -88,7 +87,7 @@ extension MainView: UICollectionViewDelegateFlowLayout {
 
 extension MainView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let menuItem = MenuItem.allCases.item(at: indexPath.row)
+        guard let menuItem = MainMenuItem.allCases.item(at: indexPath.row)
         else { return }
         
         SwiftyBeaver.info("Tapped on \(menuItem.title)")
