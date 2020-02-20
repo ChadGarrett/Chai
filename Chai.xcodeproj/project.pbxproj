@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		779169A9F5050D645A9B8B93 /* libPods-Chai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BFC8B10AD4AD81429C3E6 /* libPods-Chai.a */; };
 		C59CB44976933B704F8FD36F /* libPods-ChaiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */; };
+		E515103C23FEC84900FDCAE0 /* NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E515103B23FEC84900FDCAE0 /* NetworkStatusMonitor.swift */; };
 		E52E012E23F14563001D48F5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E012D23F14563001D48F5 /* R.generated.swift */; };
 		E52E846923F2C26A00B6591A /* DebitOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846823F2C26A00B6591A /* DebitOrderController.swift */; };
 		E52E846B23F2C28F00B6591A /* SavingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846A23F2C28F00B6591A /* SavingsController.swift */; };
@@ -115,6 +116,7 @@
 		6E3D67A9FAED454B78A46216 /* Pods_Chai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB1C20533C59A25D65A6EAB /* Pods-Chai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.debug.xcconfig"; path = "Target Support Files/Pods-Chai/Pods-Chai.debug.xcconfig"; sourceTree = "<group>"; };
 		B15A51E5AF5221245FA4B2AD /* Pods-ChaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.release.xcconfig"; path = "Target Support Files/Pods-ChaiTests/Pods-ChaiTests.release.xcconfig"; sourceTree = "<group>"; };
+		E515103B23FEC84900FDCAE0 /* NetworkStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusMonitor.swift; sourceTree = "<group>"; };
 		E52E012D23F14563001D48F5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E52E846823F2C26A00B6591A /* DebitOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderController.swift; sourceTree = "<group>"; };
 		E52E846A23F2C28F00B6591A /* SavingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsController.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				E5C760CC232F64010001886C /* BaseService.swift */,
 				E5C760CE232F645C0001886C /* LoggingService.swift */,
 				E5C760D0232F64910001886C /* CrashService.swift */,
+				E515103B23FEC84900FDCAE0 /* NetworkStatusMonitor.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				E53DA64723F52470000D0914 /* UIColor+App.swift in Sources */,
 				E52E847A23F2D11000B6591A /* DebitOrderDataService.swift in Sources */,
 				E52E848123F4045600B6591A /* NumberFormatter+App.swift in Sources */,
+				E515103C23FEC84900FDCAE0 /* NetworkStatusMonitor.swift in Sources */,
 				E5B5157922CDC01F00B36BE3 /* MainController.swift in Sources */,
 				E52E847723F2CF2200B6591A /* AppCardView.swift in Sources */,
 				E5BB546022D637D900206F82 /* BlankCollectionCell.swift in Sources */,

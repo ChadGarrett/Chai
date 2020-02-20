@@ -6,8 +6,14 @@
 //  Copyright © 2019 Chad Garrett. All rights reserved.
 //
 
-class BaseService {
+protocol BaseService {
     /// Call this to setup the service - used in AppDelegate
-    /// Subclasses to override
-    internal func setup() {}
+    func setup()
+    
+    func teardown()
+}
+
+extension BaseService {
+    // Default implementation - not all services require a teardown
+    func teardown() {}
 }

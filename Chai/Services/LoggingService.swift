@@ -16,7 +16,7 @@ final class LoggingService: BaseService {
         ConsoleDestination(),
     ]
     
-    override func setup() {
+    func setup() {
         // Adds all the logging output destinations
         self.loggingDestinations.forEach { self.appLogger.addDestination($0) }
     }

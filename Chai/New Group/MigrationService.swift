@@ -12,7 +12,7 @@ import SwiftyBeaver
 final class MigrationService: BaseService {
     
     /// Runs the required migrations if/when necessary
-    override func setup() {
+    func setup() {
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).

@@ -9,7 +9,7 @@
 import Aardvark
 
 final class CrashService: BaseService {
-    override func setup() {
+    func setup() {
         let _ = Aardvark.addDefaultBugReportingGestureWithEmailBugReporter(withRecipient: "thychad@gmail.com")
     }
 }
