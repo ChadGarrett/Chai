@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MigrationService(),
         LoggingService(),
         CrashService(),
+        BannerService(),
     ]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
