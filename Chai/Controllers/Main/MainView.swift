@@ -90,7 +90,7 @@ extension MainView: UICollectionViewDelegate {
         guard let menuItem = MainMenuItem.allCases.item(at: indexPath.row)
         else { return }
         
-        SwiftyBeaver.info("Tapped on \(menuItem.title)")
+        SwiftyBeaver.debug("Tapped on \(menuItem.title)")
         self.delegate?.didSelect(menuItem)
     }
 }

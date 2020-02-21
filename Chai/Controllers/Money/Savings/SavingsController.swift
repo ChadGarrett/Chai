@@ -113,7 +113,7 @@ extension SavingsController: UITableViewDelegate {
         guard let saving = self.dataProvider.object(at: indexPath.row)
             else { return }
         
-        SwiftyBeaver.verbose("Tapped on \(saving)")
+        SwiftyBeaver.debug("Tapped on \(saving)")
     }
 }
 

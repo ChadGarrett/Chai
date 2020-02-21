@@ -41,7 +41,7 @@ final class AttentionViewController: BaseViewController {
 
 extension AttentionViewController: AttentionViewDelegate {
     func onAskForAttention(of type: AttentionType) {
-        SwiftyBeaver.info("Tapped on attention item: \(type.title)")
+        SwiftyBeaver.debug("Tapped on attention item: \(type.title)")
         BannerService.shared.showNotImplementedBanner()
         
         // TODO: Record attention to history
