@@ -9,6 +9,7 @@
 import UIKit
 
 enum DataProviderBindTarget {
+    case none
     case tableView(UITableView)
     case collectionView(UICollectionView)
 }
@@ -16,6 +17,9 @@ enum DataProviderBindTarget {
 extension DataProviderBindTarget {
     func handleInitialUpdate() {
         switch self {
+        case .none:
+            break
+            
         case .tableView(let tableView):
             self.handleInitialUpdate(tableView)
             
@@ -26,6 +30,9 @@ extension DataProviderBindTarget {
     
     func handleUpdates(deletes: [Int], inserts: [Int], changes: [Int], limit: Int?) {
         switch self {
+        case .none:
+            break
+            
         case .tableView(let tableView):
             self.handleUpdates(
                 tableView, deletes: deletes, inserts: inserts, changes: changes, limit: limit, section: 0) // TODO: Section
