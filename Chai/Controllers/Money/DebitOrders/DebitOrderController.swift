@@ -39,7 +39,7 @@ final class DebitOrderController: BaseViewController {
         self.definesPresentationContext = true
     }
     
-    private func setupView() {
+    override func setupView() {
         self.navigationItem.rightBarButtonItems = [self.btnAdd, self.btnRefresh]
         
         self.view.addSubview(self.debitOrderView)

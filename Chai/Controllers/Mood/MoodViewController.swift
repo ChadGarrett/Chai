@@ -39,7 +39,7 @@ final class MoodViewController: BaseViewController {
         }
     }
 
-    private func setupView() {
+    override func setupView() {
         self.view.addSubview(self.moodView)
         self.moodView.autoPinEdgesToSuperviewEdges()
     }

@@ -27,7 +27,7 @@ final class AttentionViewController: BaseViewController {
         self.setupView()
     }
     
-    private func setupView() {
+    override func setupView() {
         self.view.addSubview(self.attentionView)
         self.attentionView.autoPinEdgesToSuperviewEdges()
     }

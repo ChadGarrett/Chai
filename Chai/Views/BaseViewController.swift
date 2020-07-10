@@ -16,6 +16,14 @@ class BaseViewController: UIViewController {
         self.view.backgroundColor = Style.colors.clouds
     }
     
+    override func viewDidLoad() {
+        self.setupView()
+    }
+    
+    internal func setupView() {
+        // Subclasses to override
+    }
+    
     @available(*, unavailable,
     message: "Loading this view controller from a nib is unsupported in favor of initializer dependency injection."
     )
