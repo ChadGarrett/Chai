@@ -10,6 +10,7 @@
 		779169A9F5050D645A9B8B93 /* libPods-Chai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BFC8B10AD4AD81429C3E6 /* libPods-Chai.a */; };
 		C59CB44976933B704F8FD36F /* libPods-ChaiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */; };
 		E515103C23FEC84900FDCAE0 /* NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E515103B23FEC84900FDCAE0 /* NetworkStatusMonitor.swift */; };
+		E5289B4224B5984900D576A3 /* UITableView+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5289B4124B5984900D576A3 /* UITableView+App.swift */; };
 		E52E012E23F14563001D48F5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E012D23F14563001D48F5 /* R.generated.swift */; };
 		E52E846923F2C26A00B6591A /* DebitOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846823F2C26A00B6591A /* DebitOrderController.swift */; };
 		E52E846B23F2C28F00B6591A /* SavingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846A23F2C28F00B6591A /* SavingsController.swift */; };
@@ -118,6 +119,7 @@
 		8EB1C20533C59A25D65A6EAB /* Pods-Chai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.debug.xcconfig"; path = "Target Support Files/Pods-Chai/Pods-Chai.debug.xcconfig"; sourceTree = "<group>"; };
 		B15A51E5AF5221245FA4B2AD /* Pods-ChaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.release.xcconfig"; path = "Target Support Files/Pods-ChaiTests/Pods-ChaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E515103B23FEC84900FDCAE0 /* NetworkStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusMonitor.swift; sourceTree = "<group>"; };
+		E5289B4124B5984900D576A3 /* UITableView+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+App.swift"; sourceTree = "<group>"; };
 		E52E012D23F14563001D48F5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E52E846823F2C26A00B6591A /* DebitOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderController.swift; sourceTree = "<group>"; };
 		E52E846A23F2C28F00B6591A /* SavingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsController.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				E52E848023F4045600B6591A /* NumberFormatter+App.swift */,
 				E53DA64623F52470000D0914 /* UIColor+App.swift */,
 				E53DA64C23F53625000D0914 /* CGSize+App.swift */,
+				E5289B4124B5984900D576A3 /* UITableView+App.swift */,
 				E5A6059324B8AAA700E920A9 /* UIAlertController+App.swift */,
 			);
 			path = Extensions;
@@ -731,6 +734,7 @@
 				E52E849423F41E8000B6591A /* PrepaidElectricityCell.swift in Sources */,
 				E53DA64D23F53625000D0914 /* CGSize+App.swift in Sources */,
 				E52E846923F2C26A00B6591A /* DebitOrderController.swift in Sources */,
+				E5289B4224B5984900D576A3 /* UITableView+App.swift in Sources */,
 				E5C760CD232F64010001886C /* BaseService.swift in Sources */,
 				E53DA64723F52470000D0914 /* UIColor+App.swift in Sources */,
 				E5A6059424B8AAA700E920A9 /* UIAlertController+App.swift in Sources */,
