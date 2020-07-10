@@ -23,4 +23,11 @@ class BaseTableViewCell: UITableViewCell, Reusable {
     public func setupCell() {
         // Subclasses to override
     }
+    
+    public func getIndexPath() -> IndexPath? {
+        guard let tableView = self.superview as? UITableView
+            else { return nil }
+        
+        return tableView.indexPath(for: self)
+    }
 }
