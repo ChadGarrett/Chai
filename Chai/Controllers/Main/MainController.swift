@@ -53,16 +53,7 @@ extension MainController: MainViewDelegate {
             BannerService.shared.showNotImplementedBanner()
             
         case .settings:
-            self.resetApp()
+            self.route(to: SettingsController())
         }
-    }
-    
-    private func resetApp() {
-        SwiftyBeaver.info("RESETING APP!")
-        
-        SwiftyBeaver.info("Emptying Realm")
-        DBManager().deleteAllFromDatabase()
-        
-        BannerService.shared.showBanner(title: "Reset app", style: .danger)
     }
 }

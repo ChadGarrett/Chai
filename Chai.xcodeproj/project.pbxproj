@@ -10,6 +10,7 @@
 		779169A9F5050D645A9B8B93 /* libPods-Chai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 267BFC8B10AD4AD81429C3E6 /* libPods-Chai.a */; };
 		C59CB44976933B704F8FD36F /* libPods-ChaiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */; };
 		E515103C23FEC84900FDCAE0 /* NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E515103B23FEC84900FDCAE0 /* NetworkStatusMonitor.swift */; };
+		E5289B4024B5971200D576A3 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5289B3F24B5971200D576A3 /* SettingsController.swift */; };
 		E5289B4224B5984900D576A3 /* UITableView+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5289B4124B5984900D576A3 /* UITableView+App.swift */; };
 		E52E012E23F14563001D48F5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E012D23F14563001D48F5 /* R.generated.swift */; };
 		E52E846923F2C26A00B6591A /* DebitOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846823F2C26A00B6591A /* DebitOrderController.swift */; };
@@ -119,6 +120,7 @@
 		8EB1C20533C59A25D65A6EAB /* Pods-Chai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chai.debug.xcconfig"; path = "Target Support Files/Pods-Chai/Pods-Chai.debug.xcconfig"; sourceTree = "<group>"; };
 		B15A51E5AF5221245FA4B2AD /* Pods-ChaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChaiTests.release.xcconfig"; path = "Target Support Files/Pods-ChaiTests/Pods-ChaiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E515103B23FEC84900FDCAE0 /* NetworkStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusMonitor.swift; sourceTree = "<group>"; };
+		E5289B3F24B5971200D576A3 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		E5289B4124B5984900D576A3 /* UITableView+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+App.swift"; sourceTree = "<group>"; };
 		E52E012D23F14563001D48F5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E52E846823F2C26A00B6591A /* DebitOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,14 @@
 				F97516C5A39838B3A97034CC /* libPods-ChaiTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5289B3E24B5970300D576A3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E5289B3F24B5971200D576A3 /* SettingsController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		E52E846523F2C23F00B6591A /* Money */ = {
@@ -372,6 +382,7 @@
 		E59C29C322365F3900F28A90 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5289B3E24B5970300D576A3 /* Settings */,
 				E52E846523F2C23F00B6591A /* Money */,
 				E5BB545622D6228600206F82 /* Attention */,
 				E585F3D1223AF5EF00AC012B /* Main */,
@@ -736,6 +747,7 @@
 				E52E846923F2C26A00B6591A /* DebitOrderController.swift in Sources */,
 				E5289B4224B5984900D576A3 /* UITableView+App.swift in Sources */,
 				E5C760CD232F64010001886C /* BaseService.swift in Sources */,
+				E5289B4024B5971200D576A3 /* SettingsController.swift in Sources */,
 				E53DA64723F52470000D0914 /* UIColor+App.swift in Sources */,
 				E5A6059424B8AAA700E920A9 /* UIAlertController+App.swift in Sources */,
 				E52E847A23F2D11000B6591A /* DebitOrderDataService.swift in Sources */,
