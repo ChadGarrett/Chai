@@ -107,7 +107,7 @@ final class DebitOrderDataService: APIService {
                 onCompletion(.failure(error))
                 
             case .success:
-                SwiftyBeaver.info("Deleted deit order remotely.")
+                SwiftyBeaver.info("Deleted debit order.")
                 self.realmInterface.delete(object: debitOrder)
                 
                 onCompletion(.success(true))
@@ -115,21 +115,3 @@ final class DebitOrderDataService: APIService {
         }
     }
 }
-
-/*
- 
- let json = JSON(responseObject)
-                 guard let data = response.data else { return }
-                 
-                 do {
-                     let decoder = JSONDecoder()
- //                    let root = try decoder.decode(DebitOrder.self, from: data)
- //                    SwiftyBeaver.debug("\(root)")
-                     
-                     let repos =  try JSONDecoder().decode([DebitOrder].self, from: data)
-                     SwiftyBeaver.debug("\(repos)")
-                 }
-                 catch let error {
-                     SwiftyBeaver.error("Bigerror", error.localizedDescription)
-                 }
- */

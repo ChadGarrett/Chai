@@ -1,4 +1,4 @@
-platform :ios, '12.1'
+platform :ios, '13.0'
 
 target 'Chai' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -15,7 +15,7 @@ use_modular_headers!
   pod 'AttributedStringBuilder'
   
   # Data
-  pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'Alamofire'
   pod 'RealmSwift'
   pod 'R.swift'
   pod 'SwiftyJSON'

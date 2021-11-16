@@ -10,6 +10,12 @@ import UIKit
 
 final class DebitOrderView: BaseView {
     
+    internal weak var totalViewDelegate: TotalSummaryViewDelegate? {
+        didSet {
+            self.vwSummary.totalSummaryDelegate = self.totalViewDelegate
+        }
+    }
+    
     override func setupView() {
         super.setupView()
         

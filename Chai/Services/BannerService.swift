@@ -24,12 +24,25 @@ final class BannerService {
         case long = 8
     }
     
+    enum ErrorMessage: String {
+        case generic = "An unknown error occured."
+        case networkConnected = "Network connected."
+        case networkDisconnected = "Network not connected."
+        case serverUnavailable = "A connection to the server cannot be made."
+        
+        case actionUnsuccesfully = "Unable to completed action."
+    }
+    
     internal func showStatusBarBanner(title: String, style: BannerStyle, duration: Duration = .medium, autoDismiss: Bool = true) {
         let banner = StatusBarNotificationBanner(title: title, style: style)
         banner.dismissOnSwipeUp = true
         banner.autoDismiss = autoDismiss
         banner.duration = duration.rawValue
         banner.show()
+    }
+    
+    internal func showBanner(error: ErrorMessage) {
+        self.showBanner(title: error.rawValue, style: .danger)
     }
     
     internal func showBanner(title: String, subtitle: String? = nil, style: BannerStyle, duration: Duration = .medium, autoDismiss: Bool = true) {

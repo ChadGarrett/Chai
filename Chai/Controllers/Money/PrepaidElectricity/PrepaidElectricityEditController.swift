@@ -115,6 +115,7 @@ final class PrepaidElectricityEditController: FormViewController {
     private lazy var rowDelete: ButtonRow = {
         let row = ButtonRow()
         row.title = "Delete"
+        
         row.onCellSelection(self.onDelete)
         return row
     }()

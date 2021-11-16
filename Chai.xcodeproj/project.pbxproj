@@ -12,6 +12,7 @@
 		E515103C23FEC84900FDCAE0 /* NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E515103B23FEC84900FDCAE0 /* NetworkStatusMonitor.swift */; };
 		E5289B4024B5971200D576A3 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5289B3F24B5971200D576A3 /* SettingsController.swift */; };
 		E5289B4224B5984900D576A3 /* UITableView+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5289B4124B5984900D576A3 /* UITableView+App.swift */; };
+		E5289B4524B59D0500D576A3 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5289B4424B59D0500D576A3 /* ButtonCell.swift */; };
 		E52E012E23F14563001D48F5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E012D23F14563001D48F5 /* R.generated.swift */; };
 		E52E846923F2C26A00B6591A /* DebitOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846823F2C26A00B6591A /* DebitOrderController.swift */; };
 		E52E846B23F2C28F00B6591A /* SavingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E846A23F2C28F00B6591A /* SavingsController.swift */; };
@@ -122,6 +123,7 @@
 		E515103B23FEC84900FDCAE0 /* NetworkStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusMonitor.swift; sourceTree = "<group>"; };
 		E5289B3F24B5971200D576A3 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		E5289B4124B5984900D576A3 /* UITableView+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+App.swift"; sourceTree = "<group>"; };
+		E5289B4424B59D0500D576A3 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		E52E012D23F14563001D48F5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E52E846823F2C26A00B6591A /* DebitOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderController.swift; sourceTree = "<group>"; };
 		E52E846A23F2C28F00B6591A /* SavingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,14 @@
 				E5289B3F24B5971200D576A3 /* SettingsController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		E5289B4324B59CF900D576A3 /* ButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				E5289B4424B59D0500D576A3 /* ButtonCell.swift */,
+			);
+			path = ButtonCell;
 			sourceTree = "<group>";
 		};
 		E52E846523F2C23F00B6591A /* Money */ = {
@@ -420,6 +430,7 @@
 		E5B5157A22CDC05D00B36BE3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5289B4324B59CF900D576A3 /* ButtonCell */,
 				E52E847D23F2FCFE00B6591A /* LoadingCells */,
 				E5B515A722D37E0E00B36BE3 /* EmptyCells */,
 				E5B5158E22CF228700B36BE3 /* Templates */,
@@ -739,6 +750,7 @@
 				E53DA64123F50FC3000D0914 /* SavingObject.swift in Sources */,
 				E5B515B322D392EA00B36BE3 /* MoodView.swift in Sources */,
 				E52E846F23F2C55F00B6591A /* DebitOrderCell.swift in Sources */,
+				E5289B4524B59D0500D576A3 /* ButtonCell.swift in Sources */,
 				E52E846D23F2C29E00B6591A /* DebitOrderView.swift in Sources */,
 				E5B515BA22D4BBEE00B36BE3 /* BaseObject.swift in Sources */,
 				E59C29D122368B1000F28A90 /* StyleHelper.swift in Sources */,

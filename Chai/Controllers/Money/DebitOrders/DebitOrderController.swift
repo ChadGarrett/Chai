@@ -13,6 +13,20 @@ import SwiftyBeaver
 /// Controller to view and manage debit orders
 final class DebitOrderController: BaseViewController {
     
+    enum SortType {
+        case alphabetical
+        case amount
+        case billingDate
+        
+        var sortDescriptor: SortDescriptor {
+            switch self {
+            case .alphabetical: return SortDescriptor(keyPath: "title")
+            case .amount: return SortDescriptor(keyPath: "amount", ascending: false)
+            case .billingDate: return SortDescriptor(keyPath: "billingDate")
+            }
+        }
+    }
+    
     // MARK: Properties
     
     private var debitOrderView: DebitOrderView
@@ -21,11 +35,13 @@ final class DebitOrderController: BaseViewController {
     
     override init() {
         self.debitOrderView = DebitOrderView()
+        
         super.init()
+        
+        self.debitOrderView.vwSummary.totalSummaryDelegate = self
         
         self.title = R.string.localizable.title_debit_orders()
         
-        self.setupView()
         self.setupTableDataDependencies()
     }
     
@@ -63,7 +79,7 @@ final class DebitOrderController: BaseViewController {
             bindTo: .tableView(self.debitOrderView.tableView),
             basePredicate: NSPredicate(value: true),
             filter: NSPredicate(value: true),
-            sort: [SortDescriptor(keyPath: "amount", ascending: false)])
+            sort: [self.currentSortDescriptor])
         provider.updateDelegate = self
         return provider
     }()
@@ -91,6 +107,10 @@ final class DebitOrderController: BaseViewController {
         return controller
     }()
     
+    private var sortType: SortType = .amount {
+        didSet { self.filterAndSearchDidUpdate() }
+    }
+    
     private var currentSearchText: String = "" {
         didSet {
             self.filterAndSearchDidUpdate()
@@ -107,8 +127,13 @@ final class DebitOrderController: BaseViewController {
         }
     }
     
+    private var currentSortDescriptor: SortDescriptor {
+        return self.sortType.sortDescriptor
+    }
+    
     private func filterAndSearchDidUpdate() {
         self.dataProvider.filter = self.currentSearchPredicate
+        self.dataProvider.sort = [self.currentSortDescriptor]
     }
     
     private lazy var btnRefresh: UIBarButtonItem = {
@@ -155,6 +180,22 @@ extension DebitOrderController: UITableViewDataSource {
         cell.prepareForDisplay(debitOrder: debitOrder)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard case .delete = editingStyle,
+            let debitOrder = self.dataProvider.object(at: indexPath.row)
+            else { return }
+        
+        DebitOrderDataService.deleteDebitOrder(debitOrder: debitOrder) { (result) in
+            switch result {
+            case .failure:
+                BannerService.shared.showBanner(error: .actionUnsuccesfully)
+                
+            case .success:
+                self.onRefresh()
+            }
+        }
+    }
 }
 
 extension DebitOrderController: UITableViewDelegate {
@@ -183,6 +224,25 @@ extension DebitOrderController: DataProviderUpdateDelegate {
 extension DebitOrderController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         self.currentSearchText = searchController.searchBar.text ?? ""
+    }
+}
+
+extension DebitOrderController: TotalSummaryViewDelegate {
+    func onSort() {
+        self.showSortAlertPopup()
+    }
+    
+    private func showSortAlertPopup() {
+        let action: UIAlertController = UIAlertController(title: "Sort", message: "Choose a field to sort by", preferredStyle: .alert)
+        action.addAction(UIAlertAction(title: "Amount", style: .default, handler: { [weak self] _ in self?.sortBy(.amount) } ))
+        action.addAction(UIAlertAction(title: "Alphabetical", style: .default, handler: { [weak self] _ in self?.sortBy(.alphabetical) } ))
+        action.addAction(UIAlertAction(title: "Billing Date", style: .default, handler: { [weak self] _ in self?.sortBy(.billingDate) } ))
+        action.addCancelAction()
+        self.navigationController?.present(action, animated: true, completion: nil)
+    }
+    
+    private func sortBy(_ type: SortType) {
+        self.sortType = type
     }
 }
 

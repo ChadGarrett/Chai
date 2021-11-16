@@ -8,8 +8,16 @@
 
 import UIKit
 
+protocol TotalSummaryViewDelegate: class {
+    func onSort()
+}
+
 /// A card view to display a total monetary figure
 final class TotalSummaryView: BaseView {
+    
+    // MARK: Delegate
+    
+    internal weak var totalSummaryDelegate: TotalSummaryViewDelegate?
     
     // MARK: Setup
     
@@ -19,8 +27,16 @@ final class TotalSummaryView: BaseView {
         self.addSubview(self.vwCard)
         self.vwCard.autoPinEdgesToSuperviewEdges()
         
+        self.vwCard.addSubview(self.btnSort)
         self.vwCard.addSubview(self.lblTotal)
-        self.lblTotal.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(insetHorizontal: Style.padding.s, insetVertical: Style.padding.m))
+        
+        self.btnSort.autoPinEdges(toSuperviewEdges: [.right], withInset: Style.padding.s)
+        
+        self.lblTotal.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
+        self.lblTotal.autoPinEdges(toSuperviewEdges: [.top, .bottom], withInset: Style.padding.m)
+        self.lblTotal.autoPinEdge(.right, to: .left, of: self.btnSort, withOffset: -Style.padding.m)
+        
+        self.btnSort.autoAlignAxis(.horizontal, toSameAxisOf: self.lblTotal)
     }
     
     // MARK: Interface
@@ -43,4 +59,17 @@ final class TotalSummaryView: BaseView {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
+
+    private lazy var btnSort: UIButton = {
+        let button = UIButton()
+        if #available(iOS 13.0, *) {
+            button.setImage(UIImage(systemName: "arrow.up.arrow.down.circle"), for: .normal)
+        }
+        button.addTarget(self, action: #selector(onSort), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func onSort() {
+        self.totalSummaryDelegate?.onSort()
+    }
 }
