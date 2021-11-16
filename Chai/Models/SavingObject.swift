@@ -16,7 +16,7 @@ final class SavingObject: BaseObject, Codable {
     @objc dynamic var amount: Double = 0.0
     @objc dynamic var lastUpdated: String = ""
     @objc dynamic var colorHexCode: String = ""
-    
+
     enum CodingKeys: String, CodingKey {
         case title
         case descriptionAbout = "description"
@@ -24,11 +24,11 @@ final class SavingObject: BaseObject, Codable {
         case lastUpdated = "last_updated"
         case colorHexCode = "color_hex_code"
     }
-    
+
     func clone() -> SavingObject? {
         return self.mutableCopy() as? SavingObject
     }
-    
+
     static func absorb(from data: JSON) -> SavingObject {
         let saving: SavingObject = SavingObject()
         saving.id = data["id"].stringValue
@@ -38,7 +38,7 @@ final class SavingObject: BaseObject, Codable {
         saving.colorHexCode = data["color_hex_code"].stringValue
         return saving
     }
-    
+
     func asParameters() -> Parameters {
         let parameters: Parameters = [
             "id": self.id,

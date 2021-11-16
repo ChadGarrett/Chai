@@ -11,14 +11,14 @@ import UIKit
 final class PrepaidElectricityView: BaseView {
     override func setupView() {
         super.setupView()
-        
+
         self.addSubview(self.tableView)
-        
+
         self.tableView.autoPinEdgesToSuperviewEdges()
     }
-    
+
     // MARK: Subviews
-    
+
     /// List showing all the debit orders
     internal lazy var tableView: UITableView = {
         let tableView: UITableView = UITableView()

@@ -9,7 +9,7 @@
 protocol BaseService {
     /// Call this to setup the service - used in AppDelegate
     func setup()
-    
+
     func teardown()
 }
 

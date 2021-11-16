@@ -12,16 +12,16 @@ import UIKit
 final class LoadingTableCell: BaseTableViewCell {
 
     // MARK: Setup
-    
+
     override func setupCell() {
         super.setupCell()
-        
+
         self.contentView.addSubview(self.lblLoading)
         self.lblLoading.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(insetHorizontal: 0, insetVertical: Style.padding.s))
     }
-    
+
     // MARK: Subviews
-    
+
     private lazy var lblLoading: UILabel = {
         let label = UILabel()
         label.attributedText = NSAttributedString(

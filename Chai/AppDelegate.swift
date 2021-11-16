@@ -6,21 +6,21 @@
 //  Copyright © 2019 Chad Garrett. All rights reserved.
 //
 
-import UIKit
-import SwiftyBeaver
 import Rswift
+import SwiftyBeaver
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
     /// Services that need to be run on app startup
     let services: [BaseService] = [
         MigrationService(),
         LoggingService(),
         CrashService(),
-        BannerService(),
+        BannerService()
     ]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -34,9 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Setup each service
         self.services.forEach { $0.setup() }
-        
+
         NetworkStatusMonitor.shared.start()
-        
+
         do {
             try R.validate()
         } catch let error {
@@ -55,9 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
+
         self.services.forEach { $0.teardown() }
-        
+
         NetworkStatusMonitor.shared.stop()
     }
 
@@ -73,4 +73,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
-

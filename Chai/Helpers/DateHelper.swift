@@ -14,7 +14,7 @@ final class DateHelper {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.date(from: date)
     }
-    
+
     static func dateToString(date: Date?) -> String? {
         guard let date = date else { return nil }
         let dateFormatter = DateFormatter()
@@ -22,4 +22,3 @@ final class DateHelper {
         return dateFormatter.string(from: date)
     }
 }
-

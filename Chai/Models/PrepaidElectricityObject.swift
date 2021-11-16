@@ -16,7 +16,7 @@ final class PrepaidElectricityObject: BaseObject, Codable {
     @objc dynamic var charges: Double = 0.0
     @objc dynamic var amountBought: Double = 0.0
     @objc dynamic var dateBought: String = ""
-    
+
     enum CodingKeys: String, CodingKey {
       case buyer
       case randAmount = "rand_amount"
@@ -24,11 +24,11 @@ final class PrepaidElectricityObject: BaseObject, Codable {
       case amountBought = "amount_bought"
       case dateBought = "date_bought"
     }
-    
+
     func clone() -> PrepaidElectricityObject? {
         return self.mutableCopy() as? PrepaidElectricityObject
     }
-    
+
     static func absorb(from data: JSON) -> PrepaidElectricityObject {
         let prepaidElectricity: PrepaidElectricityObject = PrepaidElectricityObject()
         prepaidElectricity.id = data["id"].stringValue
@@ -39,7 +39,7 @@ final class PrepaidElectricityObject: BaseObject, Codable {
         prepaidElectricity.dateBought = data["date_bought"].stringValue
         return prepaidElectricity
     }
-    
+
     func asParameters() -> Parameters {
         let parameters: Parameters = [
             "id": self.id,

@@ -10,12 +10,12 @@ import Reusable
 
 class BlankTableCell: UITableViewCell, Reusable {
     class var reuseIdentifier: String { return "BlankTableCell" }
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.autoSetDimension(.height, toSize: 0)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

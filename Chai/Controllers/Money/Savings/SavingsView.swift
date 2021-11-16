@@ -9,24 +9,24 @@
 import UIKit
 
 final class SavingsView: BaseView {
-    
+
     override func setupView() {
         super.setupView()
-        
+
         self.addSubview(self.vwSummary)
         self.addSubview(self.tableView)
-        
+
         self.vwSummary.autoPinEdge(toSuperviewSafeArea: .top, withInset: Style.padding.s)
         self.vwSummary.autoPinEdges(toSuperviewEdges: [.left, .right], withInset: Style.padding.s)
-        
+
         self.tableView.autoPinEdge(.top, to: .bottom, of: self.vwSummary, withOffset: Style.padding.s)
         self.tableView.autoPinEdges(toSuperviewEdges: [.left, .right, .bottom])
     }
-    
+
     // MARK: Subviews
-    
+
     internal lazy var vwSummary: TotalSummaryView = TotalSummaryView()
-    
+
     internal lazy var tableView: UITableView = {
         let tableView: UITableView = UITableView()
         tableView.estimatedRowHeight = 100
@@ -37,5 +37,5 @@ final class SavingsView: BaseView {
         tableView.tableFooterView = UIView()
         return tableView
     }()
-    
+
 }

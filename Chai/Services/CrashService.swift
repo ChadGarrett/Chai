@@ -10,6 +10,6 @@ import Aardvark
 
 final class CrashService: BaseService {
     func setup() {
-        let _ = Aardvark.addDefaultBugReportingGestureWithEmailBugReporter(withRecipient: "thychad@gmail.com")
+//        let _ = Aardvark.addDefaultBugReportingGestureWithEmailBugReporter(withRecipient: "thychad@gmail.com")
     }
 }

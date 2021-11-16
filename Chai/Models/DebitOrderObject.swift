@@ -17,7 +17,7 @@ final class DebitOrderObject: BaseObject, Codable {
     @objc dynamic var billingDate: String = ""
     @objc dynamic var startDate: String = ""
     @objc dynamic var endDate: String = ""
-    
+
     enum CodingKeys: String, CodingKey {
       case title = "title"
       case descriptionAbout = "description"
@@ -30,7 +30,7 @@ final class DebitOrderObject: BaseObject, Codable {
     func clone() -> DebitOrderObject? {
         return self.mutableCopy() as? DebitOrderObject
     }
-    
+
     static func absorb(from data: JSON) -> DebitOrderObject {
         let debitOrder: DebitOrderObject = DebitOrderObject()
         debitOrder.id = data["id"].stringValue
@@ -42,7 +42,7 @@ final class DebitOrderObject: BaseObject, Codable {
         debitOrder.endDate = data["end_date"].stringValue
         return debitOrder
     }
-    
+
     func asParameters() -> Parameters {
         let parameters: Parameters = [
             "id": self.id,

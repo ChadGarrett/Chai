@@ -9,22 +9,22 @@
 import UIKit
 
 final class AttentionView: BaseView {
-    
+
     // Delegate
-    
+
     internal weak var delegate: AttentionViewDelegate?
-    
+
     // Setup
-    
+
     override func setupView() {
         super.setupView()
-        
+
         self.addSubview(self.stackActions)
         self.stackActions.autoPinEdgesToSuperviewMargins(with: UIEdgeInsets(top: Style.padding.m, left: Style.padding.s, bottom: Style.padding.m, right: Style.padding.s))
     }
-    
+
     // Subviews
-    
+
     private lazy var stackActions: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -32,28 +32,28 @@ final class AttentionView: BaseView {
         stackView.distribution = UIStackView.Distribution.fillEqually
         return stackView
     }()
-    
+
     // Interface
-    
+
     internal func setActions(to actions: [AttentionType]) {
         actions.forEach { (type) in
             let button = GenericButton(type.title)
             button.backgroundColor = type.color
             button.addTarget(self, action: #selector(onAction), for: .touchUpInside)
             button.tag = type.rawValue
-            
+
             UIView.animate(withDuration: 0.3, animations: { [weak self] in
                 self?.stackActions.addArrangedSubview(button)
             })
         }
     }
-    
+
     // Actions
-    
+
     @objc private func onAction(sender: GenericButton) {
         guard let type = AttentionType(rawValue: sender.tag)
             else { return }
-        
+
         self.delegate?.onAskForAttention(of: type)
     }
 }

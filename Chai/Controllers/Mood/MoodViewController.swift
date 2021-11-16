@@ -7,30 +7,30 @@
 //
 
 import Foundation
-import UIKit
 import SwiftyBeaver
+import UIKit
 
-protocol MoodControllerDelegate: class {
+protocol MoodControllerDelegate: AnyObject {
     func onMoodChange(to value: Float)
 }
 
 final class MoodViewController: BaseViewController {
-    
+
     private lazy var moodView: MoodView = {
         let view = MoodView()
         view.delegate = self
         return view
     }()
-    
+
     override init() {
         super.init()
         self.title = R.string.localizable.title_mood()
         self.setupView()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if let savedMood = MoodContext.shared.getCurrentMood() {
             self.moodView.setCurrentMood(to: self.getCurrentMood(value: savedMood.value))
             self.moodView.setMoodValue(to: savedMood.value)
@@ -43,9 +43,9 @@ final class MoodViewController: BaseViewController {
         self.view.addSubview(self.moodView)
         self.moodView.autoPinEdgesToSuperviewEdges()
     }
-    
+
     // Helpers
-    
+
     func getCurrentMood(value: Float) -> MoodCategory {
         switch value {
         case 0..<20: return .bad
@@ -63,7 +63,7 @@ extension MoodViewController: MoodControllerDelegate {
         let currentMood = self.getCurrentMood(value: value)
         SwiftyBeaver.info("Mood changed to: \(currentMood.title)")
         self.moodView.setCurrentMood(to: currentMood)
-        
+
         MoodContext.shared.setCurrentMood(to: value)
     }
 }

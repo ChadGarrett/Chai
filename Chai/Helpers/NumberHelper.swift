@@ -10,7 +10,7 @@ import Foundation
 
 final class NumberHelper {
     static let shared = NumberHelper()
-    
+
     static var currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.locale = Locale.current

@@ -14,7 +14,7 @@ enum MainMenuItem: Int, CaseIterable {
     case savings
     case gym
     case settings
-    
+
     var image: UIImage? {
         switch self {
         case .debitOrders: return R.image.tickets()
@@ -24,7 +24,7 @@ enum MainMenuItem: Int, CaseIterable {
         case .settings: return R.image.screwdriver()
         }
     }
-    
+
     var title: String {
         switch self {
         case .debitOrders: return R.string.localizable.button_debit_orders()
@@ -34,7 +34,7 @@ enum MainMenuItem: Int, CaseIterable {
         case .settings: return R.string.localizable.button_settings()
         }
     }
-    
+
     var color: UIColor {
         switch self {
         case .debitOrders: return Style.colors.lightWisteria

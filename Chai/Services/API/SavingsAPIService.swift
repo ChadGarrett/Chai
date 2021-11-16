@@ -12,10 +12,10 @@ import SwiftyJSON
 
 final class SavingsAPIService: APIService {
     private static let realmInterface: RealmInterface<SavingObject> = RealmInterface()
-    
+
     // MARK: Fetch
-    
-    static func fetch(_ onCompletion: @escaping (Result<[SavingObject], Error>) -> Void)  {
+
+    static func fetch(_ onCompletion: @escaping (Result<[SavingObject], Error>) -> Void) {
         SwiftyBeaver.info("Fetching all savings.")
         AF.request(Endpoints.savings, method: .get, headers: headers).validate().responseJSON { (response) in
             switch response.result {
@@ -47,22 +47,22 @@ final class SavingsAPIService: APIService {
             }
         }
     }
-    
+
     // MARK: Create
-    
+
     static func create(_ saving: SavingObject, _ onCompletion: @escaping(Result<SavingObject, Error>) -> Void) {
-        
+
     }
-    
+
     // MARK: Update
-    
+
     static func update(_ saving: SavingObject, _ onCompletion: @escaping(Result<SavingObject, Error>) -> Void) {
-        
+
     }
-    
+
     // MARK: Delete
-    
+
     static func delete(_ saving: SavingObject, _ onCompletion: @escaping(Result<Bool, Error>) -> Void) {
-        
+
     }
 }

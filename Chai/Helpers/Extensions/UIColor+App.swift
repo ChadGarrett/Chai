@@ -10,8 +10,8 @@ import UIKit
 
 extension UIColor {
     convenience init(hex: String) {
-        let cString:String = hex.uppercased()
-        var rgbValue:UInt32 = 0
+        let cString: String = hex.uppercased()
+        var rgbValue: UInt32 = 0
         Scanner(string: cString).scanHexInt32(&rgbValue)
         self.init(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
@@ -20,7 +20,7 @@ extension UIColor {
             alpha: CGFloat(1.0)
         )
     }
-    
+
     convenience init(_ color: UIColor, alpha: CGFloat = 1.0) {
         let components = color.cgColor.components
         let r: CGFloat = components?[0] ?? 0.0

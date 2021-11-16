@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyBeaver
 
-protocol AttentionViewDelegate: class {
+protocol AttentionViewDelegate: AnyObject {
     func onAskForAttention(of type: AttentionType)
 }
 
@@ -20,18 +20,18 @@ final class AttentionViewController: BaseViewController {
         view.delegate = self
         return view
     }()
-    
+
     override init() {
         super.init()
         self.title = R.string.localizable.title_attention()
         self.setupView()
     }
-    
+
     override func setupView() {
         self.view.addSubview(self.attentionView)
         self.attentionView.autoPinEdgesToSuperviewEdges()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let actions: [AttentionType] = AttentionType.allCases
@@ -43,7 +43,7 @@ extension AttentionViewController: AttentionViewDelegate {
     func onAskForAttention(of type: AttentionType) {
         SwiftyBeaver.debug("Tapped on attention item: \(type.title)")
         BannerService.shared.showNotImplementedBanner()
-        
+
         // TODO: Record attention to history
         // TODO: Send call for attention to server
     }

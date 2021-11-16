@@ -6,8 +6,8 @@
 //  Copyright © 2019 Chad Garrett. All rights reserved.
 //
 
-import UIKit
 import Reusable
+import UIKit
 
 class BlankCollectionCell: UICollectionViewCell, Reusable {
     class var reuseIdentifier: String { return "BlankCollectionCell" }

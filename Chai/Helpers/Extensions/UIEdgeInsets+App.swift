@@ -17,7 +17,7 @@ extension UIEdgeInsets {
             bottom: inset,
             right: inset)
     }
-    
+
     init(insetHorizontal: CGFloat, insetVertical: CGFloat) {
         self.init(
             top: insetVertical,

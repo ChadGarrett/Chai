@@ -20,33 +20,33 @@ import UIKit
 
 final class MainMenuItemCell: BaseCollectionViewCell {
     typealias MenuItem = MainMenuItem
-    
-    // MARK: -Setup
-    
+
+    // MARK: - Setup
+
     override func setupCell() {
         super.setupCell()
-        
+
         self.backgroundColor = UIColor.white
-        
+
         self.addDropShadow()
-        
+
         self.contentView.addSubview(self.imageView)
         self.contentView.addSubview(self.lblTitle)
-        
+
         self.imageView.autoCenterInSuperview()
         self.imageView.autoSetDimensions(to: .square(of: 75))
-        
+
         self.lblTitle.autoPinEdge(.top, to: .bottom, of: self.imageView, withOffset: Style.padding.m)
         self.lblTitle.autoPinEdges(toSuperviewEdges: [.left, .right, .bottom], withInset: Style.padding.m)
     }
-    
-    // MARK: -Interface
-    
+
+    // MARK: - Interface
+
     internal func prepareForDisplay(_ item: MenuItem) {
         self.imageView.image = item.image
-        
+
         self.backgroundColor = item.color
-        
+
         self.lblTitle.attributedText = NSAttributedString(
             string: item.title,
             attributes: [
@@ -55,15 +55,15 @@ final class MainMenuItemCell: BaseCollectionViewCell {
                 .paragraphStyle: Style.centerParagraphStyle
         ])
     }
-    
+
     // MARK: - Subviews
-    
+
     private lazy var imageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
+
     private lazy var lblTitle: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0

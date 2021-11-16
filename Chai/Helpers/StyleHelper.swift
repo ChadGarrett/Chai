@@ -16,7 +16,7 @@ struct Style {
         static let l: CGFloat = 17
         static let xl: CGFloat = 19
     }
-    
+
     struct padding {
         static let xxs: CGFloat = 4
         static let xs: CGFloat = 8
@@ -25,7 +25,7 @@ struct Style {
         static let l: CGFloat = 20
         static let xl: CGFloat = 24
     }
-    
+
     // https://github.com/brynbellomy/FlatUIColors/blob/master/ColorsPalette.png
     struct colors {
         public static let turquoise: UIColor = UIColor(red: 0.10, green: 0.74, blue: 0.61, alpha: 1.0)
@@ -39,7 +39,7 @@ struct Style {
         public static let peterRiver: UIColor = UIColor(red: 0.20, green: 0.60, blue: 0.85, alpha: 1.0)
         public static let belizeHole: UIColor = UIColor(red: 0.16, green: 0.50, blue: 0.73, alpha: 1.0)
         public static let riptide: UIColor = UIColor(red: 0.53, green: 0.89, blue: 0.84, alpha: 1.0)
-        public static let dodgerBlue: UIColor = UIColor(red:0.10, green: 0.71, blue: 1.00, alpha: 1.0)
+        public static let dodgerBlue: UIColor = UIColor(red: 0.10, green: 0.71, blue: 1.00, alpha: 1.0)
         public static let amethyst: UIColor = UIColor(red: 0.61, green: 0.35, blue: 0.71, alpha: 1.0)
         public static let wisteria: UIColor = UIColor(red: 0.56, green: 0.27, blue: 0.68, alpha: 1.0)
         public static let lightWisteria: UIColor = UIColor(red: 0.75, green: 0.56, blue: 0.83, alpha: 1.0)
@@ -70,46 +70,45 @@ struct Style {
         public static let lynch: UIColor = UIColor(red: 0.42, green: 0.48, blue: 0.54, alpha: 1.0)
         public static let lynchColor: UIColor = UIColor(red: 0.42, green: 0.48, blue: 0.54, alpha: 1.0)
     }
-    
+
     // MARK: Text styles
-    
+
     static let leftParagraphStyle: NSMutableParagraphStyle = {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .left
         return paragraph
     }()
-    
+
     static let centerParagraphStyle: NSMutableParagraphStyle = {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
         return paragraph
     }()
-    
+
     static let rightParagraphStyle: NSMutableParagraphStyle = {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .right
         return paragraph
     }()
-    
+
     static let heading_1: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: Style.fontSize.l),
         NSAttributedString.Key.paragraphStyle: leftParagraphStyle
     ]
-    
+
     static let heading_1_center: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: Style.fontSize.l),
         NSAttributedString.Key.paragraphStyle: centerParagraphStyle
     ]
-    
+
     static let heading_1_right: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: Style.fontSize.l),
         NSAttributedString.Key.paragraphStyle: rightParagraphStyle
     ]
-    
-    
+
     static let heading_2: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Style.fontSize.m)]
     static let heading_3: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Style.fontSize.s)]
-    
+
     static let body: [NSAttributedString.Key: Any] = [:]
     static let body_center: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.darkGray,

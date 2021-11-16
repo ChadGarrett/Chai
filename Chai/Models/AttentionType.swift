@@ -23,7 +23,7 @@ enum AttentionType: Int, CaseIterable {
         case .dinner: return R.string.localizable.button_attention_dinner()
         }
     }
-    
+
     var color: UIColor {
         switch self {
         case .snacks: return Style.colors.pumpkin

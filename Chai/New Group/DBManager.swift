@@ -15,9 +15,9 @@ import SwiftyBeaver
 /// Base class for interacting with realm
 /// To add different objects, inherit from this with custom CRUD implementations
 class DBManager {
-    
+
     internal var database: Realm
-    
+
     internal init() {
         do {
             database = try Realm()
@@ -27,7 +27,7 @@ class DBManager {
             fatalError("Unable to initialize Realm instance.")
         }
     }
-    
+
     /// Resets/clears the database
     func deleteAllFromDatabase() {
         do {

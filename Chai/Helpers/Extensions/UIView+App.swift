@@ -17,12 +17,12 @@ extension UIView {
         self.layer.shadowOpacity = 0.2
         self.layer.shadowRadius = 3
     }
-    
+
     func addBorder(color: UIColor = .black, width: CGFloat = 1.0) {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width
     }
-    
+
     /// Pins all passed edges to their superviews edge, with the given inset if any
     func autoPinEdges(toSuperviewEdges edges: [ALEdge], withInset inset: CGFloat = 0) {
         edges.forEach { edge in

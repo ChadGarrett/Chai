@@ -24,14 +24,14 @@ extension Date {
     var timeAndDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        
+
         return dateFormatter.string(from: self)
     }
-    
+
     var weekdayMonthDayHourMinute: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, HH:mm"
-        
+
         return dateFormatter.string(from: self)
     }
 }

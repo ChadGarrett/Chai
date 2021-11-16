@@ -24,6 +24,8 @@ use_modular_headers!
   pod 'Aardvark'
   pod 'SwiftyBeaver'
   
+  pod 'SwiftLint'
+  
   target 'ChaiTests' do
     inherit! :search_paths
     # Pods for testing

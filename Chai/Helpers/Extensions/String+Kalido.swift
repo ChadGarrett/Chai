@@ -13,7 +13,7 @@ extension String {
     var trimmed: String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
-    
+
     var nonEmpty: String? {
         return self.trimmed.isEmpty ? nil : self
     }

@@ -7,35 +7,35 @@
 //
 
 import Foundation
-import UIKit
 import SwiftyBeaver
+import UIKit
 
-protocol MainViewDelegate: class {
+protocol MainViewDelegate: AnyObject {
     func didSelect(_ menuItem: MainMenuItem)
 }
 
 final class MainView: BaseView {
-    
-    // MARK: -Delegate
-    
+
+    // MARK: - Delegate
+
     internal weak var delegate: MainViewDelegate?
-    
-    // MARK: -Setup
+
+    // MARK: - Setup
     override func setupView() {
         super.setupView()
-        
+
         self.addSubview(self.collectionView)
         self.collectionView.autoPinEdgesToSuperviewSafeArea()
     }
-    
-    // MARK: -Subviews
-    
+
+    // MARK: - Subviews
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = Style.padding.xs
         layout.sectionInset = UIEdgeInsets(insetHorizontal: Style.padding.xs, insetVertical: Style.padding.m)
-        
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
         collectionView.register(cellType: MainMenuItemCell.self)
@@ -57,18 +57,18 @@ extension MainView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MainMenuItem.allCases.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let menuItem = MainMenuItem.allCases.item(at: indexPath.row)
             else { return self.getBlankCollectionCell(for: indexPath) }
-        
+
         return self.getMenuItemCell(for: indexPath, menuItem: menuItem)
     }
-    
+
     private func getBlankCollectionCell(for indexPath: IndexPath) -> UICollectionViewCell {
         return self.collectionView.dequeueReusableCell(for: indexPath, cellType: BlankCollectionCell.self)
     }
-    
+
     private func getMenuItemCell(for indexPath: IndexPath, menuItem: MainMenuItem) -> UICollectionViewCell {
         let cell: MainMenuItemCell = self.collectionView.dequeueReusableCell(for: indexPath)
         cell.prepareForDisplay(menuItem)
@@ -89,7 +89,7 @@ extension MainView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let menuItem = MainMenuItem.allCases.item(at: indexPath.row)
         else { return }
-        
+
         SwiftyBeaver.debug("Tapped on \(menuItem.title)")
         self.delegate?.didSelect(menuItem)
     }

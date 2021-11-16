@@ -15,29 +15,29 @@ class BaseViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = Style.colors.clouds
     }
-    
+
     override func viewDidLoad() {
         self.setupView()
     }
-    
+
     internal func setupView() {
         // Subclasses to override
     }
-    
+
     @available(*, unavailable,
     message: "Loading this view controller from a nib is unsupported in favor of initializer dependency injection."
     )
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    
+
     @available(*, unavailable,
     message: "Loading this view controller from a nib is unsupported in favor of initializer dependency injection."
     )
     public required init?(coder aDecoder: NSCoder) {
         fatalError("Loading this view controller from a nib is unsupported in favor of initializer dependency injection.")
     }
-    
+
     /// Adds the passed view controller to the stack
     internal func route(to controller: UIViewController, animated: Bool = true) {
         DispatchQueue.main.async { [weak self] in

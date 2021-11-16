@@ -12,8 +12,8 @@ enum MoodCategory {
     case bad // 0-20
     case rocky // 20-40
     case needsAttention // 40-60
-    case good //60-80
-    case excellent //80-100
+    case good // 60-80
+    case excellent // 80-100
     case unknown
 
     var title: String {

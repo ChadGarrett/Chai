@@ -24,6 +24,7 @@ PODS:
   - Reusable/Storyboard (4.1.2)
   - Reusable/View (4.1.2)
   - SnapKit (5.0.1)
+  - SwiftLint (0.45.0)
   - SwiftyBeaver (1.9.5)
   - SwiftyJSON (5.0.1)
 
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - R.swift
   - RealmSwift
   - Reusable
+  - SwiftLint
   - SwiftyBeaver
   - SwiftyJSON
 
@@ -56,6 +58,7 @@ SPEC REPOS:
     - RealmSwift
     - Reusable
     - SnapKit
+    - SwiftLint
     - SwiftyBeaver
     - SwiftyJSON
 
@@ -74,9 +77,10 @@ SPEC CHECKSUMS:
   RealmSwift: f1f51c4a02fe826e5cea623b5441992f06bdc942
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftLint: e5c7f1fba68eccfc51509d5b2ce1699f5502e0c7
   SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 3e3161a11a557408aa40b50bc44cce43e085ee57
+PODFILE CHECKSUM: d2cb913633d7fc91b263f05a0ff262996f4f28e6
 
 COCOAPODS: 1.11.2

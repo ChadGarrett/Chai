@@ -18,10 +18,10 @@ final class AppCardView: UIView {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 0.5
         self.addDropShadow()
-        
+
         // TODO - technical debt - consider just addDropShadow()ing here and removing it everywhere else
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -36,7 +36,7 @@ final class AppTappableCardView: UIButton {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 0.5
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
