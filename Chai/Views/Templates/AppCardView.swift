@@ -8,7 +8,7 @@
 
 import UIKit
 
-/** A white view with rounded corners and a light border. To be used as the `backgroundView` on all cards.  */
+/// A white view with rounded corners and a light border. To be used as the `backgroundView` on all cards.
 final class AppCardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)

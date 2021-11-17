@@ -10,6 +10,8 @@ import Reusable
 
 class BaseCollectionViewCell: UICollectionViewCell, Reusable {
 
+    // MARK: Helpers
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupCell()
@@ -19,8 +21,17 @@ class BaseCollectionViewCell: UICollectionViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // Called on init, override to setup the cell
+    /// Called on init, override to setup the cell
     public func setupCell() {
         // Subclasses to override
+    }
+
+    // MARK: Helper
+
+    private func getIndexPath() -> IndexPath? {
+        guard let collectionView = self.superview as? UICollectionView
+        else { return nil }
+
+        return collectionView.indexPath(for: self)
     }
 }

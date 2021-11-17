@@ -10,6 +10,8 @@ import Reusable
 
 class BaseTableViewCell: UITableViewCell, Reusable {
 
+    // MARK: Setup
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupCell()
@@ -19,10 +21,12 @@ class BaseTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // Called on init, override to setup the cell
+    /// Called on init, override to setup the cell
     public func setupCell() {
         // Subclasses to override
     }
+
+    // MARK: Helpers
 
     public func getIndexPath() -> IndexPath? {
         guard let tableView = self.superview as? UITableView

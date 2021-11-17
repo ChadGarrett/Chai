@@ -10,7 +10,9 @@ import Alamofire
 
 class APIService {
 
-    // TODO: toggle this based on build targets for dev/prod
+    // TODO: Get the server URL from the plist for the different build targets
+    // TODO: Proper authentication with a non hardcoded token
+
     static let baseURL: String = "http://127.0.0.1:8000/"
 
     static let headers: HTTPHeaders = [

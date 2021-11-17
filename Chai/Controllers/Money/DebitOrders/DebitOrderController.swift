@@ -49,14 +49,12 @@ final class DebitOrderController: BaseViewController {
         self.dataProvider.stop()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func setupView() {
+        super.setupView()
+        self.navigationItem.rightBarButtonItems = [self.btnAdd, self.btnRefresh]
+
         self.navigationItem.searchController = self.searchController
         self.definesPresentationContext = true
-    }
-
-    override func setupView() {
-        self.navigationItem.rightBarButtonItems = [self.btnAdd, self.btnRefresh]
 
         self.view.addSubview(self.debitOrderView)
         self.debitOrderView.autoPinEdgesToSuperviewSafeArea()
@@ -77,8 +75,8 @@ final class DebitOrderController: BaseViewController {
     private lazy var dataProvider: BaseDataProvider<DebitOrderObject> = {
         let provider = BaseDataProvider<DebitOrderObject>(
             bindTo: .tableView(self.debitOrderView.tableView),
-            basePredicate: NSPredicate(value: true),
-            filter: NSPredicate(value: true),
+            basePredicate: .truePredicate,
+            filter: .truePredicate,
             sort: [self.currentSortDescriptor])
         provider.updateDelegate = self
         return provider
@@ -120,7 +118,7 @@ final class DebitOrderController: BaseViewController {
     private var currentSearchPredicate: NSPredicate {
         get {
             if self.currentSearchText.isEmpty {
-                return NSPredicate(value: true)
+                return .truePredicate
             } else {
                 return NSPredicate(format: "title CONTAINS(%@)", self.currentSearchText)
             }
@@ -136,6 +134,8 @@ final class DebitOrderController: BaseViewController {
         self.dataProvider.sort = [self.currentSortDescriptor]
     }
 
+    // MARK: - Subviews
+
     private lazy var btnRefresh: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.refresh, target: self, action: #selector(onRefresh))
         return button
@@ -145,6 +145,8 @@ final class DebitOrderController: BaseViewController {
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(onAdd))
         return button
     }()
+
+    // MARK: - Actions
 
     @objc private func onRefresh() {
         SwiftyBeaver.info("Manually refreshing data.")

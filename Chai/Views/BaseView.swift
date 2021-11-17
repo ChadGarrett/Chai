@@ -25,7 +25,8 @@ class BaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // Subclasses to override
     /// Called on init to setup the view
-    internal func setupView() { }
+    internal func setupView() {
+        // Subclasses to override
+    }
 }

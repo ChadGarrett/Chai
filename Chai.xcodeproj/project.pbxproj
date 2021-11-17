@@ -44,6 +44,7 @@
 		E53DA65823F55ACD000D0914 /* MainMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65723F55ACD000D0914 /* MainMenuItemCell.swift */; };
 		E53DA65A23F55AEE000D0914 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DA65923F55AEE000D0914 /* BaseCollectionViewCell.swift */; };
 		E53DA66323F6D30A000D0914 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E57E61A5274592FA00C3EFD6 /* NSPredicate+app.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57E61A4274592FA00C3EFD6 /* NSPredicate+app.swift */; };
 		E585F3D5223AF60B00AC012B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585F3D4223AF60B00AC012B /* MainView.swift */; };
 		E59AEBD123F88B5400E9F7A2 /* DebitOrderEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AEBD023F88B5400E9F7A2 /* DebitOrderEditController.swift */; };
 		E59AEBD323F9E42400E9F7A2 /* PrepaidElectricityEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59AEBD223F9E42400E9F7A2 /* PrepaidElectricityEditController.swift */; };
@@ -65,19 +66,11 @@
 		E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B5158F22CF22A000B36BE3 /* AcceptCancelButtonView.swift */; };
 		E5B515A922D37E2000B36BE3 /* BlankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */; };
 		E5B515AE22D386F800B36BE3 /* BannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515AD22D386F800B36BE3 /* BannerService.swift */; };
-		E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B022D392DA00B36BE3 /* MoodViewController.swift */; };
-		E5B515B322D392EA00B36BE3 /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B222D392EA00B36BE3 /* MoodView.swift */; };
 		E5B515B522D49DD100B36BE3 /* Date+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B422D49DD100B36BE3 /* Date+App.swift */; };
 		E5B515B822D4AE0000B36BE3 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B722D4AE0000B36BE3 /* DBManager.swift */; };
 		E5B515BA22D4BBEE00B36BE3 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515B922D4BBEE00B36BE3 /* BaseObject.swift */; };
 		E5B515BC22D4C99000B36BE3 /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BB22D4C99000B36BE3 /* MigrationService.swift */; };
-		E5B515BE22D4D49C00B36BE3 /* MoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */; };
-		E5B515C022D4DA0300B36BE3 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BF22D4DA0300B36BE3 /* Mood.swift */; };
-		E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545722D6229600206F82 /* AttentionViewController.swift */; };
-		E5BB545A22D622A100206F82 /* AttentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545922D622A100206F82 /* AttentionView.swift */; };
-		E5BB545E22D6328800206F82 /* MoodContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545D22D6328800206F82 /* MoodContext.swift */; };
 		E5BB546022D637D900206F82 /* BlankCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545F22D637D900206F82 /* BlankCollectionCell.swift */; };
-		E5BB546422D6543300206F82 /* AttentionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546322D6543300206F82 /* AttentionType.swift */; };
 		E5BB546622D6675200206F82 /* UIEdgeInsets+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */; };
 		E5BB546A22D76A0300206F82 /* String+Kalido.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB546922D76A0300206F82 /* String+Kalido.swift */; };
 		E5C760CD232F64010001886C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C760CC232F64010001886C /* BaseService.swift */; };
@@ -153,6 +146,7 @@
 		E53DA65023F5389A000D0914 /* TotalSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSummaryView.swift; sourceTree = "<group>"; };
 		E53DA65723F55ACD000D0914 /* MainMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuItemCell.swift; sourceTree = "<group>"; };
 		E53DA65923F55AEE000D0914 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		E57E61A4274592FA00C3EFD6 /* NSPredicate+app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+app.swift"; sourceTree = "<group>"; };
 		E585F3D4223AF60B00AC012B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E59AEBD023F88B5400E9F7A2 /* DebitOrderEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitOrderEditController.swift; sourceTree = "<group>"; };
 		E59AEBD223F9E42400E9F7A2 /* PrepaidElectricityEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidElectricityEditController.swift; sourceTree = "<group>"; };
@@ -178,19 +172,11 @@
 		E5B5158F22CF22A000B36BE3 /* AcceptCancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptCancelButtonView.swift; sourceTree = "<group>"; };
 		E5B515A822D37E2000B36BE3 /* BlankTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankTableCell.swift; sourceTree = "<group>"; };
 		E5B515AD22D386F800B36BE3 /* BannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerService.swift; sourceTree = "<group>"; };
-		E5B515B022D392DA00B36BE3 /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
-		E5B515B222D392EA00B36BE3 /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
 		E5B515B422D49DD100B36BE3 /* Date+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+App.swift"; sourceTree = "<group>"; };
 		E5B515B722D4AE0000B36BE3 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		E5B515B922D4BBEE00B36BE3 /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		E5B515BB22D4C99000B36BE3 /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
-		E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCategory.swift; sourceTree = "<group>"; };
-		E5B515BF22D4DA0300B36BE3 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
-		E5BB545722D6229600206F82 /* AttentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionViewController.swift; sourceTree = "<group>"; };
-		E5BB545922D622A100206F82 /* AttentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionView.swift; sourceTree = "<group>"; };
-		E5BB545D22D6328800206F82 /* MoodContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodContext.swift; sourceTree = "<group>"; };
 		E5BB545F22D637D900206F82 /* BlankCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankCollectionCell.swift; sourceTree = "<group>"; };
-		E5BB546322D6543300206F82 /* AttentionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionType.swift; sourceTree = "<group>"; };
 		E5BB546522D6675200206F82 /* UIEdgeInsets+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+App.swift"; sourceTree = "<group>"; };
 		E5BB546922D76A0300206F82 /* String+Kalido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Kalido.swift"; sourceTree = "<group>"; };
 		E5C760CC232F64010001886C /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
@@ -391,9 +377,7 @@
 			children = (
 				E5289B3E24B5970300D576A3 /* Settings */,
 				E52E846523F2C23F00B6591A /* Money */,
-				E5BB545622D6228600206F82 /* Attention */,
 				E585F3D1223AF5EF00AC012B /* Main */,
-				E5B515AF22D392C800B36BE3 /* Mood */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -413,9 +397,6 @@
 			isa = PBXGroup;
 			children = (
 				E5B515B922D4BBEE00B36BE3 /* BaseObject.swift */,
-				E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */,
-				E5B515BF22D4DA0300B36BE3 /* Mood.swift */,
-				E5BB546322D6543300206F82 /* AttentionType.swift */,
 				E52E847423F2C7C500B6591A /* DebitOrderObject.swift */,
 				E52E848D23F414DF00B6591A /* PrepaidElectricityObject.swift */,
 				E53DA64023F50FC3000D0914 /* SavingObject.swift */,
@@ -461,6 +442,7 @@
 				E53DA64C23F53625000D0914 /* CGSize+App.swift */,
 				E5289B4124B5984900D576A3 /* UITableView+App.swift */,
 				E5A6059324B8AAA700E920A9 /* UIAlertController+App.swift */,
+				E57E61A4274592FA00C3EFD6 /* NSPredicate+app.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -531,21 +513,11 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		E5B515AF22D392C800B36BE3 /* Mood */ = {
-			isa = PBXGroup;
-			children = (
-				E5B515B022D392DA00B36BE3 /* MoodViewController.swift */,
-				E5B515B222D392EA00B36BE3 /* MoodView.swift */,
-			);
-			path = Mood;
-			sourceTree = "<group>";
-		};
 		E5B515B622D4ADF100B36BE3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				E5B515B722D4AE0000B36BE3 /* DBManager.swift */,
 				E5B515BB22D4C99000B36BE3 /* MigrationService.swift */,
-				E5BB545D22D6328800206F82 /* MoodContext.swift */,
 				E53DA63623F491AF000D0914 /* BaseDataProvider.swift */,
 				E53DA63823F497BA000D0914 /* ProviderQueryOptions.swift */,
 				E53DA63A23F49AA6000D0914 /* DataProviderBindTarget.swift */,
@@ -553,15 +525,6 @@
 			);
 			name = Data;
 			path = "New Group";
-			sourceTree = "<group>";
-		};
-		E5BB545622D6228600206F82 /* Attention */ = {
-			isa = PBXGroup;
-			children = (
-				E5BB545722D6229600206F82 /* AttentionViewController.swift */,
-				E5BB545922D622A100206F82 /* AttentionView.swift */,
-			);
-			path = Attention;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -756,7 +719,6 @@
 				E53DA64523F5192A000D0914 /* SavingsCell.swift in Sources */,
 				E52E848C23F4140E00B6591A /* PrepaidElectricityDataService.swift in Sources */,
 				E53DA63723F491AF000D0914 /* BaseDataProvider.swift in Sources */,
-				E5BB546422D6543300206F82 /* AttentionType.swift in Sources */,
 				E53DA65823F55ACD000D0914 /* MainMenuItemCell.swift in Sources */,
 				E59C29CB223665E400F28A90 /* BaseViewController.swift in Sources */,
 				E5B5159022CF22A000B36BE3 /* AcceptCancelButtonView.swift in Sources */,
@@ -764,11 +726,11 @@
 				E52E847523F2C7C500B6591A /* DebitOrderObject.swift in Sources */,
 				E5DD88FF23FB2127002AFB1C /* DateHelper.swift in Sources */,
 				E53DA64123F50FC3000D0914 /* SavingObject.swift in Sources */,
-				E5B515B322D392EA00B36BE3 /* MoodView.swift in Sources */,
 				E52E846F23F2C55F00B6591A /* DebitOrderCell.swift in Sources */,
 				E5289B4524B59D0500D576A3 /* ButtonCell.swift in Sources */,
 				E52E846D23F2C29E00B6591A /* DebitOrderView.swift in Sources */,
 				E5B515BA22D4BBEE00B36BE3 /* BaseObject.swift in Sources */,
+				E57E61A5274592FA00C3EFD6 /* NSPredicate+app.swift in Sources */,
 				E59C29D122368B1000F28A90 /* StyleHelper.swift in Sources */,
 				E52E849423F41E8000B6591A /* PrepaidElectricityCell.swift in Sources */,
 				E53DA64D23F53625000D0914 /* CGSize+App.swift in Sources */,
@@ -786,14 +748,12 @@
 				E5BB546022D637D900206F82 /* BlankCollectionCell.swift in Sources */,
 				E53DA63B23F49AA6000D0914 /* DataProviderBindTarget.swift in Sources */,
 				E585F3D5223AF60B00AC012B /* MainView.swift in Sources */,
-				E5B515C022D4DA0300B36BE3 /* Mood.swift in Sources */,
 				E53DA65A23F55AEE000D0914 /* BaseCollectionViewCell.swift in Sources */,
 				E5B515A922D37E2000B36BE3 /* BlankTableCell.swift in Sources */,
 				E53DA63F23F50ED7000D0914 /* SavingsAPIService.swift in Sources */,
 				E53DA63D23F50D41000D0914 /* SavingsView.swift in Sources */,
 				E5B5157D22CDC07600B36BE3 /* AppButton.swift in Sources */,
 				E52E846B23F2C28F00B6591A /* SavingsController.swift in Sources */,
-				E5B515BE22D4D49C00B36BE3 /* MoodCategory.swift in Sources */,
 				E53DA65123F5389A000D0914 /* TotalSummaryView.swift in Sources */,
 				E59C29CD2236667F00F28A90 /* BaseView.swift in Sources */,
 				E59C29A122365D3B00F28A90 /* AppDelegate.swift in Sources */,
@@ -805,7 +765,6 @@
 				E5BB546A22D76A0300206F82 /* String+Kalido.swift in Sources */,
 				E52E848723F4078700B6591A /* APIService.swift in Sources */,
 				E59C29D622368D9B00F28A90 /* Array+App.swift in Sources */,
-				E5B515B122D392DA00B36BE3 /* MoodViewController.swift in Sources */,
 				E5DD890123FBCD66002AFB1C /* MainMenuItem.swift in Sources */,
 				E52E849023F41A3C00B6591A /* PrepaidElectricityView.swift in Sources */,
 				E5DD88F623FA7C1E002AFB1C /* RealmInterface.swift in Sources */,
@@ -817,12 +776,9 @@
 				E52E848E23F414DF00B6591A /* PrepaidElectricityObject.swift in Sources */,
 				E5C760D1232F64910001886C /* CrashService.swift in Sources */,
 				E52E012E23F14563001D48F5 /* R.generated.swift in Sources */,
-				E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */,
-				E5BB545E22D6328800206F82 /* MoodContext.swift in Sources */,
 				E5B515B522D49DD100B36BE3 /* Date+App.swift in Sources */,
 				E5B515AE22D386F800B36BE3 /* BannerService.swift in Sources */,
 				E59AEBD323F9E42400E9F7A2 /* PrepaidElectricityEditController.swift in Sources */,
-				E5BB545A22D622A100206F82 /* AttentionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,10 +38,19 @@ class BaseViewController: UIViewController {
         fatalError("Loading this view controller from a nib is unsupported in favor of initializer dependency injection.")
     }
 
+    // MARK: - Helpers
+
     /// Adds the passed view controller to the stack
     internal func route(to controller: UIViewController, animated: Bool = true) {
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.pushViewController(controller, animated: animated)
+        }
+    }
+
+    /// Runs the closure on the main thread
+    internal func onMain(_ action: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            action()
         }
     }
 }
