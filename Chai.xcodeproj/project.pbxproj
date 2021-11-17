@@ -73,7 +73,6 @@
 		E5B515BC22D4C99000B36BE3 /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BB22D4C99000B36BE3 /* MigrationService.swift */; };
 		E5B515BE22D4D49C00B36BE3 /* MoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */; };
 		E5B515C022D4DA0300B36BE3 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B515BF22D4DA0300B36BE3 /* Mood.swift */; };
-		E5B866F922DE5483008427B6 /* ReminderContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866F822DE5483008427B6 /* ReminderContextTests.swift */; };
 		E5BB545822D6229600206F82 /* AttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545722D6229600206F82 /* AttentionViewController.swift */; };
 		E5BB545A22D622A100206F82 /* AttentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545922D622A100206F82 /* AttentionView.swift */; };
 		E5BB545E22D6328800206F82 /* MoodContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB545D22D6328800206F82 /* MoodContext.swift */; };
@@ -187,7 +186,6 @@
 		E5B515BB22D4C99000B36BE3 /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
 		E5B515BD22D4D49C00B36BE3 /* MoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCategory.swift; sourceTree = "<group>"; };
 		E5B515BF22D4DA0300B36BE3 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
-		E5B866F822DE5483008427B6 /* ReminderContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderContextTests.swift; sourceTree = "<group>"; };
 		E5BB545722D6229600206F82 /* AttentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionViewController.swift; sourceTree = "<group>"; };
 		E5BB545922D622A100206F82 /* AttentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionView.swift; sourceTree = "<group>"; };
 		E5BB545D22D6328800206F82 /* MoodContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodContext.swift; sourceTree = "<group>"; };
@@ -382,7 +380,6 @@
 		E59C29B622365D3D00F28A90 /* ChaiTests */ = {
 			isa = PBXGroup;
 			children = (
-				E5B866F822DE5483008427B6 /* ReminderContextTests.swift */,
 				E59C29B722365D3D00F28A90 /* ChaiTests.swift */,
 				E59C29B922365D3D00F28A90 /* Info.plist */,
 			);
@@ -617,11 +614,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Chad Garrett";
 				TargetAttributes = {
 					E59C299C22365D3B00F28A90 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1250;
 					};
 					E59C29B222365D3D00F28A90 = {
 						CreatedOnToolsVersion = 10.1;
@@ -833,7 +831,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59C29B822365D3D00F28A90 /* ChaiTests.swift in Sources */,
-				E5B866F922DE5483008427B6 /* ReminderContextTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +890,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -954,6 +952,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -997,7 +996,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.Chai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1016,7 +1015,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadgarrett.Chai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
